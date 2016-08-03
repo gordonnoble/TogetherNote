@@ -1,6 +1,6 @@
 # FresherNote
 
-[https://togethernote.herokuapp.com/][TogetherNote] 
+[TogetherNote](https://togethernote.herokuapp.com/) 
 
 [heroku]: http://www.herokuapp.com
 
