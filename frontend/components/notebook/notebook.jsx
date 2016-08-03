@@ -16,7 +16,9 @@ const Notebook = React.createClass({
     NotebookActions.getNotebook(this.id);
   },
   updateNotebook() {
-    this.setState({ notebook: NotebookStore.currentNotebook() });
+    let notebook = NotebookStore.currentNotebook();
+    let openNoteId = notebook.notes[0].id;
+    this.setState({ notebook: notebook, openNoteId: openNoteId });
   },
   render () {
     return (

@@ -47,21 +47,6 @@ const SessionApiUtil = {
     });
   }
 
-  // fetchCurrentUser(successCB, completeCB) {
-  //   $.ajax({
-  //     url: 'api/session',
-  //     method: 'GET',
-  //     success (user) {
-  //       successCB(user);
-  //     },
-  //     error (xhr) {
-  //       console.log("Failed to fetch current user");
-  //     },
-  //     complete () {
-  //       completeCB();
-  //     }
-  //   });
-  // }
 };
 
 module.exports = SessionApiUtil;

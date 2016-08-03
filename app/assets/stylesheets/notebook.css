@@ -34,8 +34,11 @@
 #note-index-item:hover {
   cursor: pointer;
   background-color: rgba(45,190,96,0.9);
-  color: #FFFFFF;
   height: 100px;
+}
+
+#note-index-item:hover * {
+  color: #FFFFFF;
 }
 
 #note-index-item * {

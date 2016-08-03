@@ -1,6 +1,9 @@
 const React = require('react');
 
 const NoteIndexItem = React.createClass({
+  openNotes () {
+
+  },
   notePreview() {
     let note = this.props.note;
     if (note.body.length < 100) {
@@ -11,7 +14,7 @@ const NoteIndexItem = React.createClass({
   },
   render () {
     return (
-      <li id="note-index-item">
+      <li id="note-index-item" onClick={this.openNote}>
         <div className="note-index-item-title">
           {this.props.note.title}
         </div>
