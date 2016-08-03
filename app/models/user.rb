@@ -1,9 +1,17 @@
 class User < ApplicationRecord
-  validates :username, :password_digest, presence: true
+  validates :username, :password_digest, :open_notebook_id, presence: true
   validates :username, :password_digest, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
+
   after_initialize :ensure_session_token
+  after_save :setup_notebooks
   attr_reader :password
+
+  has_many :notebooks, dependent: :destroy, inverse_of: :user
+
+  def all_notes
+    self.notebooks.includes(:notes).map{ |nb| nb.notes }.flatten
+  end
 
   def password=(password)
     @password = password
@@ -43,6 +51,11 @@ class User < ApplicationRecord
 
   def ensure_session_token
     self.session_token ||= new_token
+  end
+
+  def setup_notebooks
+    self.notebooks.create!(name: "Shared", removable: false)
+    self.notebooks.create!(name: "Recycling", removable: false)
   end
 
 end

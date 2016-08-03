@@ -35,23 +35,26 @@ const SignupForm = React.createClass({
     event.preventDefault();
     let user = { username: this.state.username, password: this.state.password };
     SessionActions.signup(user);
-    this.setState({ username: "", password: "" });
   },
   render() {
     let errors;
+
     if (this.state.errors.length > 0) {
       errors =  <ul className="errors">
                   {this.state.errors.map( error => <li key={error}>{error}</li>)}
                 </ul>;
     } else {
-      errors = <div></div>;
+      errors = <div style={{ display: 'none' }}></div>;
     }
 
     return (
       <div id="signup-page">
+        <h1>Create Account</h1>
+
           {errors}
 
         <form onSubmit={this.submit}>
+
           <input type="text"
             onChange={this.update}
             className="username"
@@ -66,10 +69,14 @@ const SignupForm = React.createClass({
             placeholder="Password"
             />
 
-          <input id="signup-button" type="submit" value="Sign Up" />
+          <input id="signup-button" type="submit" value="Create Account" />
 
-          <div id="login-link">or <Link to="/login">log in</Link></div>
         </form>
+          <div id="login-link">
+            <span>Already have an account?</span>
+            <br></br>
+            <Link to="/login">Log In</Link>
+          </div>
       </div>
     );
   }

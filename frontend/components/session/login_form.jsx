@@ -35,7 +35,6 @@ const LoginForm = React.createClass({
     event.preventDefault();
     let user = { username: this.state.username, password: this.state.password };
     SessionActions.login(user);
-    this.setState({ username: "", password: "" });
   },
   render() {
     let errors;
@@ -44,32 +43,41 @@ const LoginForm = React.createClass({
                   {this.state.errors.map( error => <li key={error}>{error}</li>)}
                 </ul>;
     } else {
-      errors = <div></div>;
+      errors = <div style={{ display: 'none' }}></div>;
     }
 
     return (
-      <div id="login-page">
-        <header>
-          <li><Link to='/signup'>Sign Up</Link></li>
-        </header>
+      <div id="signup-page">
+
+        <h1>Log In</h1>
 
         {errors}
 
         <form onSubmit={this.submit}>
+
           <input type="text"
             onChange={this.update}
             className="username"
             value={this.state.username}
             placeholder="Username"
             />
+
           <input type="password"
             onChange={this.update}
             className="password"
             value={this.state.password}
             placeholder="Password"
             />
-          <button>Login</button>
+
+          <input id="signup-button" type="submit" value="Log In" />
+
         </form>
+          <div id="login-link">
+            <span>Don't have an account?</span>
+            <br></br>
+            <Link to='/signup'>Create One</Link>
+            </div>
+
       </div>
     );
   }

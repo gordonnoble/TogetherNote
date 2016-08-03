@@ -24,7 +24,7 @@
    height: 100%;
    background-position: center center;
    background-size: cover;
-   font-family: Helvetica, sans-serif;
+   font-family: inherit;
  }
 
  body {
@@ -35,4 +35,8 @@
  ul {
    list-style: none;
    padding-top: 10px;
+ }
+
+ a {
+   text-decoration: none;
  }

@@ -1,28 +1,46 @@
 #signup-page {
+  font-family: 'Josefin Slab', sans-serif;
+  font-size: 16px;
+}
+
+#signup-page form {
+  box-shadow: 0px 0px 1px 0px rgba(135,135,135,1);
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin: 0 auto;
   width: 400px;
-  height: 350px;
+  height: 280px;
   background-color: #FFFFFF;
-}
-
-#signup-page * {
-  font-size: 16px;
-  text-align: center;
-  width: 250px;
-  height: 50px;
   margin: 20px auto;
-
 }
-#signup-page input {
+
+#signup-page h1 {
+  font-weight: 300;
+  text-align: center;
+  margin: 20px;
+  font-size: 32px;
+  color: #2DBE60;
+}
+
+#signup-page form input {
+  width: 320px;
+  height: 40px;
+  border-radius: 3px;
+  margin: 40px auto 0;
+  font-size: 16px;
+}
+
+.username, .password {
+  border: 1px solid #CCCCCC;
+  text-align: left;
+  text-indent: 20px;
 }
 
 #signup-button {
+  font-weight: 300;
   padding: 20px auto;
-  border-radius: 3px;
   color: #FFFFFF;
+  height: 30px;
   background-color: #2DBE60;
   border: 1px solid #1FAE52;
 }
@@ -31,6 +49,13 @@
   cursor: pointer;
 }
 
-#login-link, #login-link * {
-  font-size: 13px;
+#login-link {
+  font-size: 14px;
+  margin: 20px auto;
+  text-align: center;
+  color: #878787
+}
+
+#login-link a {
+  color: #2DBE60;
 }

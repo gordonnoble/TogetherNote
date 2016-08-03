@@ -17,7 +17,6 @@ const _ensureLoggedIn = function(nextState, replace) {
 
 const _redirectIfLoggedIn = function(nextState, replace) {
   if ( SessionStore.isLoggedIn() ) {
-    debugger
     replace('/');
   }
 };

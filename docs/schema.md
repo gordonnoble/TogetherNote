@@ -9,11 +9,12 @@ password_digest | string    | not null, index, unique
 session_token   | string    | not null, indexed
 open_notebook   | integer   | not null, foreign key
 
-## usernotes (join table)
-column name     | data type | details
-----------------|-----------|-----------------------
-user_id         | integer   | not null, foreign key
-note_id         | integer   | not null, foreign key
+## notebooks
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+author_id   | integer   | not null, foreign key, indexed
+name        | string    | not null
 
 ## notes
 column name | data type | details
@@ -21,15 +22,12 @@ column name | data type | details
 id          | integer   | not null, primary key
 title       | string    | not null
 body        | text      | not null
-author_id   | integer   | not null, foreign key (references users), indexed
-notebook_id | integer   | not null, foreign key (references notebooks), indexed
 
-## notebooks
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users), indexed
-title       | string    | not null
+## notebook_notes (join table)
+column name     | data type | details
+----------------|-----------|-----------------------
+notebook_id     | integer   | not null, foreign key
+note_id         | integer   | not null, foreign key
 
 ## tags
 column name | data type | details
@@ -41,5 +39,5 @@ name        | string    | not null
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-user_id     | integer   | not null, foreign key (references user)
-note_id     | integer   | not null, foreign key (references note)
+user_id     | integer   | not null, foreign key
+note_id     | integer   | not null, foreign key
