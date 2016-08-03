@@ -8,11 +8,10 @@ const Sidebar = require('./sidebar');
 
 const Notebook = React.createClass({
   getInitialState() {
-    let notebook = NotebookStore.currentNotebook();
-    return ({ notebook: notebook });
+    this.id = this.props.params.id;
+    return ({ notebook: {} });
   },
   componentDidMount(){
-    this.id = this.props.params.id;
     NotebookStore.addListener(this.updateNotebook);
     NotebookActions.getNotebook(this.id);
   },

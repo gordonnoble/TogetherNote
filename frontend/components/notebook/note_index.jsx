@@ -4,7 +4,7 @@ const NoteIndexItem = require('./note_index_item');
 const NoteIndex = React.createClass({
   render () {
     let notes = this.props.notes || [];
-
+    
     return (
       <div id="note-index">
         <header>NOTES</header>

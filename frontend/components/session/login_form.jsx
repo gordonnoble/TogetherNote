@@ -23,7 +23,9 @@ const LoginForm = React.createClass({
   },
   redirectIfLoggedIn(){
     if (SessionStore.isLoggedIn()) {
-      hashHistory.push('/');
+      let id = SessionStore.currentUser().open_notebook_id;
+      console.log(id);
+      hashHistory.push(`/notebooks/${id}`);
     }
   },
   update(event) {
