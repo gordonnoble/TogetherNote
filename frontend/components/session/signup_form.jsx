@@ -3,6 +3,7 @@ const SessionActions = require('../../actions/session_actions');
 const ErrorStore = require('../../stores/error_store');
 const SessionStore = require('../../stores/session_store');
 const hashHistory = require('react-router').hashHistory;
+const Link = require('react-router').Link;
 
 const SignupForm = React.createClass({
   getInitialState() {
@@ -47,8 +48,9 @@ const SignupForm = React.createClass({
     }
 
     return (
-      <div id="signup-container">
-        {errors}
+      <div id="signup-page">
+          {errors}
+
         <form onSubmit={this.submit}>
           <input type="text"
             onChange={this.update}
@@ -56,13 +58,17 @@ const SignupForm = React.createClass({
             value={this.state.username}
             placeholder="Username"
             />
+
           <input type="password"
             onChange={this.update}
             className="password"
             value={this.state.password}
             placeholder="Password"
             />
-          <button>Sign Up</button>
+
+          <input id="signup-button" type="submit" value="Sign Up" />
+
+          <div id="login-link">or <Link to="/login">log in</Link></div>
         </form>
       </div>
     );

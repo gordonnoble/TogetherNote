@@ -1,0 +1,36 @@
+#signup-page {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 400px;
+  height: 350px;
+  background-color: #FFFFFF;
+}
+
+#signup-page * {
+  font-size: 16px;
+  text-align: center;
+  width: 250px;
+  height: 50px;
+  margin: 20px auto;
+
+}
+#signup-page input {
+}
+
+#signup-button {
+  padding: 20px auto;
+  border-radius: 3px;
+  color: #FFFFFF;
+  background-color: #2DBE60;
+  border: 1px solid #1FAE52;
+}
+
+#signup-button:hover {
+  cursor: pointer;
+}
+
+#login-link, #login-link * {
+  font-size: 13px;
+}

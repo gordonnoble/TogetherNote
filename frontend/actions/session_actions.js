@@ -3,6 +3,7 @@ const SessionApiUtil = require('../utils/session_api_util');
 const SessionConstants = require('../constants/session_constants');
 const ErrorActions = require('./error_actions');
 const SessionStore = require('../stores/session_store');
+const hashHistory = require('react-router').hashHistory;
 
 const SessionActions = {};
 
@@ -37,6 +38,7 @@ SessionActions.removeCurrentUser = function(user) {
     actionType: SessionConstants.LOGOUT,
     user: user
   });
+  hashHistory.push('/login');
 };
 
 module.exports = SessionActions;
