@@ -21,15 +21,17 @@
  }
 
  html {
-   height: 100%;
    background-position: center center;
    background-size: cover;
    font-family: inherit;
  }
 
  body {
-   height: 100%;
    background-color: #F3F3F3;
+ }
+
+ html, body, #root, #main, #app {
+   height: 100%;
  }
 
  ul {

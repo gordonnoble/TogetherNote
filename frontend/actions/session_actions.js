@@ -4,6 +4,7 @@ const SessionConstants = require('../constants/session_constants');
 const ErrorActions = require('./error_actions');
 const SessionStore = require('../stores/session_store');
 const hashHistory = require('react-router').hashHistory;
+const NotebookActions = require('./notebook_actions');
 
 const SessionActions = {};
 
@@ -31,6 +32,8 @@ SessionActions.receiveCurrentUser = function (user) {
     actionType: SessionConstants.LOGIN,
     user: user
   });
+
+  hashHistory.push(`/notebooks/${user.open_notebook_id}`);
 };
 
 SessionActions.removeCurrentUser = function(user) {

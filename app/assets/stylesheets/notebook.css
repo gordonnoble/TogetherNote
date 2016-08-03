@@ -1,0 +1,40 @@
+#notebook {
+  display: flex;
+  height: 100%;
+}
+
+#sidebar {
+  width: 60px;
+}
+
+#note-index {
+  background-color: #FFFFFF;
+  border: 1px solid #878787;
+  width: 30%;
+}
+
+#note {
+  flex-grow: 1
+}
+
+#note-index header {
+  margin: 20px 0;
+  text-align: left;
+  text-indent: 20px;
+  color: #878787;
+}
+
+#note-index-item {
+  border-top: 1px solid #878787;
+}
+
+#note-index-item:hover {
+  cursor: pointer;
+  background-color: rgba(45,190,96,0.9);
+  color: #FFFFFF;
+  height: 100px;
+}
+
+#note-index-item * {
+  margin: 10px;
+}

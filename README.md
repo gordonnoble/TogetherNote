@@ -1,6 +1,6 @@
 # FresherNote
 
-[TogetherNote](https://togethernote.herokuapp.com/) 
+[TogetherNote](https://togethernote.herokuapp.com/)
 
 [heroku]: http://www.herokuapp.com
 
@@ -50,29 +50,29 @@
 ### Phase 1: Back and Front End Authentication (1 day, W1 Tu 6pm)
 **Objective:** Functioning rails project with full authentication
 
-- [ ] create new project
-- [ ] set up webpack & flux scaffold with skeleton files
-- [ ] create `User` model
-- [ ] authentication backend setup
-- [ ] create `StaticPages` controller and root view
-- [ ] set up flux cycle for frontend auth
-- [ ] user signup/signin components
-- [ ] blank landing component after signin
-- [ ] seed users
+- [x] create new project
+- [x] set up webpack & flux scaffold with skeleton files
+- [x] create `User` model
+- [x] authentication backend setup
+- [x] create `StaticPages` controller and root view
+- [x] set up flux cycle for frontend auth
+- [x] user signup/signin components
+- [x] blank landing component after signin
+- [x] seed users
 
 ### Phase 2: Notebook and Note Basics (2 days, W1 Th 6pm)
 **Objective:** Notes can be created, read, edited, and destroyed through the
 API. Notes are organized by notebook.
 
-- [ ] create a `Notebook` model
-- [ ] R/CRUD API for notebooks (`NotebooksController`)
-  - [ ] for now user's are defaulted to one notebook
-- [ ] create a `Note` model, `UserNote` model
-  - [ ] `UserNote` is a join table
+- [x] create a `Notebook` model
+- [x] R/CRUD API for notebooks (`NotebooksController`)
+  - [x] for now user's are defaulted to one notebook
+- [x] create a `Note` model, `NotebookNote` model
+  - [x] `NotebookNote` is a join table
 - [ ] CRUD API for notes (`NotesController`)
 - [ ] seed the database with a small amount of test data
 - [ ] jBuilder views for notebooks and notes
-- [ ] implement `Notebook` component with flux loop as needed
+- [x] implement `Notebook` component with flux loop as needed
 - [ ] implement `NoteIndex` component with flux loop as needed
 - [ ] implement each component, building out the flux loop as needed.
   - [ ] `Sidebar`
