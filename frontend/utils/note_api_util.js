@@ -1,12 +1,19 @@
 const NoteApiUtil = {
-  updateNote(note, callback) {
+  fetchNote(id, callback) {
     $.ajax({
-      url: '/api/notes',
-      method: 'POST',
-      data: { note: note },
-      success (note) {
+      url: `/api/notes/${id}`,
+      method: 'GET',
+      success(note) {
         callback(note);
       }
+    });
+  },
+
+  pushNote(note) {
+    $.ajax({
+      url: `/api/notes/${note.id}`,
+      method: 'PATCH',
+      data: { note: note }
     });
   }
 };

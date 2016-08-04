@@ -5,18 +5,16 @@ const NotebookStore = require('../../stores/notebook_store');
 const NotebookActions = require('../../actions/notebook_actions');
 const NoteIndex = require('./note_index');
 const NoteActions = require('../../actions/note_actions');
-const NoteStore = require('../../stores/note_store');
 const Sidebar = require('./sidebar');
 const Note = require('./note');
 
 const Notebook = React.createClass({
   getInitialState() {
     this.id = this.props.params.id;
-    return ({ notebook: {}, openNote: {} });
+    return ({ notebook: {} });
   },
   componentDidMount(){
     this.notebookListener = NotebookStore.addListener(this.updateNotebook);
-    this.noteListener = NoteStore.addListener(this.updateNote);
     NotebookActions.getNotebook(this.id);
   },
   componentWillUnmount() {
@@ -25,21 +23,26 @@ const Notebook = React.createClass({
   },
   updateNotebook() {
     let notebook = NotebookStore.currentNotebook();
-    let openNote = notebook.notes[0];
-    NoteStore.updateNote(openNote);
-    this.setState({ notebook: notebook, openNote: openNote });
-  },
-  updateNote() {
-    this.setState({ openNote: NoteStore.currentNote() });
+    let noteId = notebook.notes[0].id;
+    NoteActions.fetchNote(noteId);
+    this.setState({ notebook: notebook });
   },
   render () {
+    let noteId;
+
+    if ( this.state.notebook.notes === undefined ) {
+      noteId = undefined;
+    } else {
+      noteId = this.state.notebook.notes[0].id;
+    }
+
     return (
       <div id="notebook">
         <Sidebar />
 
         <NoteIndex notes={this.state.notebook.notes} />
 
-        <Note note={this.state.openNote} />
+        <Note id={noteId}/>
       </div>
     );
   }

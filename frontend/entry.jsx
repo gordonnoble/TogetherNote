@@ -10,6 +10,7 @@ const Notebook = require('./components/notebook/notebook');
 
 window.NotebookActions = require('./actions/notebook_actions');
 window.NotebookStore = require('./stores/notebook_store');
+window.NoteStore = require('./stores/note_store');
 
 const _ensureLoggedIn = function(nextState, replace) {
   if ( !SessionStore.isLoggedIn() ) {

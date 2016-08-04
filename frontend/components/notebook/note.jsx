@@ -1,33 +1,39 @@
 const React = require('react');
 const NoteActions = require('../../actions/note_actions');
+const NoteStore = require('../../stores/note_store');
 
 const Note = React.createClass({
   timer: setTimeout(()=>{}, 0),
 
   getInitialState() {
-    let note = this.props.note || {};
-    return ({ title: note.title, body: note.body, id: note.id });
+    let note = NoteStore.currentNote();
+    return (note);
   },
-  componentWillReceiveProps(newProps){
-    NoteActions.updateNote(this.state);
-    this.setState({ title: newProps.note.title, body: newProps.note.body });
+  componentDidMount(){
+    NoteStore.addListener(this.switchNote);
+  },
+  switchNote() {
+    this.save();
+    let note = NoteStore.currentNote();
+    this.setState(note);
   },
   handleInput (event) {
-    let key = event.target.className;
-    this.setState({ key: event.target.value });
+    let newState = {};
+    newState[event.target.className] = event.target.value;
+    this.setState(newState);
     clearTimeout(this.timer);
-    this.timer = setTimeout(this.pushSave, 3000);
+    this.timer = setTimeout(this.save, 3000);
   },
-  pushSave() {
-    NoteActions.updateNote(this.state);
+  save() {
+    if (this.state.id !== undefined) {
+      NoteActions.pushNote(this.state);
+    }
   },
   render () {
     return (
       <div id="note">
         <div className="title">{this.state.title}</div>
-        <div className="body">
-          <textarea value={this.state.body} onChange={this.handleInput} />
-        </div>
+        <textarea className="body" value={this.state.body} onChange={this.handleInput} />
       </div>
     );
   }

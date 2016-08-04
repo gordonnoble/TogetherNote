@@ -4,7 +4,7 @@ const NoteActions = require('../../actions/note_actions');
 
 const NoteIndexItem = React.createClass({
   openNote () {
-    NoteActions.setCurrentNote(this.props.note);
+    NoteActions.fetchNote(this.props.note.id);
   },
   notePreview() {
     let note = this.props.note;

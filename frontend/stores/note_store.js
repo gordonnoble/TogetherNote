@@ -5,7 +5,7 @@ const NoteConstants = require('../constants/note_constants');
 
 var _note = {};
 
-NoteStore.updateNote = function(note) {
+NoteStore.setCurrentNote = function(note) {
   _note = note;
   NoteStore.__emitChange();
 };
@@ -17,7 +17,7 @@ NoteStore.currentNote = function() {
 NoteStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
     case NoteConstants.SET_CURRENT_NOTE:
-      NoteStore.updateNote(payload.note);
+      NoteStore.setCurrentNote(payload.note);
       break;
   }
 };

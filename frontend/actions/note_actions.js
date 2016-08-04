@@ -4,6 +4,10 @@ const NoteApiUtil = require('../utils/note_api_util');
 
 const NoteActions = {};
 
+NoteActions.fetchNote = function(id) {
+  NoteApiUtil.fetchNote(id, NoteActions.setCurrentNote);
+};
+
 NoteActions.setCurrentNote = function(note) {
   Dispatcher.dispatch({
     actionType: NoteConstants.SET_CURRENT_NOTE,
@@ -11,8 +15,8 @@ NoteActions.setCurrentNote = function(note) {
   });
 };
 
-NoteActions.updateNote = function(note) {
-  NoteApiUtil.updateNote(note);
+NoteActions.pushNote = function(note) {
+  NoteApiUtil.pushNote(note);
 };
 
 module.exports = NoteActions;
