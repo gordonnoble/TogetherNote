@@ -1,8 +1,10 @@
 const React = require('react');
+const hashHistory = require('react-router').hashHistory;
+const NoteActions = require('../../actions/note_actions');
 
 const NoteIndexItem = React.createClass({
-  openNotes () {
-
+  openNote () {
+    NoteActions.setCurrentNote(this.props.note);
   },
   notePreview() {
     let note = this.props.note;

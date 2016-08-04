@@ -23,7 +23,8 @@ const SignupForm = React.createClass({
   },
   redirectIfLoggedIn(){
     if (SessionStore.isLoggedIn()) {
-      hashHistory.push('/');
+      let id = SessionStore.currentUser().open_notebook_id;
+      hashHistory.push(`/notebooks/${id}`);
     }
   },
   update(event) {

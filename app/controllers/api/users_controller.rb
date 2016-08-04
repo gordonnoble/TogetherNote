@@ -5,11 +5,10 @@ class Api::UsersController < ApplicationController
 
     first_notebook = @user.notebooks.new(name: "Get Started")
     first_notebook.save!
-    
+
     first_notebook.notes.create!(
       title: "Welcome to TogetherNote!",
-      body: "Start writing! We'll save everything automagically.\n
-        Use the 'Collaborate' button to add collaborators to this note.")
+      body: "Start writing! We'll save everything automagically.\nUse the 'Collaborate' button to add collaborators to this note.")
 
     @user.open_notebook_id = first_notebook.id
 
