@@ -14,28 +14,41 @@ const Note = React.createClass({
   },
   switchNote() {
     this.save();
-    let note = NoteStore.currentNote();
-    this.setState(note);
+    this.setState(NoteStore.currentNote());
   },
   handleInput (event) {
     let newState = {};
     newState[event.target.className] = event.target.value;
     this.setState(newState);
     clearTimeout(this.timer);
-    this.timer = setTimeout(this.save, 3000);
+    this.timer = setTimeout(this.save, 1000);
   },
   save() {
-    if (this.state.id !== undefined) {
+    if (this.state.id !== undefined && !NoteStore.isEmpty()) {
       NoteActions.pushNote(this.state);
     }
   },
+  delete() {
+    console.log(`Note says: deleting note with id ${this.state.id}`);
+    NoteActions.deleteNote(this.state.id);
+  },
   render () {
-    return (
-      <div id="note">
-        <div className="title">{this.state.title}</div>
-        <textarea className="body" value={this.state.body} onChange={this.handleInput} />
-      </div>
-    );
+    if ( this.state.title === undefined ) {
+      return (
+        <div id="note-splash">Open A Note!</div>
+      );
+    } else {
+      return (
+        <div id="note">
+          <header>
+            <span>options...</span>
+            <button onClick={this.delete}>delete</button>
+          </header>
+          <input type="text" className="title" value={this.state.title} onChange={this.handleInput}/>
+          <textarea className="body" value={this.state.body} onChange={this.handleInput} />
+        </div>
+      );
+    }
   }
 });
 

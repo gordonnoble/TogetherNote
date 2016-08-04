@@ -15,7 +15,6 @@
  */
 
 * {
-   box-sizing: border-box;
    margin: 0;
    padding: 0;
  }
@@ -36,7 +35,6 @@
 
  ul {
    list-style: none;
-   padding-top: 10px;
  }
 
  a {
@@ -52,4 +50,23 @@
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
+}
+
+input {
+  border: none;
+  overflow: hidden;
+  outline: none;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+button {
+  
 }

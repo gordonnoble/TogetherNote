@@ -10,7 +10,7 @@ const Note = require('./note');
 
 const Notebook = React.createClass({
   getInitialState() {
-    this.id = this.props.params.id;
+    this.id = this.props.params.id || essionStore.currentUser().id;
     return ({ notebook: {} });
   },
   componentDidMount(){
@@ -19,12 +19,9 @@ const Notebook = React.createClass({
   },
   componentWillUnmount() {
     this.notebookListener.remove();
-    this.noteListener.remove();
   },
   updateNotebook() {
     let notebook = NotebookStore.currentNotebook();
-    let noteId = notebook.notes[0].id;
-    NoteActions.fetchNote(noteId);
     this.setState({ notebook: notebook });
   },
   render () {
@@ -40,7 +37,7 @@ const Notebook = React.createClass({
       <div id="notebook">
         <Sidebar />
 
-        <NoteIndex notes={this.state.notebook.notes} />
+        <NoteIndex notes={this.state.notebook.notes} notebookName={this.state.notebook.name}/>
 
         <Note id={noteId}/>
       </div>

@@ -8,8 +8,8 @@
 
 (App Name) is a web application inspired by Evernote that will be build using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
 
-- [ ] Hosting on Heroku
-- [ ] New account creation, login, and guest/demo login
+- [x] Hosting on Heroku
+- [x] New account creation, login, and guest/demo login
 - [ ] A production README, replacing this README (**NB**: check out the [sample production README](docs/production_readme.md) -- you'll write this later)
 - [ ] Notebooks for organizing notes
   - [ ] Smooth, bug-free navigation
@@ -69,16 +69,16 @@ API. Notes are organized by notebook.
   - [x] for now user's are defaulted to one notebook
 - [x] create a `Note` model, `NotebookNote` model
   - [x] `NotebookNote` is a join table
-- [ ] CRUD API for notes (`NotesController`)
-- [ ] seed the database with a small amount of test data
-- [ ] jBuilder views for notebooks and notes
+- [x] CRUD API for notes (`NotesController`)
+- [x] seed the database with a small amount of test data
+- [x] jBuilder views for notebooks and notes
 - [x] implement `Notebook` component with flux loop as needed
-- [ ] implement `NoteIndex` component with flux loop as needed
-- [ ] implement each component, building out the flux loop as needed.
-  - [ ] `Sidebar`
-  - [ ] `NoteIndexItem`
-  - [ ] `NoteDetail`
-    - [ ] Updates are saved when user idles or clicks away
+- [x] implement `NoteIndex` component with flux loop as needed
+- [x] implement each component, building out the flux loop as needed.
+  - [x] `Sidebar`
+  - [x] `NoteIndexItem`
+  - [x] `NoteDetail`
+    - [x] Updates are saved when user idles or clicks away
 
 
 ### Phase 3: Refinement of `Notebook` component (1 day, W2 F 6pm)

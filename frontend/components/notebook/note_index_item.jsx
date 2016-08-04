@@ -6,22 +6,16 @@ const NoteIndexItem = React.createClass({
   openNote () {
     NoteActions.fetchNote(this.props.note.id);
   },
-  notePreview() {
-    let note = this.props.note;
-    if (note.body.length < 100) {
-      return note.body;
-    } else {
-      return (note.body.slice(0, 96) + "...");
-    }
-  },
   render () {
+    let style = "visible:false;includeInLayout:false";
+
     return (
-      <li id="note-index-item" onClick={this.openNote}>
-        <div className="note-index-item-title">
+      <li className="note-index-item" onClick={this.openNote}>
+        <div className="note-index-item-header clearfix">
           {this.props.note.title}
         </div>
         <div className="note-index-item-body">
-          {this.notePreview()}
+          {this.props.note.body}
         </div>
       </li>
     );

@@ -1,6 +1,7 @@
 const NotebookApiUtil = require('../utils/notebook_api_util');
 const Dispatcher = require('../dispatcher/dispatcher');
 const NotebookConstants = require('../constants/notebook_constants');
+const NotebookStore = require('../stores/notebook_store');
 
 const NotebookActions = {};
 
@@ -14,5 +15,11 @@ NotebookActions.receiveNotebook = function(notebook) {
     notebook: notebook
   });
 };
+
+NotebookActions.refreshCurrentNotebook = function () {
+  let notebookId = NotebookStore.currentNotebook().id;
+  NotebookActions.getNotebook(notebookId);
+};
+
 
 module.exports = NotebookActions;
