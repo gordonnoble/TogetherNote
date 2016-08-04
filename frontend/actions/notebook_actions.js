@@ -5,8 +5,8 @@ const NotebookStore = require('../stores/notebook_store');
 
 const NotebookActions = {};
 
-NotebookActions.getNotebook = function(id) {
-  NotebookApiUtil.getNotebook(id, NotebookActions.receiveNotebook);
+NotebookActions.fetchNotebook = function(id) {
+  NotebookApiUtil.fetchNotebook(id, NotebookActions.receiveNotebook);
 };
 
 NotebookActions.receiveNotebook = function(notebook) {
@@ -18,8 +18,23 @@ NotebookActions.receiveNotebook = function(notebook) {
 
 NotebookActions.refreshCurrentNotebook = function () {
   let notebookId = NotebookStore.currentNotebook().id;
-  NotebookActions.getNotebook(notebookId);
+  NotebookActions.fetchNotebook(notebookId);
 };
 
+NotebookActions.toggleDrawer = function() {
+  Dispatcher.dispatch({
+    actionType: NotebookConstants.TOGGLE_DRAWER
+  });
+};
 
+NotebookActions.fetchNotebooks = function() {
+  NotebookApiUtil.fetchNotebooks(NotebookActions.receiveNotebooks);
+};
+
+NotebookActions.receiveNotebooks = function(notebooks) {
+  Dispatcher.dispatch({
+    actionType: NotebookConstants.RECEIVE_NOTEBOOKS,
+    notebooks: notebooks
+  });
+};
 module.exports = NotebookActions;

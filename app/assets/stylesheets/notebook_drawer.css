@@ -1,0 +1,7 @@
+#notebook-drawer {
+  postion: absolute;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  width: 500px;
+}

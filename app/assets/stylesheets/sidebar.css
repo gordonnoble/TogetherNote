@@ -1,0 +1,14 @@
+#sidebar {
+  flex: 0 0 80px;
+  flex-direction: column;
+  text-align: center;
+}
+
+#sidebar button {
+  margin: 20px 0px;
+  padding: 5px;
+}
+
+#sidebar button:hover {
+  cursor: pointer;
+}

@@ -7,6 +7,7 @@ const NoteIndex = require('./note_index');
 const NoteActions = require('../../actions/note_actions');
 const Sidebar = require('./sidebar');
 const Note = require('./note');
+const NotebookDrawer = require('./notebook_drawer');
 
 const Notebook = React.createClass({
   getInitialState() {
@@ -15,7 +16,7 @@ const Notebook = React.createClass({
   },
   componentDidMount(){
     this.notebookListener = NotebookStore.addListener(this.updateNotebook);
-    NotebookActions.getNotebook(this.id);
+    NotebookActions.fetchNotebooks(this.id);
   },
   componentWillUnmount() {
     this.notebookListener.remove();
@@ -36,6 +37,8 @@ const Notebook = React.createClass({
     return (
       <div id="notebook">
         <Sidebar />
+
+        <NotebookDrawer />
 
         <NoteIndex notes={this.state.notebook.notes} notebookName={this.state.notebook.name}/>
 
