@@ -13,7 +13,7 @@ const Sidebar = React.createClass({
     let notebookId = NotebookStore.currentNotebook().id;
     NoteActions.newNote(notebookId);
   },
-  toggleDrawer() {
+  toggleDrawer(event) {
     DisplayActions.toggleDrawer();
   },
   render() {
@@ -21,7 +21,7 @@ const Sidebar = React.createClass({
       <div id="sidebar">
         <button onClick={this.logout}>Logout</button>
         <button onClick={this.newNote}>New Note</button>
-        <button onClick={this.toggleDrawer}>Notebooks</button>
+        <button onClick={this.toggleDrawer} id="drawer-button">Notebooks</button>
       </div>
     );
   }
