@@ -39,6 +39,16 @@
   margin: 20px;
 }
 
+.notebook-index-item button {
+  padding: 5px;
+  margin: 20px;
+}
+
+.notebook-index-item .permanent {
+  display: none;
+  background-color: red;
+}
+
 #notebook-index:last-child {
   border-bottom: 1px solid #ECECEC;
 }

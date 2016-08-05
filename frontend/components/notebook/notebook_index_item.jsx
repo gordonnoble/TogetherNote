@@ -12,10 +12,14 @@ const NotebookIndexItem = React.createClass({
     NotebookActions.fetchNotebook();
   },
   render() {
+    let buttonClass = (this.props.notebook.removable) ? "deletable" : "permanent";
+    console.log(this.props.notebook.removable);
+    console.log(this.props.notebook.name);
+    
     return(
       <li className="notebook-index-item" onClick={this.openNotebook}>
         <h4>{this.props.notebook.name}</h4>
-        <button onClick={this.delete}>delete</button>
+        <button className={buttonClass} onClick={this.delete}>delete</button>
       </li>
     );
   }
