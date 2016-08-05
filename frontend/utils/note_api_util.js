@@ -32,8 +32,6 @@ const NoteApiUtil = {
   },
 
   deleteNote(id, callback) {
-    console.log(`API says: deleting note with id ${id}`);
-
     $.ajax({
       url: `/api/notes/${id}`,
       method: 'DELETE',

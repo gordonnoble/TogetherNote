@@ -6,37 +6,6 @@
   background: #FFFFFF;
 }
 
-.note header {
-  color: #B3B3B3;
-  display: flex;
-  height: 40px;
-  flex-direction: row;
-}
-
-.note header * {
-  padding: 5px;
-  margin: 5px;
-}
-
-.note header:hover {
-  border-bottom: 1px solid #ECECEC;
-  height: 60px;
-}
-
-.note header button {
-  display: none;
-}
-
-.note header:hover button {
-  display: block;
-  margin: 20px;
-  padding: 5px;
-}
-
-.note header:hover span {
-  display: none;
-}
-
 .note .title {
   font-family: 'Josefin Slab', sans-serif;
   text-align: left;
@@ -47,12 +16,13 @@
 }
 
 .note .body {
-  padding-left: 40px;
+  padding: 0px 40px;
   font-family: 'Josefin Slab', sans-serif;
   font-size: 16px;
   width: 100%;
   height: 100%;
   flex: 1;
+  box-sizing: border-box;
 }
 
 #note-splash {

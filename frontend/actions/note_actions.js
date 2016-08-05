@@ -36,7 +36,6 @@ NoteActions.deleteNote = function(id) {
 };
 
 NoteActions.resetNotebookAndClearNote = function(note) {
-  console.log(`Note Actions called back to remove note with id ${note.id}`);
   Dispatcher.dispatch({
     actionType: NoteConstants.DELETE_NOTE,
     note: note

@@ -2,9 +2,11 @@
   background-color: #FFFFFF;
   border: 1px solid #ECECEC;
   width: 400px;
+  display: flex;
+  flex-direction: column;
 }
 
-#note-index header {
+#note-index>header {
   padding: 20px;
   text-align: left;
   color: #878787;
@@ -15,8 +17,6 @@
 
 .note-index-item {
   height: 80px;
-  display: flex;
-  flex-direction: column;
   border-bottom: 1px solid #ECECEC;
   font-family: 'Josefin Slab', sans-serif;
 }
@@ -26,11 +26,24 @@
   background-color: rgba(45,190,96,0.9);
 }
 
+.note-index-item header button {
+  float: right;
+  display: none;
+  padding: 5px;
+  margin: 10px;
+}
+
+.note-index-item:hover header button {
+  display: inline;
+  color: #000000;
+}
+
 .note-index-item:hover * {
   color: #FFFFFF;
 }
 
-.note-index-item-header {
+.note-index-item h3 {
+  float: left;
   color: #4D4D4D;
   font-weight: 600;
   font-size: 18px;

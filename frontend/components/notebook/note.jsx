@@ -28,10 +28,6 @@ const Note = React.createClass({
       NoteActions.pushNote(this.state);
     }
   },
-  delete() {
-    console.log(`Note says: deleting note with id ${this.state.id}`);
-    NoteActions.deleteNote(this.state.id);
-  },
   render () {
     if ( this.state.title === undefined ) {
       return (
@@ -40,10 +36,6 @@ const Note = React.createClass({
     } else {
       return (
         <div className="note">
-          <header>
-            <span>options...</span>
-            <button onClick={this.delete}>delete</button>
-          </header>
           <input type="text" className="title" value={this.state.title} onChange={this.handleInput}/>
           <textarea className="body" value={this.state.body} onChange={this.handleInput} />
         </div>
