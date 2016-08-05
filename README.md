@@ -85,8 +85,8 @@ API. Notes are organized by notebook.
 **Objective:** Notebooks can be created, updated, destroyed via the notebook drawer
 
 - [ ] CUD/CRUD API for notebooks
-  - [ ] implement notebook drawer
-  - [ ] implement switching between notebooks
+  - [x] implement notebook drawer
+  - [x] implement switching between notebooks
 
 ### Phase 4: CSS Refinement and Tags (1 day, W2 M 6pm)
 **objective:** Clean up CSS and enable tagging and searchy-by-tags

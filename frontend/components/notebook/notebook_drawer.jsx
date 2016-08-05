@@ -15,20 +15,18 @@ const NotebookDrawer = React.createClass({
       this.listener.remove();
     },
     toggleOpen() {
-      let drawer = document.getElementById('notebook-drawer');
-      let note = document.querySelector('.note');
+      let drawer = document.getElementById("notebook-drawer");
+      let note = document.getElementsByClassName("note");
 
       if (NotebookStore.isDrawerOpen()) {
         this.setState({ notebooks: NotebookStore.allNotebooks() });
-        drawer.style.visibility = "visible";
-        drawer.style.transition = "1s";
-        drawer.style.display = "flex";
-        note.style.filter = "blur(100)";
+        drawer.className = "open";
       } else {
-        drawer.style.visibility = "hidden";
-        drawer.style.display = "none";
-        note.style.filter = "blur(0)";
+        drawer.className = "closed";
       }
+    },
+    toggleNotebookForm() {
+      NotebookActions.toggleForm();
     },
     render() {
       let notebooks = this.state.notebooks.map( notebook =>
@@ -37,7 +35,10 @@ const NotebookDrawer = React.createClass({
 
       return (
         <div id="notebook-drawer">
-          <h3>NOTEBOOKS</h3>
+          <header>
+            <h2>NOTEBOOKS</h2>
+            <button onClick={this.toggleNotebookForm}>New Notebook</button>
+          </header>
           <ul id="notebook-index">
               {notebooks}
           </ul>

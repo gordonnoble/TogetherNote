@@ -1,20 +1,42 @@
 #notebook-drawer {
+  font-family: 'Raleway', sans-serif;
   position: absolute;
   height: 100%;
-  visibility: hidden;
-  display: none;
   top: 0;
   left: 81px;
-  width: 500px;
   background-color: #FFFFFF;
   flex-direction: column;
   border-right: 1px solid #ECECEC;
-  transition: all 0.5s ease;
+  z-index: 2;
 }
 
-#notebook-drawer h3 {
+.closed {
+  opacity: 0 !important;
+  width: 0px;
+  visibility: hidden;
+  transition: all 300ms ease;
+}
+
+.open {
+  width: 500px;
+  opacity: 1;
+  visibility: visible;
+  transition: all 300ms ease;
+}
+
+#notebook-drawer header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+#notebook-drawer h2 {
   padding: 20px;
-  font-family: 'Raleway', sans-serif;
+}
+
+#notebook-drawer header button {
+  padding: 5px;
+  margin: 20px;
 }
 
 #notebook-index:last-child {
@@ -24,4 +46,10 @@
 .notebook-index-item {
   padding: 20px;
   border-top: 1px solid #ECECEC;
+  font-weight: bolder
+}
+
+.notebook-index-item:hover {
+  cursor: pointer;
+  background-color: rgba(45,190,96,0.9);
 }

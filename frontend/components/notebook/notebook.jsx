@@ -8,6 +8,7 @@ const NoteActions = require('../../actions/note_actions');
 const Sidebar = require('./sidebar');
 const Note = require('./note');
 const NotebookDrawer = require('./notebook_drawer');
+const NotebookForm = require('./notebook_form');
 
 const Notebook = React.createClass({
   getInitialState() {
@@ -31,6 +32,7 @@ const Notebook = React.createClass({
     return (
       <div id="notebook">
         <Sidebar />
+        <NotebookForm />
 
         <NotebookDrawer />
 

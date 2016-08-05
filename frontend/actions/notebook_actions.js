@@ -18,12 +18,18 @@ NotebookActions.receiveNotebook = function(notebook) {
 
 NotebookActions.refreshCurrentNotebook = function () {
   let notebookId = NotebookStore.currentNotebook().id;
-  NotebookActions.fetchNotebook(notebookId);
+  NotebookApiUtil.fetchNotebook(notebookId, NotebookActions.receiveNotebook);
 };
 
 NotebookActions.toggleDrawer = function() {
   Dispatcher.dispatch({
     actionType: NotebookConstants.TOGGLE_DRAWER
+  });
+};
+
+NotebookActions.toggleForm = function() {
+  Dispatcher.dispatch({
+    actionType: NotebookConstants.TOGGLE_FORM
   });
 };
 
@@ -37,4 +43,9 @@ NotebookActions.receiveNotebooks = function(notebooks) {
     notebooks: notebooks
   });
 };
+
+NotebookActions.createNotebook = function(notebook) {
+  NotebookApiUtil.createNotebook(notebook, NotebookActions.receiveNotebook);
+};
+
 module.exports = NotebookActions;

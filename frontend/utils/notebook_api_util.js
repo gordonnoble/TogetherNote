@@ -18,6 +18,16 @@ const NotebookApiUtil = {
         callback(notebooks);
       }
     });
+  },
+  createNotebook(notebook, callback) {
+    $.ajax({
+      url: 'api/notebooks',
+      method: 'POST',
+      data: { notebook: notebook },
+      success(notebook) {
+        callback(notebook);
+      }
+    });
   }
 };
 

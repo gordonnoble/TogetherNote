@@ -17,6 +17,7 @@
 * {
    margin: 0;
    padding: 0;
+  opacity: inherit;
  }
 
  html {
@@ -65,8 +66,4 @@ input {
   content: " ";
   clear: both;
   height: 0;
-}
-
-button {
-  
 }

@@ -10,7 +10,8 @@ const Note = React.createClass({
     return (note);
   },
   componentDidMount(){
-    NoteStore.addListener(this.switchNote);
+    this.noteListener = NoteStore.addListener(this.switchNote);
+    this.notebookListener = NotebookStore.addListener(this.switchNote);
   },
   switchNote() {
     this.save();

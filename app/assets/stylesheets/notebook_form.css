@@ -1,0 +1,61 @@
+#notebook-form {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 327px;
+  height: 200px;
+  transform: translate(-50%, -50%);
+
+  border: 1px solid #ECECEC;
+  z-index: 3;
+  background-color: #F3F3F3;
+  border: 1px solid #4D4D4D;
+  border-radius: 1px;
+}
+
+#notebook-form form {
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+}
+
+.off {
+  opacity: 0 !important;
+  width: 0px;
+  visibility: hidden;
+  display: none;
+  transition: all 100ms ease-in-out;
+}
+
+.on {
+  width: 500px;
+  opacity: 1;
+  visibility: visible;
+  display: block;
+  transition: all 100ms ease-in-out;
+}
+
+#notebook-form h2 {
+  font-family: 'Raleway', sans-serif;
+  margin: 40px auto 15px;
+  text-align: center;
+}
+
+#notebook-form input {
+  border: 1px solid #CCCCCC;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+
+  width: 80%;
+  height: 30px;
+  border-radius: 3px;
+  margin: 0 auto;
+  font-size: 16px;
+}
+
+#notebook-form button {
+  width: 20%;
+  padding: 5px;
+  margin: 20px auto;
+}
