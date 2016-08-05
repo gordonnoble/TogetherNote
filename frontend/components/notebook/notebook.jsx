@@ -11,12 +11,12 @@ const NotebookDrawer = require('./notebook_drawer');
 
 const Notebook = React.createClass({
   getInitialState() {
-    this.id = this.props.params.id || essionStore.currentUser().id;
+    this.id = this.props.params.id || SessionStore.currentUser().id;
     return ({ notebook: {} });
   },
   componentDidMount(){
     this.notebookListener = NotebookStore.addListener(this.updateNotebook);
-    NotebookActions.fetchNotebooks(this.id);
+    NotebookActions.fetchNotebook(this.id);
   },
   componentWillUnmount() {
     this.notebookListener.remove();
@@ -28,12 +28,6 @@ const Notebook = React.createClass({
   render () {
     let noteId;
 
-    if ( this.state.notebook.notes === undefined ) {
-      noteId = undefined;
-    } else {
-      noteId = this.state.notebook.notes[0].id;
-    }
-
     return (
       <div id="notebook">
         <Sidebar />
@@ -42,7 +36,7 @@ const Notebook = React.createClass({
 
         <NoteIndex notes={this.state.notebook.notes} notebookName={this.state.notebook.name}/>
 
-        <Note id={noteId}/>
+        <Note />
       </div>
     );
   }

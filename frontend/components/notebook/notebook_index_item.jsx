@@ -4,7 +4,7 @@ const NotebookIndexItem = React.createClass({
   render() {
     return(
       <li className="notebook-index-item">
-        <h4>{this.props.notebook.title}</h4>
+        <h4>{this.props.notebook.name}</h4>
       </li>
     );
   }

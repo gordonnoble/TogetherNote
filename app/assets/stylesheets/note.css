@@ -1,4 +1,4 @@
-#note {
+.note {
   flex: 1;
   flex-direction: column;
   display: flex;
@@ -6,38 +6,38 @@
   background: #FFFFFF;
 }
 
-#note header {
+.note header {
   color: #B3B3B3;
   display: flex;
   height: 40px;
   flex-direction: row;
 }
 
-#note header * {
+.note header * {
   padding: 5px;
   margin: 5px;
 }
 
-#note header:hover {
+.note header:hover {
   border-bottom: 1px solid #ECECEC;
   height: 60px;
 }
 
-#note header button {
+.note header button {
   display: none;
 }
 
-#note header:hover button {
+.note header:hover button {
   display: block;
   margin: 20px;
   padding: 5px;
 }
 
-#note header:hover span {
+.note header:hover span {
   display: none;
 }
 
-#note .title {
+.note .title {
   font-family: 'Josefin Slab', sans-serif;
   text-align: left;
   font-weight: 700;
@@ -46,7 +46,7 @@
   color: #2DBE60;
 }
 
-#note .body {
+.note .body {
   padding-left: 40px;
   font-family: 'Josefin Slab', sans-serif;
   font-size: 16px;

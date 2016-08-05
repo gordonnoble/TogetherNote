@@ -1,7 +1,27 @@
 #notebook-drawer {
-  postion: absolute;
+  position: absolute;
+  height: 100%;
   visibility: hidden;
+  display: none;
   top: 0;
-  left: 0;
+  left: 81px;
   width: 500px;
+  background-color: #FFFFFF;
+  flex-direction: column;
+  border-right: 1px solid #ECECEC;
+  transition: all 0.5s ease;
+}
+
+#notebook-drawer h3 {
+  padding: 20px;
+  font-family: 'Raleway', sans-serif;
+}
+
+#notebook-index:last-child {
+  border-bottom: 1px solid #ECECEC;
+}
+
+.notebook-index-item {
+  padding: 20px;
+  border-top: 1px solid #ECECEC;
 }

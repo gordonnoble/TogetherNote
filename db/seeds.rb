@@ -17,14 +17,18 @@ pooch = User.new(username: "pooch", password: "dogpass")
 kit   = User.new(username: "kat", password: "catpass")
 
 [gordo, pooch, kit].each do |user|
-  first_notebook = user.notebooks.new(name: "Get Started")
-  first_notebook.save!
+  shared = user.notebooks.new(name: "Shared", removable: false)
+  shared.save!
+  recycling = user.notebooks.new(name: "Recycling", removable: false)
+  recycling.save!
+  getting_started = user.notebooks.new(name: "Getting Started")
+  getting_started.save!
 
-  first_notebook.notes.create!(
+  getting_started.notes.create!(
     title: "Welcome to TogetherNote!",
     body: "Start writing! We'll save everything automagically.\nUse the 'Collaborate' button to add collaborators to this note.")
 
-  user.open_notebook_id = first_notebook.id
+  user.open_notebook_id = getting_started.id
   user.save!
 end
 

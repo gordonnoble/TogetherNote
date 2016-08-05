@@ -35,11 +35,11 @@ const Note = React.createClass({
   render () {
     if ( this.state.title === undefined ) {
       return (
-        <div id="note-splash">Open A Note!</div>
+        <div id="note-splash" className="note">Open A Note!</div>
       );
     } else {
       return (
-        <div id="note">
+        <div className="note">
           <header>
             <span>options...</span>
             <button onClick={this.delete}>delete</button>

@@ -37,7 +37,6 @@ NotebookStore.isDrawerOpen = function () {
 };
 
 NotebookStore.updateNotebooks = function(notebooks) {
-  debugger
   _notebooks = notebooks;
   NotebookStore.__emitChange();
 };
