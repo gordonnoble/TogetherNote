@@ -26,7 +26,7 @@ const NotebookForm = React.createClass({
     let form = document.getElementById("notebook-form");
     let note = document.getElementsByClassName("note");
 
-    if (DisplayStore.isFormOpen()) {
+    if (DisplayStore.isNotebookFormVisible()) {
       form.className = "on";
     } else {
       form.className = "off";

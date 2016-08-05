@@ -5,31 +5,30 @@ const NotebookStore = require('../stores/notebook_store');
 
 const NotebookActions = {};
 
-NotebookActions.fetchNotebook = function(id) {
-  NotebookApiUtil.fetchNotebook(id, NotebookActions.receiveNotebook);
+NotebookActions.fetchNewNotebook = function(id) {
+  NotebookApiUtil.fetchNotebook(id, NotebookActions.receiveNewNotebook);
 };
 
-NotebookActions.receiveNotebook = function(notebook) {
-  Dispatcher.dispatch({
-    actionType: NotebookConstants.RECEIVE_NOTEBOOK,
-    notebook: notebook
-  });
+NotebookActions.createNotebook = function(notebook) {
+  NotebookApiUtil.createNotebook(notebook, NotebookActions.receiveNewNotebook);
 };
 
 NotebookActions.refreshCurrentNotebook = function () {
   let notebookId = NotebookStore.currentNotebook().id;
-  NotebookApiUtil.fetchNotebook(notebookId, NotebookActions.receiveNotebook);
+  NotebookApiUtil.fetchNotebook(notebookId, NotebookActions.receiveUpdatedNotebook);
 };
 
-NotebookActions.toggleDrawer = function() {
+NotebookActions.receiveNewNotebook = function(notebook) {
   Dispatcher.dispatch({
-    actionType: NotebookConstants.TOGGLE_DRAWER
+    actionType: NotebookConstants.RECEIVE_NEW_NOTEBOOK,
+    notebook: notebook
   });
 };
 
-NotebookActions.toggleForm = function() {
+NotebookActions.receiveUpdatedNotebook = function(notebook) {
   Dispatcher.dispatch({
-    actionType: NotebookConstants.TOGGLE_FORM
+    actionType: NotebookConstants.RECEIVE_UPDATED_NOTEBOOK,
+    notebook: notebook
   });
 };
 
@@ -44,8 +43,5 @@ NotebookActions.receiveNotebooks = function(notebooks) {
   });
 };
 
-NotebookActions.createNotebook = function(notebook) {
-  NotebookApiUtil.createNotebook(notebook, NotebookActions.receiveNotebook);
-};
 
 module.exports = NotebookActions;

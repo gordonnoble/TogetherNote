@@ -11,10 +11,8 @@ const Note = React.createClass({
   },
   componentDidMount(){
     this.noteListener = NoteStore.addListener(this.switchNote);
-    this.notebookListener = NotebookStore.addListener(this.switchNote);
   },
   switchNote() {
-    this.save();
     this.setState(NoteStore.currentNote());
   },
   handleInput (event) {
@@ -37,8 +35,8 @@ const Note = React.createClass({
     } else {
       return (
         <div className="note">
-          <input type="text" className="title" value={this.state.title} onChange={this.handleInput}/>
-          <textarea className="body" value={this.state.body} onChange={this.handleInput} />
+          <input type="text" className="title" value={this.state.title} onChange={this.handleInput} onBlur={this.save}/>
+          <textarea className="body" value={this.state.body} onChange={this.handleInput} onBlur={this.save} />
         </div>
       );
     }

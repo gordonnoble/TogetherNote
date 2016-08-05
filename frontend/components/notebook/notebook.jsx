@@ -12,12 +12,12 @@ const NotebookForm = require('./notebook_form');
 
 const Notebook = React.createClass({
   getInitialState() {
-    this.id = this.props.params.id || SessionStore.currentUser().id;
+    this.id = this.props.params.id || SessionStore.currentUser().open_notebook_id;
     return ({ notebook: {} });
   },
   componentDidMount(){
     this.notebookListener = NotebookStore.addListener(this.updateNotebook);
-    NotebookActions.fetchNotebook(this.id);
+    NotebookActions.fetchNewNotebook(this.id);
   },
   componentWillUnmount() {
     this.notebookListener.remove();

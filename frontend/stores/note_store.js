@@ -36,7 +36,7 @@ NoteStore.__onDispatch = function(payload) {
     case NoteConstants.DELETE_NOTE:
       NoteStore.wipeCurrentNote();
       break;
-    case NotebookConstants.RECEIVE_NOTEBOOK:
+    case NotebookConstants.RECEIVE_NEW_NOTEBOOK:
       NoteStore.wipeCurrentNote();
       break;
   }

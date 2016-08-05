@@ -3,7 +3,7 @@ const NotebookActions = require('../../actions/notebook_actions');
 
 const NotebookIndexItem = React.createClass({
   openNotebook() {
-    NotebookActions.fetchNotebook(this.props.notebook.id);
+    NotebookActions.fetchNewNotebook(this.props.notebook.id);
     NotebookActions.toggleDrawer();
   },
   render() {

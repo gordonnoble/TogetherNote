@@ -1,7 +1,7 @@
 const React = require('react');
 const SessionActions = require('../../actions/session_actions');
 const NoteActions = require('../../actions/note_actions');
-const NotebookActions = require('../../actions/notebook_actions');
+const DisplayActions = require('../../actions/display_actions');
 
 const Sidebar = React.createClass({
   logout (event) {
@@ -14,7 +14,7 @@ const Sidebar = React.createClass({
     NoteActions.newNote(notebookId);
   },
   toggleDrawer() {
-    NotebookActions.toggleDrawer();
+    DisplayActions.toggleDrawer();
   },
   render() {
     return (
