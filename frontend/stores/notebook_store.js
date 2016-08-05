@@ -12,6 +12,14 @@ NotebookStore.setNotebook = function(notebook) {
   NotebookStore.__emitChange();
 };
 
+NotebookStore.addNotebook = function(notebook) {
+  _notebook = notebook;
+  _notebooks.push({id: notebook.id, name: notebook.name,
+    created_at: notebook.created_at, updated_at: notebook.updated_at,
+    removable: notebook.removable});
+  NotebookStore.__emitChange();
+};
+
 NotebookStore.currentNotebook = function() {
   return Object.assign({}, _notebook);
 };
@@ -35,12 +43,31 @@ NotebookStore.allNotebooks = function() {
   return _notebooks.slice().map( notebook => Object.assign({}, notebook));
 };
 
+NotebookStore.deleteNotebook = function(notebook) {
+  _notebooks = _notebooks.filter( _notebook => _notebook.id !== notebook.id);
+
+  if (_notebook.id === notebook.id) {
+    _notebook = _notebooks[0];
+  }
+
+  NotebookStore.__emitChange();
+};
+
+NotebookStore.hasNotebook = function(id) {
+  _notebooks.forEach( _notebook => {
+    if (_notebook.id === id) {
+      return true;
+    }
+  });
+  return false;
+};
+
 NotebookStore.__onDispatch = function(payload) {
   switch (payload.actionType) {
     case NotebookConstants.RECEIVE_NEW_NOTEBOOK:
-      NotebookStore.setNotebook(payload.notebook);
+      NotebookStore.addNotebook(payload.notebook);
       break;
-    case NotebookConstants.RECEIVE_UPDATED_NOTEBOOK:
+    case NotebookConstants.RECEIVE_EXISTING_NOTEBOOK:
       NotebookStore.setNotebook(payload.notebook);
       break;
     case NoteConstants.NEW_NOTE:
@@ -51,6 +78,9 @@ NotebookStore.__onDispatch = function(payload) {
       break;
     case NotebookConstants.RECEIVE_NOTEBOOKS:
       NotebookStore.setNotebooks(payload.notebooks);
+      break;
+    case NotebookConstants.REMOVE_NOTEBOOK:
+      NotebookStore.deleteNotebook(payload.notebook);
       break;
   }
 };

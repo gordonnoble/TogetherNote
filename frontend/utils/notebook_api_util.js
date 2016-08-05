@@ -28,6 +28,15 @@ const NotebookApiUtil = {
         callback(notebook);
       }
     });
+  },
+  deleteNotebook(id, callback) {
+    $.ajax({
+      url: `api/notebooks/${id}`,
+      method: 'DELETE',
+      success(notebook) {
+        callback(notebook);
+      }
+    });
   }
 };
 

@@ -17,7 +17,7 @@ const Notebook = React.createClass({
   },
   componentDidMount(){
     this.notebookListener = NotebookStore.addListener(this.updateNotebook);
-    NotebookActions.fetchNewNotebook(this.id);
+    NotebookActions.fetchNotebook(this.id);
   },
   componentWillUnmount() {
     this.notebookListener.remove();

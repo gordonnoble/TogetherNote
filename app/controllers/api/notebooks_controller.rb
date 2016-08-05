@@ -14,6 +14,17 @@ class Api::NotebooksController < ApplicationController
     @notebook = current_user.notebooks.new(notebook_params)
 
     if @notebook.save
+      @notebooks = current_user.notebooks
+      render :show
+    else
+      render @notebook.errors.full_messages, status: 422
+    end
+  end
+
+  def destroy
+    @notebook = Notebook.find(params[:id])
+
+    if @notebook.destroy
       render :show
     else
       render @notebook.errors.full_messages, status: 422

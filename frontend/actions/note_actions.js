@@ -17,7 +17,7 @@ NoteActions.setCurrentNote = function(note) {
 };
 
 NoteActions.pushNote = function(note) {
-  NoteApiUtil.pushNote(note, NotebookActions.refreshCurrentNotebook);
+  NoteApiUtil.pushNote(note, NotebookActions.fetchNotebook);
 };
 
 NoteActions.newNote = function(notebookId) {

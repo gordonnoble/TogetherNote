@@ -10,7 +10,7 @@ const NotebookDrawer = React.createClass({
       return({ notebooks: [] });
     },
     componentDidMount() {
-      this.listener = DisplayStore.addListener(this.toggleOpen);
+      this.displayListener = DisplayStore.addListener(this.toggleOpen);
 
       $(document).on('click', function(event) {
         if (!$(event.target).closest('#notebook-drawer').length) {
@@ -20,9 +20,9 @@ const NotebookDrawer = React.createClass({
 
       NotebookActions.fetchNotebooks();
     },
-
     componentWillUnmount() {
-      this.listener.remove();
+      this.displayListener.remove();
+      this.notebookListener.remove();
     },
     toggleOpen() {
       let drawer = document.getElementById("notebook-drawer");
@@ -32,6 +32,7 @@ const NotebookDrawer = React.createClass({
         this.setState({ notebooks: NotebookStore.allNotebooks() });
         drawer.className = "open";
       } else {
+        this.setState({ notebooks: NotebookStore.allNotebooks() });
         drawer.className = "closed";
       }
     },

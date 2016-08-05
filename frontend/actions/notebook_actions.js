@@ -5,17 +5,13 @@ const NotebookStore = require('../stores/notebook_store');
 
 const NotebookActions = {};
 
-NotebookActions.fetchNewNotebook = function(id) {
-  NotebookApiUtil.fetchNotebook(id, NotebookActions.receiveNewNotebook);
+NotebookActions.fetchNotebook = function(id) {
+  id = id || NotebookStore.currentNotebook().id || SessionStore.currentUser().open_notebook_id;
+  NotebookApiUtil.fetchNotebook(id, NotebookActions.receiveNotebook);
 };
 
 NotebookActions.createNotebook = function(notebook) {
   NotebookApiUtil.createNotebook(notebook, NotebookActions.receiveNewNotebook);
-};
-
-NotebookActions.refreshCurrentNotebook = function () {
-  let notebookId = NotebookStore.currentNotebook().id;
-  NotebookApiUtil.fetchNotebook(notebookId, NotebookActions.receiveUpdatedNotebook);
 };
 
 NotebookActions.receiveNewNotebook = function(notebook) {
@@ -25,9 +21,9 @@ NotebookActions.receiveNewNotebook = function(notebook) {
   });
 };
 
-NotebookActions.receiveUpdatedNotebook = function(notebook) {
+NotebookActions.receiveNotebook = function(notebook) {
   Dispatcher.dispatch({
-    actionType: NotebookConstants.RECEIVE_UPDATED_NOTEBOOK,
+    actionType: NotebookConstants.RECEIVE_EXISTING_NOTEBOOK,
     notebook: notebook
   });
 };
@@ -43,5 +39,15 @@ NotebookActions.receiveNotebooks = function(notebooks) {
   });
 };
 
+NotebookActions.deleteNotebook = function(id) {
+  NotebookApiUtil.deleteNotebook(id, NotebookActions.removeNotebook);
+};
+
+NotebookActions.removeNotebook = function(notebook) {
+  Dispatcher.dispatch({
+    actionType: NotebookConstants.REMOVE_NOTEBOOK,
+    notebook: notebook
+  });
+};
 
 module.exports = NotebookActions;
