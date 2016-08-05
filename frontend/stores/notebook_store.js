@@ -9,11 +9,14 @@ var _notebooks = [];
 
 NotebookStore.setNotebook = function(notebook) {
   _notebook = notebook;
+  window.currentUser.open_notebook_id = notebook.id;
   NotebookStore.__emitChange();
 };
 
 NotebookStore.addNotebook = function(notebook) {
   _notebook = notebook;
+  window.currentUser.open_notebook_id = notebook.id;
+  
   _notebooks.push({id: notebook.id, name: notebook.name,
     created_at: notebook.created_at, updated_at: notebook.updated_at,
     removable: notebook.removable});

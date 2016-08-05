@@ -28,6 +28,7 @@ const NotebookForm = React.createClass({
     event.preventDefault();
     NotebookActions.createNotebook(this.state);
     DisplayActions.hideNotebookForm();
+    this.setState({ name: "" });
   },
   toggleOpen() {
     let form = document.getElementById("notebook-form");

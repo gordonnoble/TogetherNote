@@ -11,6 +11,11 @@ const Note = React.createClass({
   },
   componentDidMount(){
     this.noteListener = NoteStore.addListener(this.switchNote);
+    // this.notebookListener = NotebookStore.addListener(this.switchNote);
+  },
+  componentWillUnmount() {
+    this.noteListener.remove();
+    // this.notebookStore.remove();
   },
   switchNote() {
     this.setState(NoteStore.currentNote());

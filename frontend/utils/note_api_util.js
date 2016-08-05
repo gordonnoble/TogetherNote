@@ -15,7 +15,7 @@ const NoteApiUtil = {
       method: 'PATCH',
       data: { note: note },
       success(note) {
-        callback(note);
+        callback;
       }
     });
   },
