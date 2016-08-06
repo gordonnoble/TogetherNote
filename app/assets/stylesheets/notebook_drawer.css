@@ -3,7 +3,7 @@
   position: absolute;
   height: 100%;
   top: 0;
-  left: 81px;
+  left: 101px;
   background-color: #FFFFFF;
   flex-direction: column;
   border-right: 1px solid #ECECEC;
@@ -34,19 +34,29 @@
   padding: 20px;
 }
 
-#notebook-drawer header button {
+#notebook-drawer button {
   padding: 5px;
   margin: 20px;
+  width: 25px;
+  height: 25px;
+  border: none;
+}
+
+#notebook-drawer>button:hover {
+  background-color: #2DBE60;
+}
+
+.notebook-index-item h4 {
+  display: inline-block;
 }
 
 .notebook-index-item button {
-  padding: 5px;
-  margin: 20px;
+  float: right;
+  margin: 0 !important;
 }
 
 .notebook-index-item .permanent {
   display: none;
-  background-color: red;
 }
 
 #notebook-index:last-child {
@@ -62,4 +72,10 @@
 .notebook-index-item:hover {
   cursor: pointer;
   background-color: rgba(45,190,96,0.9);
+  transition: 150ms ease-in;
+}
+
+.notebook-index-item button:hover {
+  filter: grayscale(100%) brightness(40%);
+  -webkit-filter: grayscale(100%) brightness(40%);
 }

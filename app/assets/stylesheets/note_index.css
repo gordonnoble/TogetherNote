@@ -24,6 +24,7 @@
 .note-index-item:hover {
   cursor: pointer;
   background-color: rgba(45,190,96,0.9);
+  transition: 150ms ease-in;
 }
 
 .note-index-item header button {
@@ -61,4 +62,16 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.note-index-item button {
+  width: 25px;
+  height: 25px;
+  margin: 5px !important;
+  border: none;
+}
+
+.note-index-item button:hover img {
+  filter: grayscale(100%) brightness(40%);
+  -webkit-filter: grayscale(100%) brightness(40%);
 }

@@ -48,7 +48,7 @@ const NotebookDrawer = React.createClass({
         <div id="notebook-drawer" className="closed">
           <header>
             <h2>NOTEBOOKS</h2>
-            <button onClick={this.showNotebookForm}>New Notebook</button>
+            <button onClick={this.showNotebookForm}><img className="new-notebook" src={window.newNote} /></button>
           </header>
           <ul id="notebook-index">
               {notebooks}

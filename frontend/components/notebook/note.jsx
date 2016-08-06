@@ -11,11 +11,9 @@ const Note = React.createClass({
   },
   componentDidMount(){
     this.noteListener = NoteStore.addListener(this.switchNote);
-    // this.notebookListener = NotebookStore.addListener(this.switchNote);
   },
   componentWillUnmount() {
     this.noteListener.remove();
-    // this.notebookStore.remove();
   },
   switchNote() {
     this.setState(NoteStore.currentNote());
@@ -35,7 +33,7 @@ const Note = React.createClass({
   render () {
     if ( this.state.title === undefined ) {
       return (
-        <div id="note-splash" className="note">Open A Note!</div>
+        <div id="note-splash" className="note"><img className="logo" src={window.noteSplash} /></div>
       );
     } else {
       return (

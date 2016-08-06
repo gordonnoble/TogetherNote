@@ -26,8 +26,13 @@
 }
 
 #note-splash {
-  font-family: 'Raleway', sans-serif;
-  font-size: 24px;
-  font-weight: 700px;
-  padding: 40px 60px;
+  position: relative;
+}
+#note-splash .logo {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 20%;
+  left: 25%;
+  opacity: 0.4;
 }

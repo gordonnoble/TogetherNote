@@ -1,14 +1,37 @@
 #sidebar {
-  flex: 0 0 80px;
+  display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: center;
+  position: relative;
+}
+
+#sidebar .logo {
+  width: 80px;
+  height: 80px;
+  margin: 10px 5px 0px 15px;
+}
+
+#sidebar .logout {
+  position: absolute;
+  bottom: 0;
+  margin: 20px auto;
+  border: none;
+  width: auto;
+  height: auto;
 }
 
 #sidebar button {
-  margin: 20px 0px;
-  padding: 5px;
+  border: 1px solid #2DBE60;
+  margin: 10px;
+  width: 30px;
+  height: 30px;
 }
 
 #sidebar button:hover {
-  cursor: pointer;
+  background-color: #2DBE60;
+}
+
+#sidebar .logout:hover {
+  background-color: #8a8a8a;
+  padding: 5px;
 }

@@ -6,11 +6,10 @@
   height: 200px;
   transform: translate(-50%, -50%);
 
-  border: 1px solid #ECECEC;
+  border: 1px solid #2DBE60;
   z-index: 3;
-  background-color: #F3F3F3;
-  border: 1px solid #4D4D4D;
-  border-radius: 1px;
+  background-color: #FBFBFB;
+  border-radius: 2px;
 }
 
 #notebook-form form {
@@ -38,8 +37,10 @@
 
 #notebook-form>button {
   float: right;
-  padding: 3px;
-  margin: 6px;
+  margin: 15px 15px 0 0;
+  width: 25px;
+  height: 25px;
+  border: none;
 }
 
 #notebook-form h2 {
@@ -61,7 +62,16 @@
 }
 
 #notebook-form form button {
+  font-size: 14px;
   width: 20%;
   padding: 5px;
   margin: 20px auto;
+  background-color: #2DBE60;
+  border: none;
+  border-radius; 2px;
+  color: #FFFFFF;
+}
+
+#notebook form button:hover {
+
 }

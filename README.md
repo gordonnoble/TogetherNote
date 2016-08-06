@@ -84,7 +84,7 @@ API. Notes are organized by notebook.
 ### Phase 3: Refinement of `Notebook` component (1 day, W2 F 6pm)
 **Objective:** Notebooks can be created, updated, destroyed via the notebook drawer
 
-- [ ] CUD/CRUD API for notebooks
+- [x] CUD/CRUD API for notebooks
   - [x] implement notebook drawer
   - [x] implement switching between notebooks
 

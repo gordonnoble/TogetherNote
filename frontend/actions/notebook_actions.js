@@ -6,7 +6,7 @@ const NotebookStore = require('../stores/notebook_store');
 const NotebookActions = {};
 
 NotebookActions.fetchNotebook = function(id) {
-  id = id || NotebookStore.currentNotebook().id || SessionStore.currentUser().open_notebook_id;
+  id = id || NotebookStore.currentNotebook().id;
   NotebookApiUtil.fetchNotebook(id, NotebookActions.receiveNotebook);
 };
 

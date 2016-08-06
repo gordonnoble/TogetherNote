@@ -46,9 +46,9 @@ const NotebookForm = React.createClass({
   render() {
     return(
       <div id="notebook-form" className="off">
-        <button onClick={this.close}>close</button>
+        <button onClick={this.close}><img className="x-out" src={window.xOut} /></button>
         <form onSubmit={this.submit}>
-          <h2>Notebook Name</h2>
+          <h2>Notebook Name:</h2>
           <input type="text" className="name" value={this.state.name} onChange={this.handleInput} />
           <button>Create</button>
         </form>

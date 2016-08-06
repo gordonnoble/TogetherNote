@@ -19,9 +19,10 @@ const Sidebar = React.createClass({
   render() {
     return (
       <div id="sidebar">
-        <button onClick={this.logout}>Logout</button>
-        <button onClick={this.newNote}>New Note</button>
-        <button onClick={this.toggleDrawer} id="drawer-button">Notebooks</button>
+        <img className="logo" src={window.logo} />
+        <button onClick={this.newNote}><img className="new-note" src={window.newNote} /></button>
+        <button onClick={this.toggleDrawer} id="drawer-button"><img className="notebooks" src={window.notebooks} /></button>
+        <button onClick={this.logout} className="logout">logout</button>
       </div>
     );
   }

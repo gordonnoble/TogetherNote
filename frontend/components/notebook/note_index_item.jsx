@@ -15,7 +15,7 @@ const NoteIndexItem = React.createClass({
       <li className="note-index-item" onClick={this.openNote}>
         <header className="clearfix">
           <h3>{this.props.note.title}</h3>
-          <button onClick={this.delete}>delete</button>
+          <button onClick={this.delete}><img className="recycling" src={window.recycling} /></button>
         </header>
         <div className="note-index-item-body">
           {this.props.note.body}
