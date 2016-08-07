@@ -49,36 +49,36 @@ const LoginForm = React.createClass({
 
     return (
       <div id="signup-page">
+        <div id="signup-box">
+          <h1>Log In</h1>
 
-        <h1>Log In</h1>
+          {errors}
 
-        {errors}
+          <form onSubmit={this.submit}>
 
-        <form onSubmit={this.submit}>
+            <input type="text"
+              onChange={this.update}
+              className="username"
+              value={this.state.username}
+              placeholder="Username"
+              />
 
-          <input type="text"
-            onChange={this.update}
-            className="username"
-            value={this.state.username}
-            placeholder="Username"
-            />
+            <input type="password"
+              onChange={this.update}
+              className="password"
+              value={this.state.password}
+              placeholder="Password"
+              />
 
-          <input type="password"
-            onChange={this.update}
-            className="password"
-            value={this.state.password}
-            placeholder="Password"
-            />
+            <input id="signup-button" type="submit" value="Log In" />
 
-          <input id="signup-button" type="submit" value="Log In" />
-
-        </form>
-          <div id="login-link">
-            <span>Don't have an account?</span>
-            <br></br>
-            <Link to='/signup'>Create One</Link>
+          </form>
+            <div id="login-link">
+              <span>Don't have an account?</span>
+              <br></br>
+              <Link to='/signup'>Create One</Link>
+              </div>
             </div>
-
       </div>
     );
   }

@@ -50,33 +50,35 @@ const SignupForm = React.createClass({
 
     return (
       <div id="signup-page">
-        <h1>Create Account</h1>
+        <div id="signup-box">
+          <h1>Create Account</h1>
 
-          {errors}
+            {errors}
 
-        <form onSubmit={this.submit}>
+          <form onSubmit={this.submit}>
 
-          <input type="text"
-            onChange={this.update}
-            className="username"
-            value={this.state.username}
-            placeholder="Username"
-            />
+            <input type="text"
+              onChange={this.update}
+              className="username"
+              value={this.state.username}
+              placeholder="Username"
+              />
 
-          <input type="password"
-            onChange={this.update}
-            className="password"
-            value={this.state.password}
-            placeholder="Password"
-            />
+            <input type="password"
+              onChange={this.update}
+              className="password"
+              value={this.state.password}
+              placeholder="Password"
+              />
 
-          <input id="signup-button" type="submit" value="Create Account" />
-        </form>
+            <input id="signup-button" type="submit" value="Create Account" />
+          </form>
 
-          <div id="login-link">
-            <span>Already have an account?</span>
-            <br></br>
-            <Link to="/login">Log In</Link>
+            <div id="login-link">
+              <span>Already have an account?</span>
+              <br></br>
+              <Link to="/login">Log In</Link>
+            </div>
           </div>
 
           <video playsinline autoPlay muted loop id="bgvid">
