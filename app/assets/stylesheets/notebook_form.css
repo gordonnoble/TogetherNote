@@ -1,77 +1,50 @@
 #notebook-form {
-  position: absolute;
-  left: 50%;
-  top: 25%;
-  width: 327px;
-  height: 200px;
-  transform: translate(-50%, -50%);
-
-  border: 1px solid #2DBE60;
-  z-index: 3;
-  background-color: #FBFBFB;
-  border-radius: 2px;
+  border-top: 1px solid #ECECEC;
+  background-color: #FFFFFF;
 }
 
 #notebook-form form {
   height: 100%;
   width: 100%;
-  flex-direction: column;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .off {
   opacity: 0 !important;
-  width: 0px;
+  height: 0px;
   visibility: hidden;
-  display: none;
-  transition: all 100ms ease-in-out;
+  transition: all 300ms ease;
 }
 
 .on {
-  width: 500px;
+  height: auto;
   opacity: 1;
   visibility: visible;
-  display: block;
-  transition: all 100ms ease-in-out;
-}
-
-#notebook-form>button {
-  float: right;
-  margin: 15px 15px 0 0;
-  width: 25px;
-  height: 25px;
-  border: none;
-}
-
-#notebook-form h2 {
-  font-family: 'Raleway', sans-serif;
-  margin: 10px auto 15px;
-  text-align: center;
+  transition: all 300ms ease;
 }
 
 #notebook-form input {
   border: 1px solid #CCCCCC;
   text-align: center;
   font-family: 'Raleway', sans-serif;
+  display: inline;
 
-  width: 80%;
+  width: 50%;
   height: 30px;
   border-radius: 3px;
-  margin: 0 auto;
+  margin: 10px 30px;
   font-size: 16px;
 }
 
-#notebook-form form button {
+#notebook-form-button {
   font-size: 14px;
-  width: 20%;
-  padding: 5px;
-  margin: 20px auto;
+  padding: 8px 12px;
+  margin: 10px 30px ;
+  width: auto;
   background-color: #2DBE60;
   border: none;
   border-radius: 2px;
   color: #FFFFFF;
-}
-
-#notebook form button:hover {
-
 }

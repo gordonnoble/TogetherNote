@@ -4,6 +4,7 @@ const NotebookActions = require('../../actions/notebook_actions');
 const NotebookIndexItem = require('./notebook_index_item');
 const DisplayActions = require('../../actions/display_actions');
 const DisplayStore = require('../../stores/display_store');
+const NotebookForm = require('./notebook_form');
 
 const NotebookDrawer = React.createClass({
     getInitialState() {
@@ -11,6 +12,7 @@ const NotebookDrawer = React.createClass({
     },
     componentDidMount() {
       this.displayListener = DisplayStore.addListener(this.toggleOpen);
+      this.notebookListener = NotebookStore.addListener(this.toggleOpen);
 
       $(document).on('click', function(event) {
         if (!$(event.target).closest('#notebook-drawer').length) {
@@ -51,8 +53,10 @@ const NotebookDrawer = React.createClass({
             <button onClick={this.showNotebookForm}><img className="new-notebook" src={window.newNote} /></button>
           </header>
           <ul id="notebook-index">
-              {notebooks}
+            <NotebookForm />
+            {notebooks}
           </ul>
+
         </div>
       );
     }

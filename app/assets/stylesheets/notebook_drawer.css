@@ -42,7 +42,7 @@
   border: none;
 }
 
-#notebook-drawer>button:hover {
+#notebook-drawer header button:hover {
   background-color: #2DBE60;
 }
 

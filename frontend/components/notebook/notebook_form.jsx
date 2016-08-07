@@ -4,6 +4,8 @@ const NotebookActions = require('../../actions/notebook_actions');
 const DisplayActions = require('../../actions/display_actions');
 
 const NotebookForm = React.createClass({
+  focus: false,
+
   getInitialState() {
     return({ name: "" });
   },
@@ -28,16 +30,17 @@ const NotebookForm = React.createClass({
     event.preventDefault();
     NotebookActions.createNotebook(this.state);
     DisplayActions.hideNotebookForm();
+    DisplayActions.closeDrawer();
     this.setState({ name: "" });
   },
   toggleOpen() {
     let form = document.getElementById("notebook-form");
-    let note = document.getElementsByClassName("note");
 
     if (DisplayStore.isNotebookFormVisible()) {
-      form.className = "on";
+      form.className = "notebook-index-item on";
+      document.getElementById("notebook-form-input").focus();
     } else {
-      form.className = "off";
+      form.className = "notebook-index-item off";
     }
   },
   close() {
@@ -45,14 +48,12 @@ const NotebookForm = React.createClass({
   },
   render() {
     return(
-      <div id="notebook-form" className="off">
-        <button onClick={this.close}><img className="x-out" src={window.xOut} /></button>
+      <li id="notebook-form" className="notebook-index-item off">
         <form onSubmit={this.submit}>
-          <h2>Notebook Name:</h2>
-          <input type="text" className="name" value={this.state.name} onChange={this.handleInput} />
-          <button>Create</button>
+          <input id="notebook-form-input" className="name" type="text" value={this.state.name} onChange={this.handleInput} />
+          <span id="notebook-form-button">Create</span>
         </form>
-      </div>
+      </li>
     );
   }
 });
