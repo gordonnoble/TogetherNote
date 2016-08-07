@@ -71,13 +71,17 @@ const SignupForm = React.createClass({
             />
 
           <input id="signup-button" type="submit" value="Create Account" />
-
         </form>
+
           <div id="login-link">
             <span>Already have an account?</span>
             <br></br>
             <Link to="/login">Log In</Link>
           </div>
+
+          <video playsinline autoPlay muted loop id="bgvid">
+            <source src={window.introVideo} type="video/webm"/>
+          </video>
       </div>
     );
   }
