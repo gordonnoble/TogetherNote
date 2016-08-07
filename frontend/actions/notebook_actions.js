@@ -50,4 +50,9 @@ NotebookActions.removeNotebook = function(notebook) {
   });
 };
 
+NotebookActions.updateAll = function() {
+  NotebookActions.fetchNotebook();
+  NotebookActions.fetchNotebooks();
+};
+
 module.exports = NotebookActions;

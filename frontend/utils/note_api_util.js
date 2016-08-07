@@ -39,6 +39,17 @@ const NoteApiUtil = {
         callback(note);
       }
     });
+  },
+
+  switchNotesNotebook(noteId, notebookId, callback) {
+    $.ajax({
+      url: `/api/notes/${noteId}/switch`,
+      method: 'PATCH',
+      data: { notebook: { id: notebookId } },
+      success() {
+        callback();
+      }
+    });
   }
 };
 

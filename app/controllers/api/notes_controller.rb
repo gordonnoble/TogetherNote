@@ -33,6 +33,16 @@ class Api::NotesController < ApplicationController
     render :show
   end
 
+  def switch
+    @note = Note.find(params[:id])
+    
+    old_notebook = @note.notebooks.where(user_id: current_user.id).first
+    @note.notebook_notes.where(notebook_id: old_notebook.id).first.destroy!
+    @note.notebook_ids += [params[:notebook][:id]]
+
+    render :show
+  end
+
   private
 
   def note_params

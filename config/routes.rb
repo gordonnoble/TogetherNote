@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     resources :notes, only: [:show, :update, :create, :destroy]
   end
 
+  patch '/api/notes/:id/switch', to: 'api/notes#switch'
+
   root to: 'static_pages#root'
 end

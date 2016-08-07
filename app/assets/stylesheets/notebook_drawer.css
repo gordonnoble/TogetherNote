@@ -50,6 +50,12 @@
   display: inline-block;
 }
 
+.note-count {
+  margin: 10px;
+  color: #807f83;
+  font-size: 14px;
+}
+
 .notebook-index-item button {
   float: right;
   margin: 0 !important;

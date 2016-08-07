@@ -75,3 +75,7 @@
   filter: grayscale(100%) brightness(40%);
   -webkit-filter: grayscale(100%) brightness(40%);
 }
+
+[draggable=true] {
+    /*cursor: move;*/
+}

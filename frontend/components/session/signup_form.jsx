@@ -81,7 +81,7 @@ const SignupForm = React.createClass({
             </div>
           </div>
 
-          <video playsinline autoPlay muted loop id="bgvid">
+          <video autoPlay muted loop id="bgvid">
             <source src={window.introVideo} type="video/webm"/>
           </video>
       </div>

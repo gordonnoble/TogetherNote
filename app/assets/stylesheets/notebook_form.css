@@ -7,7 +7,6 @@
   height: 100%;
   width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
@@ -34,14 +33,14 @@
   width: 50%;
   height: 30px;
   border-radius: 3px;
-  margin: 10px 30px;
+  margin-right: 10px;
   font-size: 16px;
 }
 
 #notebook-form-button {
   font-size: 14px;
   padding: 8px 12px;
-  margin: 10px 30px ;
+  margin: 10px;
   width: auto;
   background-color: #2DBE60;
   border: none;

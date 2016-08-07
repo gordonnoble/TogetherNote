@@ -40,6 +40,18 @@ NoteActions.resetNotebookAndClearNote = function(note) {
     actionType: NoteConstants.DELETE_NOTE,
     note: note
   });
+  // NotebookActions.fetchNotebooks();
+};
+
+NoteActions.startDrag = function(id) {
+  Dispatcher.dispatch({
+    actionType: NoteConstants.START_DRAG,
+    id: id
+  });
+};
+
+NoteActions.switchNotesNotebook = function(noteId, notebookId) {
+  NoteApiUtil.switchNotesNotebook(noteId, notebookId, NotebookActions.updateAll);
 };
 
 module.exports = NoteActions;

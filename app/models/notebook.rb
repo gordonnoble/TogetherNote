@@ -6,4 +6,8 @@ class Notebook < ApplicationRecord
 
   has_many :notebook_notes, inverse_of: :notebook
   has_many :notes, through: :notebook_notes
+
+  def note_count
+    self.notes.count
+  end
 end

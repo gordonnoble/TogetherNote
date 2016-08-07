@@ -6,6 +6,7 @@ const NotebookConstants = require('../constants/notebook_constants');
 
 const _undefinedNote = { id: undefined, title: undefined, body: undefined, collaborators: undefined};
 var _note = {};
+var _dragNoteId;
 
 NoteStore.setCurrentNote = function(note) {
   _note = note;
@@ -25,6 +26,14 @@ NoteStore.wipeCurrentNote = function() {
   NoteStore.__emitChange();
 };
 
+NoteStore.startDrag = function(id) {
+  _dragNoteId = id;
+};
+
+NoteStore.dragNoteId = function() {
+  return _dragNoteId;
+};
+
 NoteStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
     case NoteConstants.SET_CURRENT_NOTE:
@@ -41,6 +50,9 @@ NoteStore.__onDispatch = function(payload) {
       break;
     case NotebookConstants.REMOVE_NOTEBOOK:
       NoteStore.wipeCurrentNote();
+      break;
+    case NoteConstants.START_DRAG:
+      NoteStore.startDrag(payload.id);
       break;
   }
 };
