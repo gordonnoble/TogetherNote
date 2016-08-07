@@ -33,7 +33,6 @@
 }
 
 .quill-toolbar.ql-toolbar.ql-snow:hover * {
-  /*height: auto;*/
   opacity: 1 !important;
   transition: 200ms ease;
 }

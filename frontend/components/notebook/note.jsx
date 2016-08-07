@@ -46,7 +46,7 @@ const Note = React.createClass({
       return (
         <div className="note">
           <input type="text" className="title" value={this.state.title} onChange={this.handleTitleChange} />
-          <ReactQuill className="body" theme="snow"onChange={this.handleBodyChange} value={this.state.body} />
+          <ReactQuill theme="snow" id="note-body" onChange={this.handleBodyChange} value={this.state.body} autofocus/>
         </div>
       );
     }
