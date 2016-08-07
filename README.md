@@ -91,15 +91,15 @@ API. Notes are organized by notebook.
 ### Phase 4: CSS Refinement and Tags (1 day, W2 M 6pm)
 **objective:** Clean up CSS and enable tagging and searchy-by-tags
 
-- [ ] Integrate RTF (`react-quill`, based on Quill.js)
-- [ ] Use Rails helpers to sanitize HTML before rendering.
-- [ ] Style the new Quill elements.
+- [x] Integrate RTF (`react-quill`, based on Quill.js)
+- [x] Use Rails helpers to sanitize HTML before rendering.
+- [x] Style the new Quill elements.
 - [ ] Add Quill styling to seeded notes
 
 ### Phase 5: Complex Styling in Notes (1 day, W2 Tu 6pm)
 **objective:** Enable complex styling of notes.
 
-- [ ] Clean up and refine CSS
+- [x] Clean up and refine CSS
 - [ ] Create Tag model and join table
   - [ ] API, flux loops, and components for tagging notes and
   filtering by note tags
