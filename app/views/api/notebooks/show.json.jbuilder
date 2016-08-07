@@ -8,6 +8,6 @@ json.notes do
   json.array! @notebook.notes do |note|
     json.id note.id
     json.title note.title
-    json.body note.body[0..150]
+    json.body note.plain_text_body[0..150]
   end
 end

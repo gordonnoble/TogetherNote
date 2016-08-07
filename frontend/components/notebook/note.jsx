@@ -1,4 +1,5 @@
 const React = require('react');
+const ReactQuill = require('react-quill');
 const NoteActions = require('../../actions/note_actions');
 const NoteStore = require('../../stores/note_store');
 
@@ -16,9 +17,10 @@ const Note = React.createClass({
     this.noteListener.remove();
   },
   switchNote() {
+    this.save();
     this.setState(NoteStore.currentNote());
   },
-  handleInput (event) {
+  handleTitleChange (event) {
     let newState = {};
     newState[event.target.className] = event.target.value;
     this.setState(newState);
@@ -30,6 +32,11 @@ const Note = React.createClass({
       NoteActions.pushNote(this.state);
     }
   },
+  handleBodyChange(bodyText) {
+    this.setState({ body: bodyText });
+    clearTimeout(this.timer);
+    this.timer = setTimeout(this.save, 1000);
+  },
   render () {
     if ( this.state.title === undefined ) {
       return (
@@ -38,8 +45,8 @@ const Note = React.createClass({
     } else {
       return (
         <div className="note">
-          <input type="text" className="title" value={this.state.title} onChange={this.handleInput} onBlur={this.save}/>
-          <textarea className="body" value={this.state.body} onChange={this.handleInput} onBlur={this.save} />
+          <input type="text" className="title" value={this.state.title} onChange={this.handleTitleChange} />
+          <ReactQuill className="body" theme="snow"onChange={this.handleBodyChange} value={this.state.body} />
         </div>
       );
     }

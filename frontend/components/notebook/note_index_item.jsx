@@ -11,6 +11,8 @@ const NoteIndexItem = React.createClass({
     NoteActions.deleteNote(this.props.note.id);
   },
   render () {
+    let text = this.props.note.body;
+
     return (
       <li className="note-index-item" onClick={this.openNote}>
         <header className="clearfix">
@@ -18,7 +20,7 @@ const NoteIndexItem = React.createClass({
           <button onClick={this.delete}><img className="recycling" src={window.recycling} /></button>
         </header>
         <div className="note-index-item-body">
-          {this.props.note.body}
+          {text}
         </div>
       </li>
     );

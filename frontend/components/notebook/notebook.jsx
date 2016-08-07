@@ -27,8 +27,6 @@ const Notebook = React.createClass({
     this.setState({ notebook: notebook });
   },
   render () {
-    let noteId;
-
     return (
       <div id="notebook">
         <Sidebar />
