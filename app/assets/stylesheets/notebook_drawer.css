@@ -85,3 +85,9 @@
   filter: grayscale(100%) brightness(40%);
   -webkit-filter: grayscale(100%) brightness(40%);
 }
+
+.dragged-on {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
+}
