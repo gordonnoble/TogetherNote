@@ -13,9 +13,8 @@ const TagDrawer = require('./tag_drawer');
 const Notebook = React.createClass({
   getInitialState() {
     this.id = this.props.params.id || SessionStore.currentUser().open_notebook_id;
-    let notes = NotebookStore.allCurrentNotes();
 
-    return ({ notebook: {}, notes: notes });
+    return ({ notebook: {} });
   },
   componentDidMount(){
     this.notebookListener = NotebookStore.addListener(this.updateNotebook);
@@ -26,18 +25,17 @@ const Notebook = React.createClass({
   },
   updateNotebook() {
     let notebook = NotebookStore.currentNotebook();
-    let notes = NotebookStore.allCurrentNotes();
-    this.setState({ notebook: notebook, notes: notes });
+    this.setState({ notebook: notebook });
   },
   render () {
     return (
       <div id="notebook">
         <Sidebar />
-
         <NotebookDrawer />
+
         <TagDrawer />
 
-        <NoteIndex notes={this.state.notes} header={this.state.notebook.name}/>
+        <NoteIndex header={this.state.notebook.name}/>
 
         <Note />
       </div>

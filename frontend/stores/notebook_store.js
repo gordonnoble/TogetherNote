@@ -27,16 +27,6 @@ NotebookStore.currentNotebook = function() {
   return Object.assign({}, _notebook);
 };
 
-NotebookStore.updateNote = function(note) {
-  _notebook.notes[note.id] = { id: note.id, title: note.title, body: note.plain_body };
-  NotebookStore.__emitChange();
-};
-
-NotebookStore.deleteNote = function(note) {
-  delete _notebook.notes[note.id];
-  NotebookStore.__emitChange();
-};
-
 NotebookStore.setNotebooks = function(notebooks) {
   _notebooks = notebooks;
   NotebookStore.__emitChange();
@@ -65,16 +55,6 @@ NotebookStore.hasNotebook = function(id) {
   return false;
 };
 
-NotebookStore.allCurrentNotes = function() {
-  let notes = [];
-
-  for(let key in _notebook.notes) {
-    notes.push(_notebook.notes[key]);
-  }
-
-  return notes;
-};
-
 NotebookStore.__onDispatch = function(payload) {
   switch (payload.actionType) {
     case NotebookConstants.RECEIVE_NEW_NOTEBOOK:
@@ -82,15 +62,6 @@ NotebookStore.__onDispatch = function(payload) {
       break;
     case NotebookConstants.RECEIVE_EXISTING_NOTEBOOK:
       NotebookStore.setNotebook(payload.notebook);
-      break;
-    case NoteConstants.NEW_NOTE:
-      NotebookStore.updateNote(payload.note);
-      break;
-    case NoteConstants.UPDATE_NOTE:
-      NotebookStore.updateNote(payload.note);
-      break;
-    case NoteConstants.DELETE_NOTE:
-      NotebookStore.deleteNote(payload.note);
       break;
     case NotebookConstants.RECEIVE_NOTEBOOKS:
       NotebookStore.setNotebooks(payload.notebooks);

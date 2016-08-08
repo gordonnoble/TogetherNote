@@ -1,9 +1,24 @@
 const React = require('react');
 const NoteIndexItem = require('./note_index_item');
+const NotesStore = require('../../stores/notes_store');
 
 const NoteIndex = React.createClass({
+  getInitialState() {
+    let notes = NotesStore.allNotes();
+    return ({ notes: notes });
+  },
+  componentDidMount() {
+    this.noteListener = NotesStore.addListener(this.updateNotes);
+  },
+  componentWillUnmount() {
+    this.noteListener.remove();
+  },
+  updateNotes() {
+    let notes = NotesStore.allNotes();
+    this.setState({ notes: notes });
+  },
   render () {
-    let notes = this.props.notes || [];
+    let notes = this.state.notes || [];
     let header = this.props.header || "";
     header = header.toUpperCase();
 

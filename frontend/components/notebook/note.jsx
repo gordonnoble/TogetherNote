@@ -18,6 +18,8 @@ const Note = React.createClass({
     this.noteListener.remove();
   },
   switchNote() {
+    if (NoteStore.currentNote().body === this.state.note.body) { return; }
+
     this.save();
     let note = NoteStore.currentNote();
     this.setState({ note: note, newTag: "" });
