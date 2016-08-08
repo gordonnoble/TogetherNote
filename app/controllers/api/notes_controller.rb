@@ -35,12 +35,35 @@ class Api::NotesController < ApplicationController
 
   def switch
     @note = Note.find(params[:id])
-    
+
     old_notebook = @note.notebooks.where(user_id: current_user.id).first
     @note.notebook_notes.where(notebook_id: old_notebook.id).first.destroy!
     @note.notebook_ids += [params[:notebook][:id]]
 
     render :show
+  end
+
+  def tag
+    note = Note.find(params[:id])
+
+    tag_name = params[:tag][:name]
+    tag = Tag.find_by(name: tag_name)
+
+    if !tag.nil?
+      note.tag_ids += [tag.id]
+      render json: {}
+    else
+      @tag = Tag.create!(name: tag_name)
+      note.tag_ids += [@tag.id]
+      render 'api/tags/show'
+    end
+  end
+
+  def tags_notes
+    tag = Tag.find(params[:id])
+    @notes = tag.notes
+    @notes = @notes.select{ |note| note.all_users.include?(current_user) }
+    render :index_by_tag
   end
 
   private

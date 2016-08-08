@@ -2,6 +2,7 @@ const Dispatcher = require('../dispatcher/dispatcher');
 const NoteConstants = require('../constants/note_constants');
 const NoteApiUtil = require('../utils/note_api_util');
 const NotebookActions = require('./notebook_actions');
+const TagConstants = require('../constants/tag_constants');
 
 const NoteActions = {};
 
@@ -17,14 +18,21 @@ NoteActions.setCurrentNote = function(note) {
 };
 
 NoteActions.pushNote = function(note) {
-  NoteApiUtil.pushNote(note, NotebookActions.fetchNotebook);
+  NoteApiUtil.pushNote(note, NoteActions.updateNote);
+};
+
+NoteActions.updateNote = function(note) {
+  Dispatcher.dispatch({
+    actionType: NoteConstants.UPDATE_NOTE,
+    note: note
+  });
 };
 
 NoteActions.newNote = function(notebookId) {
-  NoteApiUtil.newNote(notebookId, NoteActions.appendToNotebookAndSetNewNote);
+  NoteApiUtil.newNote(notebookId, NoteActions.receiveNewNote);
 };
 
-NoteActions.appendToNotebookAndSetNewNote = function(note) {
+NoteActions.receiveNewNote = function(note) {
   Dispatcher.dispatch({
     actionType: NoteConstants.NEW_NOTE,
     note: note
@@ -40,7 +48,6 @@ NoteActions.resetNotebookAndClearNote = function(note) {
     actionType: NoteConstants.DELETE_NOTE,
     note: note
   });
-  // NotebookActions.fetchNotebooks();
 };
 
 NoteActions.startDrag = function(id) {
@@ -52,6 +59,17 @@ NoteActions.startDrag = function(id) {
 
 NoteActions.switchNotesNotebook = function(noteId, notebookId) {
   NoteApiUtil.switchNotesNotebook(noteId, notebookId, NotebookActions.updateAll);
+};
+
+NoteActions.searchByTag = function(tagId) {
+  NoteApiUtil.searchByTag(tagId, NoteActions. receiveTaggedNotes);
+};
+
+NoteActions.receiveTaggedNotes = function(notes) {
+  Dispatcher.dispatch({
+    actionType: NoteConstants.RECEIVE_TAGGED_NOTES,
+    notes: notes
+  });
 };
 
 module.exports = NoteActions;

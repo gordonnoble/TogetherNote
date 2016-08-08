@@ -16,7 +16,7 @@ const NotebookDrawer = React.createClass({
 
       $(document).on('click', function(event) {
         if (!$(event.target).closest('#notebook-drawer').length) {
-          DisplayActions.closeDrawer();
+          DisplayActions.closeNotebookDrawer();
         }
       });
 

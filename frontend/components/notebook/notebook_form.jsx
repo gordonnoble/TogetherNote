@@ -30,7 +30,7 @@ const NotebookForm = React.createClass({
     event.preventDefault();
     NotebookActions.createNotebook(this.state);
     DisplayActions.hideNotebookForm();
-    DisplayActions.closeDrawer();
+    DisplayActions.closeNotebookDrawer();
     this.setState({ name: "" });
   },
   toggleOpen() {

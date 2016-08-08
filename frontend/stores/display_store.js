@@ -5,24 +5,34 @@ const DisplayConstants = require('../constants/display_constants');
 
 var _notebookDrawerVisible = false;
 var _notebookFormVisibile = false;
+var _tagDrawerVisible = false;
 
-DisplayStore.openDrawer = function() {
+DisplayStore.openNotebookDrawer = function() {
   _notebookDrawerVisible = true;
   DisplayStore.__emitChange();
 };
 
-DisplayStore.closeDrawer = function() {
+DisplayStore.closeNotebookDrawer = function() {
   _notebookDrawerVisible = false;
-  DisplayStore.__emitChange();
-};
-
-DisplayStore.toggleDrawer = function() {
-  _notebookDrawerVisible = (_notebookDrawerVisible) ? (false) : (true);
   DisplayStore.__emitChange();
 };
 
 DisplayStore.isNotebookDrawerOpen = function() {
   return _notebookDrawerVisible;
+};
+
+DisplayStore.openTagDrawer = function() {
+  _tagDrawerVisible = true;
+  DisplayStore.__emitChange();
+};
+
+DisplayStore.closeTagDrawer = function() {
+  _tagDrawerVisible = false;
+  DisplayStore.__emitChange();
+};
+
+DisplayStore.isTagDrawerOpen = function() {
+  return _tagDrawerVisible;
 };
 
 DisplayStore.showNotebookForm = function() {
@@ -41,11 +51,11 @@ DisplayStore.isNotebookFormVisible = function() {
 
 DisplayStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
-    case DisplayConstants.OPEN_DRAWER:
-      DisplayStore.openDrawer();
+    case DisplayConstants.OPEN_NOTEBOOK_DRAWER:
+      DisplayStore.openNotebookDrawer();
       break;
-    case DisplayConstants.CLOSE_DRAWER:
-      DisplayStore.closeDrawer();
+    case DisplayConstants.CLOSE_NOTEBOOK_DRAWER:
+      DisplayStore.closeNotebookDrawer();
       break;
     case DisplayConstants.TOGGLE_DRAWER:
       DisplayStore.toggleDrawer();
@@ -55,6 +65,12 @@ DisplayStore.__onDispatch = function(payload) {
       break;
     case DisplayConstants.HIDE_NOTEBOOK_FORM:
       DisplayStore.hideNotebookForm();
+      break;
+    case DisplayConstants.OPEN_TAG_DRAWER:
+      DisplayStore.openTagDrawer();
+      break;
+    case DisplayConstants.CLOSE_TAG_DRAWER:
+      DisplayStore.closeTagDrawer();
       break;
     }
 };

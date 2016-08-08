@@ -10,4 +10,17 @@ class Notebook < ApplicationRecord
   def note_count
     self.notes.count
   end
+
+  def notes_hash
+    notesHash = {};
+
+    self.notes.each do |note|
+      notesHash[note.id] = {}
+      notesHash[note.id][:id] = note.id
+      notesHash[note.id][:title] = note.title
+      notesHash[note.id][:body] = note.plain_text_body
+    end
+
+    notesHash
+  end
 end

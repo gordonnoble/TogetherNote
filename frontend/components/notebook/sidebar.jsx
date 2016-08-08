@@ -13,16 +13,20 @@ const Sidebar = React.createClass({
     let notebookId = NotebookStore.currentNotebook().id;
     NoteActions.newNote(notebookId);
   },
-  toggleDrawer(event) {
-    DisplayActions.toggleDrawer();
+  openNotebookDrawer(event) {
+    DisplayActions.openNotebookDrawer();
+  },
+  openTagDrawer(event) {
+    DisplayActions.openTagDrawer();
   },
   render() {
     return (
       <div id="sidebar">
         <img className="logo" src={window.logo} />
         <button onClick={this.newNote}><img className="new-note" src={window.newNote} /></button>
-        <button onClick={this.toggleDrawer} id="drawer-button"><img className="notebooks" src={window.notebooks} /></button>
+        <button onClick={this.openNotebookDrawer} id="notebook-drawer-button"><img className="notebooks" src={window.notebooks} /></button>
         <button onClick={this.logout} className="logout">logout</button>
+        <button onClick={this.openTagDrawer} id="tag-drawer-button">tags</button>
       </div>
     );
   }

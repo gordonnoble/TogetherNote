@@ -2,14 +2,14 @@ const React = require('react');
 const ReactQuill = require('react-quill');
 const NoteActions = require('../../actions/note_actions');
 const NoteStore = require('../../stores/note_store');
-// const TagActions = require('../../actions/tag_actions');
+const TagActions = require('../../actions/tag_actions');
 
 const Note = React.createClass({
   timer: setTimeout(()=>{}, 0),
 
   getInitialState() {
     let note = NoteStore.currentNote();
-    return ({ note: note });
+    return ({ note: note, newTag: "" });
   },
   componentDidMount(){
     this.noteListener = NoteStore.addListener(this.switchNote);
@@ -20,7 +20,7 @@ const Note = React.createClass({
   switchNote() {
     this.save();
     let note = NoteStore.currentNote();
-    this.setState({ note: note });
+    this.setState({ note: note, newTag: "" });
   },
   handleTitleChange (event) {
     let newState = this.state;
@@ -41,8 +41,15 @@ const Note = React.createClass({
     clearTimeout(this.timer);
     this.timer = setTimeout(this.save, 1000);
   },
-  newTag(event) {
-    // TagActions.tagNote(this.state.note.id, event.target.value);
+  handleTagInput(event) {
+    this.setState({ newTag: event.target.value });
+  },
+  submitNewTag(event) {
+    event.preventDefault();
+    TagActions.tagNote(this.state.note.id, this.state.newTag);
+    let confirmation = document.getElementById("tag-confirmation");
+    confirmation.className = "show";
+    setTimeout(() => confirmation.className = "hide", 2000);
   },
   render () {
     if ( this.state.note.title === undefined ) {
@@ -55,9 +62,10 @@ const Note = React.createClass({
           <header id="note-header">
             <input type="text" className="title" value={this.state.note.title} onChange={this.handleTitleChange} />
 
-              <form id="tag-form" onSubmit={this.newTag}>
+              <form id="tag-form" onSubmit={this.submitNewTag}>
                 <span id="tag-label">tag...</span>
-                <input type="text" onChange={this.handleTagChange} />
+                <input type="text" onChange={this.handleTagInput} value={this.state.newTag}/>
+                <span id="tag-confirmation" className="hide">tag added</span>
               </form>
 
           </header>

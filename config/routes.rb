@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   end
 
   patch '/api/notes/:id/switch', to: 'api/notes#switch'
+  patch '/api/notes/:id/tag', to: 'api/notes#tag'
+  get 'api/users/:id/tags', to: 'api/tags#users_tags'
+  get 'api/tags/:id/notes', to: 'api/notes#tags_notes'
 
   root to: 'static_pages#root'
 end

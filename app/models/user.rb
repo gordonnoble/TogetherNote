@@ -42,6 +42,16 @@ class User < ApplicationRecord
     self.session_token
   end
 
+  def all_tags
+    tags = []
+
+    self.all_notes.each do |note|
+      tags += note.tags
+    end
+
+    return tags.uniq
+  end
+
   private
 
   def new_token

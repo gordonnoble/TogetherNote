@@ -15,7 +15,7 @@ const NoteApiUtil = {
       method: 'PATCH',
       data: { note: note },
       success(note) {
-        callback();
+        callback(note);
       }
     });
   },
@@ -48,6 +48,27 @@ const NoteApiUtil = {
       data: { notebook: { id: notebookId } },
       success() {
         callback();
+      }
+    });
+  },
+
+  tagNote(noteId, tagName, callback) {
+    $.ajax({
+      url: `/api/notes/${noteId}/tag`,
+      method: 'PATCH',
+      data: { tag: { name: tagName } },
+      success(tags) {
+        callback(tags);
+      }
+    });
+  },
+
+  searchByTag(tagId, callback) {
+    $.ajax({
+      url: `/api/tags/${tagId}/notes`,
+      method: 'GET',
+      success(notes) {
+        callback(notes);
       }
     });
   }

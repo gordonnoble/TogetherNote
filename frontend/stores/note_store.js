@@ -6,11 +6,16 @@ const NotebookConstants = require('../constants/notebook_constants');
 
 const _undefinedNote = { id: undefined, title: undefined, body: undefined, collaborators: undefined};
 var _note = {};
+var _taggedNotes = [];
 var _dragNoteId;
 
-NoteStore.setCurrentNote = function(note) {
+NoteStore.switchNote = function(note) {
   _note = note;
   NoteStore.__emitChange();
+};
+
+NoteStore.updateNote = function(note) {
+  _note = note;
 };
 
 NoteStore.isEmpty = function() {
@@ -34,13 +39,25 @@ NoteStore.dragNoteId = function() {
   return _dragNoteId;
 };
 
+NoteStore.setTaggedNotes = function(notes) {
+  _taggedNotes = notes;
+  NoteStore.__emitChange();
+};
+
+NoteStore.taggedNotes = function(notes) {
+  return _taggedNotes.slice();
+};
+
 NoteStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
     case NoteConstants.SET_CURRENT_NOTE:
-      NoteStore.setCurrentNote(payload.note);
+      NoteStore.switchNote(payload.note);
       break;
     case NoteConstants.NEW_NOTE:
-      NoteStore.setCurrentNote(payload.note);
+      NoteStore.switchNote(payload.note);
+      break;
+    case NoteConstants.UPDATE_NOTE:
+      NoteStore.updateNote(payload.note);
       break;
     case NoteConstants.DELETE_NOTE:
       NoteStore.wipeCurrentNote();
@@ -53,6 +70,9 @@ NoteStore.__onDispatch = function(payload) {
       break;
     case NoteConstants.START_DRAG:
       NoteStore.startDrag(payload.id);
+      break;
+    case NoteConstants.RECEIVE_TAGGED_NOTES:
+      NoteStore.setTaggedNotes(payload.notes);
       break;
   }
 };

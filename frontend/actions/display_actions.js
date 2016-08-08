@@ -3,21 +3,27 @@ const DisplayConstants = require('../constants/display_constants');
 
 const DisplayActions = {};
 
-DisplayActions.openDrawer = function() {
+DisplayActions.openNotebookDrawer = function() {
   Dispatcher.dispatch({
-    actionType: DisplayConstants.OPEN_DRAWER
+    actionType: DisplayConstants.OPEN_NOTEBOOK_DRAWER
   });
 };
 
-DisplayActions.closeDrawer = function() {
+DisplayActions.closeNotebookDrawer = function() {
   Dispatcher.dispatch({
-    actionType: DisplayConstants.CLOSE_DRAWER
+    actionType: DisplayConstants.CLOSE_NOTEBOOK_DRAWER
   });
 };
 
-DisplayActions.toggleDrawer = function() {
+DisplayActions.openTagDrawer = function() {
   Dispatcher.dispatch({
-    actionType: DisplayConstants.TOGGLE_DRAWER
+    actionType: DisplayConstants.OPEN_TAG_DRAWER
+  });
+};
+
+DisplayActions.closeTagDrawer = function() {
+  Dispatcher.dispatch({
+    actionType: DisplayConstants.CLOSE_TAG_DRAWER
   });
 };
 

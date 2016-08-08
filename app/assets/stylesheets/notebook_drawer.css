@@ -10,14 +10,14 @@
   z-index: 2;
 }
 
-.closed {
+#notebook-drawer.closed {
   opacity: 0 !important;
   width: 0px;
   visibility: hidden;
   transition: all 300ms ease;
 }
 
-.open {
+#notebook-drawer.open {
   width: 500px;
   opacity: 1;
   visibility: visible;

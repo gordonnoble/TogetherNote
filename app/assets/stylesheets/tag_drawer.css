@@ -1,0 +1,52 @@
+#tag-drawer {
+  font-family: 'Raleway', sans-serif;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 101px;
+  background-color: #FFFFFF;
+  border-right: 1px solid #D3D3D3;
+  z-index: 2;
+  flex-direction: column;
+}
+
+#tag-drawer h2 {
+  padding: 20px;
+  padding-bottom: 40px;
+  font-weight: 700;
+  border-bottom: 1px solid #D3D3D3;
+}
+
+#tag-drawer.closed {
+  opacity: 0 !important;
+  width: 0px;
+  visibility: hidden;
+  transition: all 500ms;
+}
+
+#tag-drawer.open {
+  width: 500px;
+  opacity: 1;
+  visibility: visible;
+  transition: all 500ms;
+}
+
+.tag-index-item {
+  float: left;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 20px;
+  margin-bottom: 10px;
+  display: inline;
+  font-weight: bolder
+}
+
+.tag-index-item {
+  background-color: rgba(45,190,96,0.9);
+}
+
+.tag-index-item:hover {
+  cursor: pointer;
+  margin: 15px 20px 15px 20px;
+  transition: 150ms ease;
+}

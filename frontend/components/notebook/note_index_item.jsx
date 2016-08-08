@@ -12,7 +12,7 @@ const NoteIndexItem = React.createClass({
     NoteActions.deleteNote(this.props.note.id);
   },
   drag() {
-    DisplayActions.openDrawer();
+    DisplayActions.openNotebookDrawer();
     NoteActions.startDrag(this.props.note.id);
   },
   render () {
