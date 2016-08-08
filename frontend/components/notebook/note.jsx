@@ -37,6 +37,9 @@ const Note = React.createClass({
     clearTimeout(this.timer);
     this.timer = setTimeout(this.save, 1000);
   },
+  newTag() {
+    
+  },
   render () {
     if ( this.state.title === undefined ) {
       return (
@@ -45,7 +48,17 @@ const Note = React.createClass({
     } else {
       return (
         <div className="note">
-          <input type="text" className="title" value={this.state.title} onChange={this.handleTitleChange} />
+          <header id="note-header">
+            <input type="text" className="title" value={this.state.title} onChange={this.handleTitleChange} />
+
+            <div id="tag-input">
+              <span className="label">tag:</span>
+              <form onSubmit={this.newTag}>
+                <input type="text" onChange={this.handleTagChange} />
+              </form>
+            </div>
+
+          </header>
           <ReactQuill theme="snow" id="note-body" onChange={this.handleBodyChange} value={this.state.body} autofocus/>
         </div>
       );

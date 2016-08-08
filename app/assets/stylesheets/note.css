@@ -6,18 +6,56 @@
   background: #FFFFFF;
 }
 
+#note-header {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
 .note .title {
   font-family: 'Josefin Slab', sans-serif;
   text-align: left;
   font-weight: 700;
   font-size: 24px;
-  padding: 18px 30px;
   color: #2DBE60;
+  display: inline;
+  width: 50%;
+  margin: 0 20px;
+}
+
+#tag-input {
+  display: none;
+  width: 0px;
+}
+
+#note-header:hover #tag-input {
+  display: inline;
+  width: 40%;
+  transition: all 200ms ease-in-out;
+}
+
+#tag-input form {
+  display: inline;
+}
+
+#tag-input .label {
+  color: #808080;
+  padding: 10px;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+}
+
+#tag-input form input {
+  border-radius: 3px;
+  padding: 5px;
+  border: 1px solid #808080;
+  width: 50px;
 }
 
 #note-splash {
   position: relative;
 }
+
 #note-splash .logo {
   position: absolute;
   width: 50%;
