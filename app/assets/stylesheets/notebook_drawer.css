@@ -6,7 +6,7 @@
   left: 101px;
   background-color: #FFFFFF;
   flex-direction: column;
-  border-right: 1px solid #ECECEC;
+  border-right: 1px solid #D3D3D3;
   z-index: 2;
 }
 
@@ -66,12 +66,12 @@
 }
 
 #notebook-index:last-child {
-  border-bottom: 1px solid #ECECEC;
+  border-bottom: 1px solid #D3D3D3;
 }
 
 .notebook-index-item {
   padding: 20px;
-  border-top: 1px solid #ECECEC;
+  border-top: 1px solid #D3D3D3;
   font-weight: bolder
 }
 

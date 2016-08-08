@@ -1,6 +1,7 @@
 #note-index {
   background-color: #FFFFFF;
-  border: 1px solid #ECECEC;
+  border: 1px solid #D3D3D3;
+  border-top: none;
   width: 400px;
   display: flex;
   flex-direction: column;
@@ -12,12 +13,12 @@
   color: #878787;
   font-family: 'Raleway', sans-serif;
   font-size: 16px;
-  border-bottom: 1px solid #ECECEC;
+  border-bottom: 1px solid #D3D3D3;
 }
 
 .note-index-item {
   height: 80px;
-  border-bottom: 1px solid #ECECEC;
+  border-bottom: 1px solid #D3D3D3;
   font-family: 'Josefin Slab', sans-serif;
 }
 

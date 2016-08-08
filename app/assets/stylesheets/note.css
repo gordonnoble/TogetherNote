@@ -1,3 +1,4 @@
+/*Note*/
 .note {
   flex: 1;
   flex-direction: column;
@@ -6,10 +7,12 @@
   background: #FFFFFF;
 }
 
+
+/*Note Header*/
 #note-header {
   display: flex;
   align-items: center;
-  height: 50px;
+  height: 49px;
 }
 
 .note .title {
@@ -23,35 +26,48 @@
   margin: 0 20px;
 }
 
-#tag-input {
-  display: none;
-  width: 0px;
-}
 
-#note-header:hover #tag-input {
-  display: inline;
-  width: 40%;
-  transition: all 200ms ease-in-out;
-}
-
-#tag-input form {
-  display: inline;
-}
-
-#tag-input .label {
-  color: #808080;
+/*Tag Form*/
+#tag-label {
+  opacity: 0.7;
+  color: #2DBE60;
   padding: 10px;
   font-family: 'Lato', sans-serif;
   font-size: 14px;
 }
 
-#tag-input form input {
-  border-radius: 3px;
+#tag-form input {
+  opacity: 0.7;
+  border-radius: 2px;
   padding: 5px;
-  border: 1px solid #808080;
-  width: 50px;
+  margin: 0px;
+  border: 1px solid #2DBE60;
+  width: 0px;
+  display: inline-block;
+  transition: all 200ms ease-in-out;
 }
 
+#note-header:hover #tag-form input {
+  width: 80px;
+  transition: all 200ms ease-in-out;
+  opacity: 1.0;
+}
+
+#note-header:hover #tag-label {
+  opacity: 1.0;
+}
+
+#tag-form input:focus {
+  width: 80px;
+  opacity: 1.0;
+}
+
+#tag-form input:focus #tag-label {
+  opacity: 1.0;
+}
+
+
+/*Note Splash*/
 #note-splash {
   position: relative;
 }
@@ -66,19 +82,9 @@
 }
 
 .quill-toolbar.ql-toolbar.ql-snow * {
-  opacity: 0;
-  transition: 200ms ease;
-}
-
-.quill-toolbar.ql-toolbar.ql-snow:hover * {
-  opacity: 1 !important;
-  transition: 200ms ease;
-}
-
-.quill-toolbar.ql-toolbar.ql-snow * {
   font-family: 'Lato', sans-serif;
 }
 
 .quill-toolbar.ql-toolbar.ql-snow {
-  border-top: 1px solid #ECECEC;
+  border-top: 1px solid #D3D3D3;
 }

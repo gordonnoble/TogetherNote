@@ -133,7 +133,8 @@
   font-size: 13px;
   height: 100%;
   line-height: 1.42;
-  margin: 40px 60px 40px 60px !important;
+  margin: 40px !important;
+  margin-top: 20px !important;
   overflow-x: hidden;
   overflow-y: auto;
   padding: 12px 15px;
