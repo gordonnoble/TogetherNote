@@ -23,7 +23,7 @@ TagStore.addTag = function(tag) {
 
 TagStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
-    case TagConstants.RECIEVE_TAG:
+    case TagConstants.RECEIVE_TAG:
       TagStore.addTag(payload.tag);
       break;
     case TagConstants.RECEIVE_TAGS:

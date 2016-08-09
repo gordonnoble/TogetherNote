@@ -10,10 +10,10 @@ TagActions.tagNote = function(noteId, tagName) {
   NoteApiUtil.tagNote(noteId, tagName, TagActions.receiveTag);
 };
 
-TagActions.receiveTag = function(tags) {
+TagActions.receiveTag = function(tag) {
   Dispatcher.dispatch({
     actionType: TagConstants.RECEIVE_TAG,
-    tags: tags
+    tag: tag
   });
 };
 

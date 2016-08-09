@@ -6,10 +6,16 @@ const NotebookConstants = require('../constants/notebook_constants');
 
 
 var _notes = {};
+var _header = "";
 
-NotesStore.updateNotes = function(notes) {
-  _notes = notes;
+NotesStore.updateNotes = function(book) {
+  _notes = book.notes;
+  _header = book.name;
   NotesStore.__emitChange();
+};
+
+NotesStore.header = function() {
+  return _header;
 };
 
 NotesStore.updateNote = function(note) {
@@ -46,10 +52,10 @@ NotesStore.deleteNote = function(note) {
 NotesStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
     case NotebookConstants.RECEIVE_NEW_NOTEBOOK:
-      NotesStore.updateNotes(payload.notebook.notes);
+      NotesStore.updateNotes(payload.notebook);
       break;
     case NotebookConstants.RECEIVE_EXISTING_NOTEBOOK:
-      NotesStore.updateNotes(payload.notebook.notes);
+      NotesStore.updateNotes(payload.notebook);
       break;
     case NotebookConstants.REMOVE_NOTEBOOK:
       NotesStore.removeNotebook(payload.notebook);
@@ -64,7 +70,7 @@ NotesStore.__onDispatch = function(payload) {
       NotesStore.deleteNote(payload.note);
       break;
     case NoteConstants.RECEIVE_TAGGED_NOTES:
-      NotesStore.updateNotes(payload.notes);
+      NotesStore.updateNotes(payload.tagNotebook);
       break;
   }
 };

@@ -8,7 +8,7 @@ class Notebook < ApplicationRecord
   has_many :notes, through: :notebook_notes
 
   def note_count
-    self.notes.count
+    self.notes.count || 0
   end
 
   def notes_hash

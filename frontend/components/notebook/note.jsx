@@ -51,6 +51,7 @@ const Note = React.createClass({
     TagActions.tagNote(this.state.note.id, this.state.newTag);
     let confirmation = document.getElementById("tag-confirmation");
     confirmation.className = "show";
+    this.setState({ newTag: "" });
     setTimeout(() => confirmation.className = "hide", 2000);
   },
   render () {
@@ -65,7 +66,7 @@ const Note = React.createClass({
             <input type="text" className="title" value={this.state.note.title} onChange={this.handleTitleChange} />
 
               <form id="tag-form" onSubmit={this.submitNewTag}>
-                <span id="tag-label">tag...</span>
+                <button id="tag-label"><img className="tag-button" src={window.tag} /></button>
                 <input type="text" onChange={this.handleTagInput} value={this.state.newTag}/>
                 <span id="tag-confirmation" className="hide">tag added</span>
               </form>

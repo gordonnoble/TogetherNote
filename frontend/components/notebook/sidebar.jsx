@@ -26,7 +26,7 @@ const Sidebar = React.createClass({
         <button onClick={this.newNote}><img className="new-note" src={window.newNote} /></button>
         <button onClick={this.openNotebookDrawer} id="notebook-drawer-button"><img className="notebooks" src={window.notebooks} /></button>
         <button onClick={this.logout} className="logout">logout</button>
-        <button onClick={this.openTagDrawer} id="tag-drawer-button">tags</button>
+        <button onClick={this.openTagDrawer} id="tag-drawer-button"><img className="tags-button" src={window.tags} /></button>
       </div>
     );
   }

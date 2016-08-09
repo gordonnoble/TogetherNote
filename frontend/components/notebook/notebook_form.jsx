@@ -51,7 +51,7 @@ const NotebookForm = React.createClass({
       <li id="notebook-form" className="notebook-index-item off">
         <form onSubmit={this.submit}>
           <input id="notebook-form-input" className="name" type="text" value={this.state.name} onChange={this.handleInput} />
-          <span id="notebook-form-button">Create</span>
+          <span id="notebook-form-button" onClick={this.submit}>Create</span>
         </form>
       </li>
     );

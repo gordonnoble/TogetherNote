@@ -60,8 +60,8 @@ class Api::NotesController < ApplicationController
   end
 
   def tags_notes
-    tag = Tag.find(params[:id])
-    @notes = tag.notes
+    @tag = Tag.find(params[:id])
+    @notes = @tag.notes
     @notes = @notes.select{ |note| note.all_users.include?(current_user) }
     render :index_by_tag
   end

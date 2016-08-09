@@ -40,10 +40,12 @@ NoteActions.receiveNewNote = function(note) {
 };
 
 NoteActions.deleteNote = function(id) {
-  NoteApiUtil.deleteNote(id, NoteActions.resetNotebookAndClearNote);
+  NoteApiUtil.deleteNote(id, NoteActions.receiveDeletedNote);
 };
 
-NoteActions.resetNotebookAndClearNote = function(note) {
+NoteActions.receiveDeletedNote = function(note) {
+  NotebookActions.fetchNotebooks();
+
   Dispatcher.dispatch({
     actionType: NoteConstants.DELETE_NOTE,
     note: note
@@ -65,10 +67,10 @@ NoteActions.searchByTag = function(tagId) {
   NoteApiUtil.searchByTag(tagId, NoteActions. receiveTaggedNotes);
 };
 
-NoteActions.receiveTaggedNotes = function(notes) {
+NoteActions.receiveTaggedNotes = function(tagNotebook) {
   Dispatcher.dispatch({
     actionType: NoteConstants.RECEIVE_TAGGED_NOTES,
-    notes: notes
+    tagNotebook: tagNotebook
   });
 };
 

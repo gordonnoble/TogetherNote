@@ -32,10 +32,8 @@ const TagDrawer = React.createClass({
     let drawer = document.getElementById("tag-drawer");
 
     if (DisplayStore.isTagDrawerOpen()) {
-      // this.setState({ tags: TagStore.all() });
       drawer.className = "clearfix open";
     } else {
-      // this.setState({ tags: TagSTore.all() });
       drawer.className = "clearfix closed";
     }
   },
