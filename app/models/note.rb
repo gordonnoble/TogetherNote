@@ -1,4 +1,6 @@
 class Note < ApplicationRecord
+    has_attached_file :image, default_url: ""
+    validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
     has_many :notebook_notes, inverse_of: :note
     has_many :notebooks, through: :notebook_notes
     has_many :taggings, dependent: :destroy, inverse_of: :note

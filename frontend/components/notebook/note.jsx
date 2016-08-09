@@ -58,6 +58,8 @@ const Note = React.createClass({
     setTimeout(() => confirmation.className = "hide", 2000);
   },
   render () {
+    let imageClass = (this.state.note.image_url === "") ? "hide" : "show";
+
     if ( this.state.note.title === undefined ) {
       return (
         <div id="note-splash" className="note"><img className="logo" src={window.noteSplash} /></div>
@@ -75,7 +77,13 @@ const Note = React.createClass({
               </form>
 
           </header>
-          <ReactQuill theme="snow" id="note-body" onChange={this.handleBodyChange} value={this.state.note.body} autofocus/>
+          <div id="note-body">
+            <ReactQuill theme="snow" id="body-text" onChange={this.handleBodyChange} value={this.state.note.body} autofocus/>
+
+            <div id="note-images">
+              <img id="note-image" className={imageClass} src={this.state.note.image_url} />
+            </div>
+          </div>
         </div>
       );
     }

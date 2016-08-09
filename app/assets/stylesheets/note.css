@@ -12,7 +12,7 @@
 #note-header {
   display: flex;
   align-items: center;
-  height: 65px;
+  height: 64px;
   border-bottom: 1px solid #D3D3D3;
 }
 
@@ -71,7 +71,6 @@
   opacity: 1.0;
 }
 
-
 #tag-confirmation {
     color: #2DBE60;
     padding: 10px;
@@ -86,6 +85,32 @@
 #tag-confirmation.show {
   opacity: 1.0;
   transition: 200ms;
+}
+
+
+/*Note Body*/
+
+#note-body {
+  display: flex;
+  flex-direction: row;
+}
+
+#note-text {
+  flex: 1;
+}
+
+#note-images {
+  margin: 40px;
+}
+
+#note-image {
+  width: 300px;
+  float: left;
+  box-shadow: -1px 2px 3px 2px rgba(45,190,96,0.75);
+}
+
+#note-image.hide {
+  display: none;
 }
 
 

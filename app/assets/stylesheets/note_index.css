@@ -9,6 +9,7 @@
 
 #note-index>header {
   display: flex;
+  height: 64px;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #D3D3D3;

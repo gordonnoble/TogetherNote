@@ -22,7 +22,7 @@ NoteActions.pushNote = function(note) {
 };
 
 NoteActions.silentPushNote = function(note) {
-  NoteApiUtil.pushNote(note, () => console.log('shhhh'));
+  NoteApiUtil.pushNote(note, () => {});
 };
 
 NoteActions.updateNote = function(note) {
