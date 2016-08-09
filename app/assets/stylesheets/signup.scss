@@ -1,66 +1,86 @@
-#signup-page {
+.signup-in-page {
   font-family: 'Josefin Slab', sans-serif;
   font-size: 16px;
 }
 
-#signup-box {
+.signup-in-box {
   position: absolute;
   top: 40%;
   left: 50%;
   width: 400px;
-  height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   transform: translateX(-50%) translateY(-50%);
 }
 
-#signup-page form {
+.signup-in-page form {
   display: flex;
+  width: 100%;
   flex-direction: column;
+  align-items: center;
   flex-wrap: wrap;
 }
 
-#signup-page h1 {
+.signup-in-page h1 {
   font-weight: 500;
   text-align: center;
   font-size: 32px;
-  color: #2F4F4F;
+  color: #1c2f2f;
+  margin: 20px;
 }
 
-#signup-page form input {
-  width: 320px;
-  height: 40px;
-  border-radius: 3px;
-  margin: 20px auto 0;
-  font-size: 16px;
+
+.errors {
+  width: 75%;
+  display: block;
+  text-align: left;
+  font-family: 'Lato', sans-serif;
+  padding-bottom: 10px;
 }
 
-.username, .password {
+.errors li {
+  padding-bottom: 5px;
+}
+
+.signup-in-input {
+  font-family: 'Lato', sans-serif;
   border: 1px solid #CCCCCC;
   text-align: left;
   text-indent: 20px;
+  padding: 10px 0px;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 75%;
+  margin-bottom: 20px;
 }
 
-#signup-button {
+.signup-in-button {
   font-weight: 300;
-  padding: 20px auto;
   color: #FFFFFF;
-  height: 30px;
   background-color: #2DBE60;
-  border: 1px solid #1FAE52;
+  padding: 10px;
+  text-align: center;
+  text-indent: 0px;
+  border: none;
 }
 
-#signup-button:hover {
+.signup-in-button:hover {
   cursor: pointer;
 }
 
-#login-link {
+.signup-in-link {
+  font-family: 'Lato', sans-serif;
   font-size: 14px;
   margin: 20px auto;
   text-align: center;
-  color: #696969
+  color: #2F4F4F;
 }
 
-#login-link a {
-  color: #2F4F4F;
+.signup-in-link a {
+  display: block;
+  padding: 5px;
+  color: #2DBE60;
 }
 
 video#bgvid {

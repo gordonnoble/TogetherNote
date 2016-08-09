@@ -1,0 +1,13 @@
+.login-box h1 {
+  color: #2DBE60 !important;
+}
+
+.login-box img {
+  width: 25%;
+  margin-bottom: 40px;
+}
+
+.login-box {
+  border-radius: 3px;
+  box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+}

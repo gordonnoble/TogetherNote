@@ -27,10 +27,11 @@ const LoginForm = React.createClass({
       hashHistory.push(`/notebooks/${id}`);
     }
   },
-  update(event) {
-    let newState = this.state;
-    newState[event.target.className] = event.target.value;
-    this.setState(newState);
+  updateUsername(event) {
+    this.setState({ username: event.target.value });
+  },
+  updatePassword(event) {
+    this.setState({ password: event.target.value });
   },
   submit(event) {
     event.preventDefault();
@@ -48,34 +49,33 @@ const LoginForm = React.createClass({
     }
 
     return (
-      <div id="signup-page">
-        <div id="signup-box">
+      <div className="signup-in-page">
+        <div className="signup-in-box login-box">
           <h1>Log In</h1>
-
+          <img className="logo" src={window.logo} />
           {errors}
 
           <form onSubmit={this.submit}>
 
             <input type="text"
-              onChange={this.update}
-              className="username"
+              onChange={this.updateUsername}
+              className="signup-in-input"
               value={this.state.username}
               placeholder="Username"
               />
 
             <input type="password"
-              onChange={this.update}
-              className="password"
+              onChange={this.updatePassword}
+              className="signup-in-input"
               value={this.state.password}
               placeholder="Password"
               />
 
-            <input id="signup-button" type="submit" value="Log In" />
+            <input className="signup-in-input signup-in-button" type="submit" value="Log In" />
 
           </form>
-            <div id="login-link">
+            <div className="signup-in-link signup-link">
               <span>Don't have an account?</span>
-              <br></br>
               <Link to='/signup'>Create One</Link>
               </div>
             </div>
