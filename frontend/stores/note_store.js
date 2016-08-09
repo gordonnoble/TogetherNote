@@ -51,6 +51,13 @@ NoteStore.deleteNote = function(note) {
   }
 };
 
+NoteStore.switchBook = function(book) {
+  let firstKey;
+  for(firstKey in book) { break; }
+  _note = book[firstKey];
+  NoteStore.__emitChange();
+};
+
 
 NoteStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
@@ -68,6 +75,15 @@ NoteStore.__onDispatch = function(payload) {
       break;
     case NoteConstants.START_DRAG:
       NoteStore.startDrag(payload.id);
+      break;
+    case NotebookConstants.RECEIVE_NEW_NOTEBOOK:
+      NoteStore.switchBook(payload.notebook);
+      break;
+    case NotebookConstants.RECEIVE_EXISTING_NOTEBOOK:
+      NoteStore.switchBook(payload.notebook);
+      break;
+    case NoteConstants.RECEIVE_TAGGED_NOTES:
+      NoteStore.switchBook(payload.tagNotebook);
       break;
   }
 };

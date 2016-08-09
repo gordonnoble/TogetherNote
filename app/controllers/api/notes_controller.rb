@@ -61,9 +61,8 @@ class Api::NotesController < ApplicationController
 
   def tags_notes
     @tag = Tag.find(params[:id])
-    @notes = @tag.notes
-    @notes = @notes.select{ |note| note.all_users.include?(current_user) }
-    render :index_by_tag
+    @notes = @tag.notes_hash_by_user(current_user)
+    render 'api/tags/show_with_notes'
   end
 
   private

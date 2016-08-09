@@ -18,9 +18,7 @@ const Note = React.createClass({
     this.noteListener.remove();
   },
   switchNote() {
-    if (NoteStore.currentNote().body === this.state.note.body) { return; }
-
-    this.save();
+    this.silentSave();
     let note = NoteStore.currentNote();
     this.setState({ note: note, newTag: "" });
   },
@@ -30,6 +28,11 @@ const Note = React.createClass({
     this.setState(newState);
     clearTimeout(this.timer);
     this.timer = setTimeout(this.save, 1000);
+  },
+  silentSave() {
+    if (this.state.note.id !== undefined && !NoteStore.isEmpty()) {
+      NoteActions.silentPushNote( this.state.note );
+    }
   },
   save() {
     if (this.state.note.id !== undefined && !NoteStore.isEmpty()) {

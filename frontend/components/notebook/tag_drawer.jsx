@@ -44,7 +44,7 @@ const TagDrawer = React.createClass({
 
     return (
       <ul id="tag-drawer" className="clearfix closed">
-        <h2>ALL TAGS</h2>
+        <h2>TAGS</h2>
         {tags}
       </ul>
     );

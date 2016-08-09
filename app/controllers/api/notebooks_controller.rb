@@ -6,8 +6,8 @@ class Api::NotebooksController < ApplicationController
   end
 
   def index
-    @notebooks = current_user.notebooks
-    render :index
+    notebooks = current_user.notebooks_hash
+    render json: notebooks
   end
 
   def create

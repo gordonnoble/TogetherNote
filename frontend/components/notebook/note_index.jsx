@@ -1,6 +1,7 @@
 const React = require('react');
 const NoteIndexItem = require('./note_index_item');
 const NotesStore = require('../../stores/notes_store');
+const NoteActions = require('../../actions/note_actions');
 
 const NoteIndex = React.createClass({
   getInitialState() {
@@ -19,6 +20,11 @@ const NoteIndex = React.createClass({
     let header = NotesStore.header();
     this.setState({ notes: notes, header: header });
   },
+  newNote(event) {
+    event.preventDefault();
+    let notebookId = NotebookStore.currentNotebookId();
+    NoteActions.newNote(notebookId);
+  },
   render () {
     let notes = this.state.notes || [];
     let header = this.state.header || "";
@@ -27,7 +33,11 @@ const NoteIndex = React.createClass({
     return (
 
       <div id="note-index">
-        <header>{header}</header>
+        <header>
+          <h2>{header}</h2>
+          <button onClick={this.newNote}><img className="new-note" src={window.newNote} /></button>
+        </header>
+
         <ul>
           {
             notes.map( note => <NoteIndexItem key={note.id} note={note} /> )

@@ -21,6 +21,10 @@ NoteActions.pushNote = function(note) {
   NoteApiUtil.pushNote(note, NoteActions.updateNote);
 };
 
+NoteActions.silentPushNote = function(note) {
+  NoteApiUtil.pushNote(note, () => console.log('shhhh'));
+};
+
 NoteActions.updateNote = function(note) {
   Dispatcher.dispatch({
     actionType: NoteConstants.UPDATE_NOTE,
@@ -37,6 +41,8 @@ NoteActions.receiveNewNote = function(note) {
     actionType: NoteConstants.NEW_NOTE,
     note: note
   });
+
+  document.querySelector('#note-header .title').select();
 };
 
 NoteActions.deleteNote = function(id) {

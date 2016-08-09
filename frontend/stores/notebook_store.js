@@ -4,27 +4,28 @@ const NotebookStore = new Store(Dispatcher);
 const NotebookConstants = require('../constants/notebook_constants');
 const NoteConstants = require('../constants/note_constants');
 
-var _notebook = {};
-var _notebooks = [];
+var _notebooks = {};
 
 NotebookStore.setNotebook = function(notebook) {
-  _notebook = notebook;
   window.currentUser.open_notebook_id = notebook.id;
   NotebookStore.__emitChange();
 };
 
 NotebookStore.addNotebook = function(notebook) {
-  _notebook = notebook;
   window.currentUser.open_notebook_id = notebook.id;
 
-  _notebooks.push({id: notebook.id, name: notebook.name,
+  _notebooks[notebook.id] = {
+    id: notebook.id, name: notebook.name,
     created_at: notebook.created_at, updated_at: notebook.updated_at,
-    removable: notebook.removable});
+    removable: notebook.removable,
+    note_count: 0
+  };
+
   NotebookStore.__emitChange();
 };
 
-NotebookStore.currentNotebook = function() {
-  return Object.assign({}, _notebook);
+NotebookStore.currentNotebookId = function() {
+  return window.currentUser.open_notebook_id;
 };
 
 NotebookStore.setNotebooks = function(notebooks) {
@@ -33,26 +34,30 @@ NotebookStore.setNotebooks = function(notebooks) {
 };
 
 NotebookStore.allNotebooks = function() {
-  return _notebooks.slice().map( notebook => Object.assign({}, notebook));
+  let notebooks = [];
+
+  for (let key in _notebooks) {
+    notebooks.push(_notebooks[key]);
+  }
+
+  return notebooks;
 };
 
 NotebookStore.deleteNotebook = function(notebook) {
-  _notebooks = _notebooks.filter( _notebook => _notebook.id !== notebook.id);
+  delete _notebooks[notebook.id];
 
-  if (_notebook.id === notebook.id) {
-    _notebook = _notebooks[0];
+  if (notebook.id === window.currentUser.open_notebook_id) {
+    let firstKey;
+    for(firstKey in _notebooks) break;
+    NotebookActions.fetchNotebook(firstKey);
   }
 
   NotebookStore.__emitChange();
 };
 
-NotebookStore.hasNotebook = function(id) {
-  _notebooks.forEach( _notebook => {
-    if (_notebook.id === id) {
-      return true;
-    }
-  });
-  return false;
+NotebookStore.incrementNoteCount = function() {
+  _notebooks[window.currentUser.open_notebook_id].note_count++;
+  NotebookStore.__emitChange();
 };
 
 NotebookStore.__onDispatch = function(payload) {
@@ -68,6 +73,9 @@ NotebookStore.__onDispatch = function(payload) {
       break;
     case NotebookConstants.REMOVE_NOTEBOOK:
       NotebookStore.deleteNotebook(payload.notebook);
+      break;
+    case NoteConstants.NEW_NOTE:
+      NotebookStore.incrementNoteCount(payload.note);
       break;
   }
 };

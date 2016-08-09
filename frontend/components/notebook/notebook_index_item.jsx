@@ -10,8 +10,8 @@ const NotebookIndexItem = React.createClass({
     DisplayActions.closeNotebookDrawer();
   },
   delete(event) {
+    event.stopPropagation();
     NotebookActions.deleteNotebook(this.props.notebook.id);
-    NotebookActions.fetchNotebook();
   },
   prepForDrop(event){
     event.preventDefault();

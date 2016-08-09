@@ -7,10 +7,12 @@ const NotebookConstants = require('../constants/notebook_constants');
 
 var _notes = {};
 var _header = "";
+var _bookType = "";
 
 NotesStore.updateNotes = function(book) {
   _notes = book.notes;
   _header = book.name;
+  _bookType = book.type;
   NotesStore.__emitChange();
 };
 
@@ -18,18 +20,12 @@ NotesStore.header = function() {
   return _header;
 };
 
+NotesStore.bookType = function() {
+  return _bookType;
+};
+
 NotesStore.updateNote = function(note) {
   _notes[note.id] = { id: note.id, title: note.title, body: note.plain_body };
-  NotesStore.__emitChange();
-};
-
-NotesStore.setupNewNotebooks = function(notes) {
-  _notes = notes;
-  NotesStore.__emitChange();
-};
-
-NotesStore.removeNotebook = function() {
-  _notes = NotebookStore.currentNotebook().notes;
   NotesStore.__emitChange();
 };
 
@@ -56,9 +52,6 @@ NotesStore.__onDispatch = function(payload) {
       break;
     case NotebookConstants.RECEIVE_EXISTING_NOTEBOOK:
       NotesStore.updateNotes(payload.notebook);
-      break;
-    case NotebookConstants.REMOVE_NOTEBOOK:
-      NotesStore.removeNotebook(payload.notebook);
       break;
     case NoteConstants.NEW_NOTE:
       NotesStore.updateNote(payload.note);

@@ -11,4 +11,19 @@ class Note < ApplicationRecord
     def plain_text_body
       ActionView::Base.full_sanitizer.sanitize(self.body).to_s
     end
+
+    def self.hashify(notes_array)
+      notesHash = {}
+
+      notes_array.each do |note|
+        id = note.id
+        notesHash[id] =   {
+                            id: id,
+                            title: note.title,
+                            body: note.plain_text_body
+                          }
+      end
+
+      notesHash
+    end
 end

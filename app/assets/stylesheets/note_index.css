@@ -8,12 +8,30 @@
 }
 
 #note-index>header {
-  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #D3D3D3;
+}
+
+#note-index h2 {
+  padding: 20px;
   text-align: left;
   color: #878787;
   font-family: 'Raleway', sans-serif;
   font-size: 16px;
-  border-bottom: 1px solid #D3D3D3;
+}
+
+#note-index button {
+  padding: 5px;
+  margin: 20px;
+  width: 25px;
+  height: 25px;
+  border: none;
+}
+
+#note-index header button:hover {
+  background-color: #2DBE60;
 }
 
 .note-index-item {
@@ -75,8 +93,4 @@
 .note-index-item button:hover img {
   filter: grayscale(100%) brightness(40%);
   -webkit-filter: grayscale(100%) brightness(40%);
-}
-
-[draggable=true] {
-    /*cursor: move;*/
 }

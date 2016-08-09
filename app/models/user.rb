@@ -44,13 +44,39 @@ class User < ApplicationRecord
 
   def all_tags
     tags = []
+    self.all_notes.each{ |note| tags += note.tags }
+    tags.uniq
+  end
 
-    self.all_notes.each do |note|
-      tags += note.tags
+  def notebooks_hash
+    notesbook_hash = {}
+
+    self.notebooks.each do |notebook|
+      id = notebook.id
+      notesbook_hash[id] =  {
+                              id: id,
+                              name: notebook.name,
+                              note_count: notebook.note_count,
+                              removable: notebook.removable,
+                              created_at: notebook.created_at,
+                              updated_at: notebook.updated_at
+                            }
     end
 
-    return tags.uniq
+    notesbook_hash
   end
+
+  def tags_hash
+    tags_hash = {}
+
+    self.all_tags.each do |tag|
+      id = tag.id
+      tags_hash[id] = { id: id, name: tag.name }
+    end
+
+    tags_hash
+  end
+
 
   private
 

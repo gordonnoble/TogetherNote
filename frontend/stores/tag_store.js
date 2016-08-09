@@ -3,7 +3,7 @@ const Dispatcher = require('../dispatcher/dispatcher');
 const TagStore = new Store(Dispatcher);
 const TagConstants = require('../constants/tag_constants');
 
-var _tags = [];
+var _tags = {};
 
 TagStore.updateTags = function(tags) {
   _tags = tags;
@@ -11,14 +11,18 @@ TagStore.updateTags = function(tags) {
 };
 
 TagStore.all = function() {
-  return _tags.slice();
+  let tags = [];
+
+  for(let key in _tags) {
+    tags.push(_tags[key]);
+  }
+
+  return tags;
 };
 
 TagStore.addTag = function(tag) {
-  if (tag.id !== undefined) {
-    _tags.push(tag);
-    TagStore.__emitChange();
-  }
+  _tags[tag.id] = tag;
+  TagStore.__emitChange();
 };
 
 TagStore.__onDispatch = function(payload) {
