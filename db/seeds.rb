@@ -11,6 +11,8 @@ User.destroy_all
 Notebook.destroy_all
 Note.destroy_all
 NotebookNote.destroy_all
+Tagging.destroy_all
+Tag.destroy_all
 
 # Alright, now for some users
 gordo = User.new(username: "gordo", password: "badpass")

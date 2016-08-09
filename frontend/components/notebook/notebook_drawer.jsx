@@ -28,7 +28,6 @@ const NotebookDrawer = React.createClass({
     },
     toggleOpen() {
       let drawer = document.getElementById("notebook-drawer");
-      let note = document.getElementsByClassName("note");
 
       if (DisplayStore.isNotebookDrawerOpen()) {
         this.setState({ notebooks: NotebookStore.allNotebooks() });

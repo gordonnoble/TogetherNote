@@ -45,18 +45,11 @@ class Api::NotesController < ApplicationController
 
   def tag
     note = Note.find(params[:id])
-
     tag_name = params[:tag][:name]
-    tag = Tag.find_by(name: tag_name)
+    @tag = Tag.find_by(name: tag_name) || Tag.create!(name: tag_name)
 
-    if !tag.nil?
-      note.tag_ids += [tag.id]
-      render json: {}
-    else
-      @tag = Tag.create!(name: tag_name)
-      note.tag_ids += [@tag.id]
-      render 'api/tags/show'
-    end
+    note.tag_ids += [@tag.id]
+    render 'api/tags/show'
   end
 
   def tags_notes

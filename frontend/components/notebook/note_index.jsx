@@ -29,13 +29,14 @@ const NoteIndex = React.createClass({
     let notes = this.state.notes || [];
     let header = this.state.header || "";
     header = header.toUpperCase();
+    let buttonClass =  (NotesStore.bookType() === "notebook") ? "new-note show" : "new-note hide";
 
     return (
 
       <div id="note-index">
         <header>
           <h2>{header}</h2>
-          <button onClick={this.newNote}><img className="new-note" src={window.newNote} /></button>
+          <button className={buttonClass} onClick={this.newNote}><img src={window.newNote} /></button>
         </header>
 
         <ul>

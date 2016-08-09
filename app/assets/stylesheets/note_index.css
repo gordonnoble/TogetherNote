@@ -22,7 +22,7 @@
   font-size: 16px;
 }
 
-#note-index button {
+.new-note {
   padding: 5px;
   margin: 20px;
   width: 25px;
@@ -30,8 +30,12 @@
   border: none;
 }
 
-#note-index header button:hover {
+.new-note:hover {
   background-color: #2DBE60;
+}
+
+.new-note.hide {
+  display: none;
 }
 
 .note-index-item {

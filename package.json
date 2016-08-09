@@ -9,7 +9,7 @@
   },
   "scripts": {
     "webpack": "webpack --watch",
-    "postinstall": "./node_modules/.bin/webpack"
+    "heroku-postbuild": "webpack --config webpack.config.prod.js"
   },
   "engines": {
     "node": "6.3.0",

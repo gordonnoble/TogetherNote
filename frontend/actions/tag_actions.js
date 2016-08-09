@@ -18,7 +18,7 @@ TagActions.receiveTag = function(tag) {
 };
 
 TagActions.fetchAll = function() {
-  TagApiUtil.fetchAll(window.currentUser.id, TagActions.receiveAll);
+  TagApiUtil.fetchAll(SessionStore.currentUser().id, TagActions.receiveAll);
 };
 
 TagActions.receiveAll = function(tags) {
