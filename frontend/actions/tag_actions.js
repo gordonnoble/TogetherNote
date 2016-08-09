@@ -1,6 +1,5 @@
 const Dispatcher = require('../dispatcher/dispatcher');
 const NoteApiUtil = require('../utils/note_api_util');
-const TagStore = require('../stores/tag_store');
 const TagConstants = require('../constants/tag_constants');
 const TagApiUtil = require('../utils/tag_api_util');
 

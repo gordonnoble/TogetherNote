@@ -69,7 +69,7 @@ const Note = React.createClass({
             <input type="text" className="title" value={this.state.note.title} onChange={this.handleTitleChange} />
 
               <form id="tag-form" onSubmit={this.submitNewTag}>
-                <button id="tag-label"><img className="tag-button" src={window.tag} /></button>
+                <img id="tag-label" className="tag-button" src={window.tag} />
                 <input type="text" onChange={this.handleTagInput} value={this.state.newTag}/>
                 <span id="tag-confirmation" className="hide">tag added</span>
               </form>

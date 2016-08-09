@@ -8,7 +8,6 @@ const _undefinedNote = { id: undefined, title: undefined, body: undefined, colla
 var _note = {};
 var _dragNoteId;
 
-
 NoteStore.updateNote = function(note) {
   _note = note;
 };

@@ -8,7 +8,7 @@
 #sidebar .logo {
   width: 80px;
   height: 80px;
-  margin: 10px 5px 0px 15px;
+  margin: 10px 5px 20px 15px;
 }
 
 #sidebar .logout {
@@ -22,9 +22,9 @@
 
 #sidebar button {
   border: 1px solid #2DBE60;
-  margin: 10px;
-  width: 30px;
-  height: 30px;
+  margin: 20px 10px;
+  width: 50px;
+  height: 50px;
 }
 
 #sidebar button:hover {

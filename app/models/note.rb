@@ -26,4 +26,5 @@ class Note < ApplicationRecord
 
       notesHash
     end
+
 end

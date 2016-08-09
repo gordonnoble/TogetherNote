@@ -12,7 +12,8 @@
 #note-header {
   display: flex;
   align-items: center;
-  height: 49px;
+  height: 65px;
+  border-bottom: 1px solid #D3D3D3;
 }
 
 .note .title {
@@ -38,10 +39,6 @@
   margin: 10px;
   width: 30px;
   height: 30px;
-}
-
-#tag-label:hover {
-  background-color: #2DBE60;
 }
 
 #tag-form input {
@@ -106,10 +103,16 @@
   opacity: 0.4;
 }
 
+/*Quill*/
 .quill-toolbar.ql-toolbar.ql-snow * {
   font-family: 'Lato', sans-serif;
 }
 
 .quill-toolbar.ql-toolbar.ql-snow {
-  border-top: 1px solid #D3D3D3;
+  margin-left: 25px;
+  margin-top: 5px;
+}
+
+.quill-contents.ql-container.ql-snow {
+  border-left: 1px solid #D3D3D3;
 }

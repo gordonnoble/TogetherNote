@@ -24,7 +24,7 @@ const NoteApiUtil = {
     $.ajax({
       url: '/api/notes',
       method: 'POST',
-      data: { note: { title: "Title Here Please", body: "", notebookId: notebookId }},
+      data: { note: { title: "", body: "", notebookId: notebookId }},
       success(note) {
         callback(note);
       }

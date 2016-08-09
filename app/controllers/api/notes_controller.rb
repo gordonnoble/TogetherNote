@@ -21,13 +21,13 @@ class Api::NotesController < ApplicationController
   def destroy
     @note = Note.find(params[:id])
     notebook = @note.notebooks.where(user_id: current_user.id).first
+    @note.notebook_notes.where(notebook_id: notebook.id).first.destroy!
 
-    if notebook.name == "Recycling"
-      @note.destroy!
-    else
+    if notebook.name != "Recycling"
       recycling = current_user.notebooks.where(name: "Recycling").first
-      @note.notebook_notes.where(notebook_id: notebook.id).first.destroy!
       @note.notebook_ids += [recycling.id]
+    elsif @note.notebooks.count == 0
+      @note.destroy!
     end
 
     render :show
