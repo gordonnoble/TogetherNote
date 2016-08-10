@@ -25,6 +25,8 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
+# Websockets for live note updating
+gem 'pusher'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment

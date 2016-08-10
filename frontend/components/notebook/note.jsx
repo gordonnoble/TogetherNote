@@ -13,13 +13,27 @@ const Note = React.createClass({
   },
   componentDidMount(){
     this.noteListener = NoteStore.addListener(this.switchNote);
+    this.pusher = new Pusher('89f280eab9d24268d9be');
+  },
+  handleExternalUpdate(noteData) {
+    let newState = this.state;
+    newState.note.title = noteData.title;
+    newState.note.body = noteData.body;
+    this.setState(newState);
   },
   componentWillUnmount() {
     this.noteListener.remove();
   },
   switchNote() {
     this.silentSave();
+
+    this.pusher.unsubscribe('note_' + this.state.note.id);
+    this.pusher = new Pusher('89f280eab9d24268d9be');
+
     let note = NoteStore.currentNote();
+    var channel = this.pusher.subscribe('note_' + note.id);
+    channel.bind('external_update', this.handleExternalUpdate).bind(this);
+
     this.setState({ note: note, newTag: "", imageUrl: null, imageFile: null });
   },
   handleTitleChange (event) {

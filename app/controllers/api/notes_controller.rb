@@ -7,6 +7,12 @@ class Api::NotesController < ApplicationController
   def update
     @note = Note.find(params[:id])
     @note.update!(note_params)
+
+    Pusher.trigger('note_' + @note.id.to_s, 'external_update', {
+      title: @note.title,
+      body: @note.body
+    })
+
     render :show
   end
 
