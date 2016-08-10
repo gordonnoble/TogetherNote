@@ -42,18 +42,17 @@
 }
 
 #tag-input {
-  opacity: 0.7;
+  opacity: 0.3;
   border-radius: 2px;
   padding: 5px;
   margin: 0px;
   border: 1px solid #2DBE60;
-  width: 0px;
+  width: 80px;
   display: inline-block;
-  transition: all 200ms ease-in-out;
+  transition: all 100ms ease-in-out;
 }
 
 #tag-input:hover {
-  width: 80px;
   transition: all 200ms ease-in-out;
   opacity: 1.0;
 }
@@ -64,10 +63,6 @@
 
 #tag-input:focus {
   width: 80px;
-  opacity: 1.0;
-}
-
-#tag-input:focus #tag-label {
   opacity: 1.0;
 }
 
@@ -101,18 +96,17 @@
 }
 
 #share-input {
-  opacity: 0.7;
+  opacity: 0.3;
   border-radius: 2px;
   padding: 5px;
   margin: 0px;
   border: 1px solid #2DBE60;
-  width: 0px;
+  width: 80px;
   display: inline-block;
   transition: all 200ms ease-in-out;
 }
 
 #share-input:hover {
-  width: 80px;
   transition: all 200ms ease-in-out;
   opacity: 1.0;
 }
@@ -123,10 +117,6 @@
 
 #share-input:focus {
   width: 80px;
-  opacity: 1.0;
-}
-
-#share-input:focus #share-label {
   opacity: 1.0;
 }
 
