@@ -80,6 +80,10 @@ NoteActions.receiveTaggedNotes = function(tagNotebook) {
   });
 };
 
+NoteActions.shareNote = function(noteId, username) {
+  NoteApiUtil.shareNote(noteId, username);
+};
+
 NoteActions.addImage = function(noteId, formData) {
   NoteApiUtil.addImage(noteId, formData, NoteActions.receivePicture);
 };

@@ -38,6 +38,18 @@ const LoginForm = React.createClass({
     let user = { username: this.state.username, password: this.state.password };
     SessionActions.login(user);
   },
+  clearUsernamePlaceholder() {
+    $("#login-username").attr("placeholder", "");
+  },
+  clearPasswordPlaceholder() {
+    $("#login-password").attr("placeholder", "");
+  },
+  resetUsernamePlaceholder() {
+    $("#login-username").attr("placeholder", 'Username');
+  },
+  resetPasswordPlaceholder() {
+    $("#login-password").attr("placeholder", 'Password');
+  },
   render() {
     let errors;
     if (this.state.errors.length > 0) {
@@ -60,15 +72,21 @@ const LoginForm = React.createClass({
             <input type="text"
               onChange={this.updateUsername}
               className="signup-in-input"
+              id="login-username"
               value={this.state.username}
               placeholder="Username"
+              onFocus={this.clearUsernamePlaceholder}
+              onBlur={this.resetUsernamePlaceholder}
               />
 
             <input type="password"
               onChange={this.updatePassword}
               className="signup-in-input"
               value={this.state.password}
+              id="login-password"
               placeholder="Password"
+              onFocus={this.clearPasswordPlaceholder}
+              onBlur={this.resetPasswordPlaceholder}
               />
 
             <input className="signup-in-input signup-in-button" type="submit" value="Log In" />

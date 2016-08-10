@@ -75,6 +75,25 @@ class Api::NotesController < ApplicationController
     render :picture
   end
 
+  def add_user
+    @note = Note.find(params[:id])
+    user = User.find_by(username: params[:user][:username])
+
+    if user
+      notebook = user.notebooks.where(name: "Shared")[0]
+      notebook.note_ids += [@note.id]
+
+      Pusher.trigger('share_channel_' + user.id.to_s, 'shared_note', {
+        title: @note.title,
+        username: current_user.username
+      })
+
+      render :show
+    else
+      render json: ["Unable find a user with that name."]
+    end
+  end
+
   private
 
   def note_params

@@ -41,7 +41,7 @@
   height: 30px;
 }
 
-#tag-form input {
+#tag-input {
   opacity: 0.7;
   border-radius: 2px;
   padding: 5px;
@@ -52,22 +52,22 @@
   transition: all 200ms ease-in-out;
 }
 
-#note-header:hover #tag-form input {
+#tag-input:hover {
   width: 80px;
   transition: all 200ms ease-in-out;
   opacity: 1.0;
 }
 
-#note-header:hover #tag-label {
+#tag-input:hover #tag-label {
   opacity: 1.0;
 }
 
-#tag-form input:focus {
+#tag-input:focus {
   width: 80px;
   opacity: 1.0;
 }
 
-#tag-form input:focus #tag-label {
+#tag-input:focus #tag-label {
   opacity: 1.0;
 }
 
@@ -87,6 +87,143 @@
   transition: 200ms;
 }
 
+/*Share Form*/
+#share-form {
+  display: flex;
+  align-items: center;
+}
+
+#share-label {
+  border: none;
+  margin: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+#share-input {
+  opacity: 0.7;
+  border-radius: 2px;
+  padding: 5px;
+  margin: 0px;
+  border: 1px solid #2DBE60;
+  width: 0px;
+  display: inline-block;
+  transition: all 200ms ease-in-out;
+}
+
+#share-input:hover {
+  width: 80px;
+  transition: all 200ms ease-in-out;
+  opacity: 1.0;
+}
+
+#share-label:hover {
+  opacity: 1.0;
+}
+
+#share-input:focus {
+  width: 80px;
+  opacity: 1.0;
+}
+
+#share-input:focus #share-label {
+  opacity: 1.0;
+}
+
+#share-confirmation {
+  color: #2DBE60;
+  padding: 10px;
+  font-family: 'Lato', sans-serif;
+}
+
+#share-confirmation.hide {
+  opacity: 0.0;
+  transition: 200ms;
+}
+
+#share-confirmation.show {
+  opacity: 1.0;
+  transition: 200ms;
+}
+
+/*Note Body*/
+
+#note-body {
+  display: flex;
+  flex-direction: row;
+}
+
+#body-text {
+  width: 75%;
+}
+
+#note-images {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 60px 20px 0px;
+  width: 25%;
+}
+
+#note-images form {
+  height: 57px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #D3D3D3;
+}
+
+#file-input {
+  display: none;
+}
+
+#file-label {
+  padding: 3px 10px;
+  border-radius: 5px;
+  font-family: 'Lato', sans-serif;
+  color: #2DBE60;
+}
+
+#file-label:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #2DBE60;
+}
+
+#image-upload-button {
+  width: 30px;
+  height: 30px;
+  border: none;
+}
+
+#image-upload-button img {
+  height: 100%;
+}
+
+#image-upload-button:hover {
+  background-color: #2DBE60;
+}
+
+#note-image-list {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.note-image {
+  width: 100%;
+  margin-top: 10px;
+}
+
+#image-upload-button.hide {
+  display: none;
+}
+
+.note-image img {
+  width: 100%;
+  box-shadow: 1px 2px 3px 1px rgba(45,42,42,0.75);
+}
 
 /*Note Body*/
 

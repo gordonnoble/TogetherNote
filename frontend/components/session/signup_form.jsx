@@ -38,6 +38,18 @@ const SignupForm = React.createClass({
     let user = { username: this.state.username, password: this.state.password };
     SessionActions.signup(user);
   },
+  clearUsernamePlaceholder() {
+    $("#signup-username").attr("placeholder", "");
+  },
+  clearPasswordPlaceholder() {
+    $("#signup-password").attr("placeholder", "");
+  },
+  resetUsernamePlaceholder() {
+    $("#signup-username").attr("placeholder", 'Username');
+  },
+  resetPasswordPlaceholder() {
+    $("#signup-password").attr("placeholder", 'Password');
+  },
   render() {
     let errors;
 
@@ -62,14 +74,20 @@ const SignupForm = React.createClass({
               onChange={this.updateUsername}
               className="signup-in-input"
               value={this.state.username}
+              id="signup-username"
               placeholder="Username"
+              onFocus={this.clearUsernamePlaceholder}
+              onBlur={this.resetUsernamePlaceholder}
               />
 
             <input type="password"
               onChange={this.updatePassword}
               className="signup-in-input"
               value={this.state.password}
+              id="signup-password"
               placeholder="Password"
+              onFocus={this.clearPasswordPlaceholder}
+              onBlur={this.resetPasswordPlaceholder}
               />
 
             <input className="signup-in-input signup-in-button" type="submit" value="Create Account" />

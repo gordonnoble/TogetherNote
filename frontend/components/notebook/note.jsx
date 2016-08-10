@@ -9,7 +9,7 @@ const Note = React.createClass({
 
   getInitialState() {
     let note = NoteStore.currentNote();
-    return ({ note: note, newTag: "" , imageFile: null, imageUrl: null });
+    return ({ note: note, newTag: "" , newShare: "", imageFile: null, imageUrl: null });
   },
   componentDidMount(){
     this.noteListener = NoteStore.addListener(this.switchNote);
@@ -26,15 +26,13 @@ const Note = React.createClass({
   },
   switchNote() {
     this.silentSave();
-
     this.pusher.unsubscribe('note_' + this.state.note.id);
-    this.pusher = new Pusher('89f280eab9d24268d9be');
 
     let note = NoteStore.currentNote();
-    var channel = this.pusher.subscribe('note_' + note.id);
-    channel.bind('external_update', this.handleExternalUpdate).bind(this);
+    let channel = this.pusher.subscribe('note_' + note.id);
+    channel.bind('external_update', this.handleExternalUpdate);
 
-    this.setState({ note: note, newTag: "", imageUrl: null, imageFile: null });
+    this.setState({ note: note, newTag: "", newShare: "", imageUrl: null, imageFile: null });
   },
   handleTitleChange (event) {
     let newState = this.state;
@@ -63,12 +61,23 @@ const Note = React.createClass({
   handleTagInput(event) {
     this.setState({ newTag: event.target.value });
   },
+  handleShareInput(event) {
+    this.setState({ newShare: event.target.value });
+  },
   submitNewTag(event) {
     event.preventDefault();
     TagActions.tagNote(this.state.note.id, this.state.newTag);
     let confirmation = document.getElementById("tag-confirmation");
     confirmation.className = "show";
     this.setState({ newTag: "" });
+    setTimeout(() => confirmation.className = "hide", 2000);
+  },
+  shareNote(event) {
+    event.preventDefault();
+    NoteActions.shareNote(this.state.note.id, this.state.newShare);
+    let confirmation = document.getElementById("share-confirmation");
+    confirmation.className = "show";
+    this.setState({ newShare: "" });
     setTimeout(() => confirmation.className = "hide", 2000);
   },
   updateFile(event) {
@@ -91,6 +100,18 @@ const Note = React.createClass({
     formData.append("note[image]", this.state.imageFile);
     NoteActions.addImage(this.state.note.id, formData);
   },
+  clearTagPlaceholder() {
+    document.getElementById("tag-input").placeholder = "";
+  },
+  resetTagPlaceholder() {
+    document.getElementById("tag-input").placeholder = "tag it";
+  },
+  clearSharePlaceholder() {
+    document.getElementById("tag-input").placeholder = "";
+  },
+  resetSharePlaceholder() {
+    document.getElementById("tag-input").placeholder = "share it";
+  },
   render () {
     let buttonClass = (this.state.imageFile === null) ? "hide" : "show";
 
@@ -105,9 +126,17 @@ const Note = React.createClass({
             <input type="text" className="title"
               onChange={this.handleTitleChange} value={this.state.note.title} />
 
+            <form id="share-form" onSubmit={this.shareNote}>
+                <img id="share-label" src={window.share} />
+                <input id="share-input" type="text" placeholder="share it" onFocus={this.clearSharePlaceholder}
+                  onBlur={this.resetSharePlaceholder} onChange={this.handleShareInput} value={this.state.newShare}/>
+                <span id="share-confirmation" className="hide">share added</span>
+              </form>
+
               <form id="tag-form" onSubmit={this.submitNewTag}>
-                <img id="tag-label" className="tag-button" src={window.tag} />
-                <input type="text" onChange={this.handleTagInput} value={this.state.newTag}/>
+                <img id="tag-label" src={window.tag} />
+                <input id="tag-input" type="text" placeholder="tag it" onFocus={this.clearTagPlaceholder}
+                  onBlur={this.resetTagPlaceholder} onChange={this.handleTagInput} value={this.state.newTag}/>
                 <span id="tag-confirmation" className="hide">tag added</span>
               </form>
 

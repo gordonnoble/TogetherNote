@@ -20,14 +20,12 @@
 #tag-drawer.closed {
   opacity: 0 !important;
   width: 0px;
-  visibility: hidden;
   transition: all 500ms;
 }
 
 #tag-drawer.open {
   width: 500px;
   opacity: 1;
-  visibility: visible;
   transition: all 500ms;
 }
 

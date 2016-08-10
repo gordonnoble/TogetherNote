@@ -54,8 +54,8 @@ const NoteApiUtil = {
 
   tagNote(noteId, tagName, callback) {
     $.ajax({
-      url: `/api/notes/${noteId}/tag`,
-      method: 'PATCH',
+      url: `/api/notes/${noteId}/tags`,
+      method: 'POST',
       data: { tag: { name: tagName } },
       success(tags) {
         callback(tags);
@@ -83,6 +83,17 @@ const NoteApiUtil = {
       data: formData,
       success(image) {
         callback(image);
+      }
+    });
+  },
+
+  shareNote(noteId, username) {
+    $.ajax({
+      url: `/api/notes/${noteId}/users`,
+      method: 'POST',
+      data: { user: { username: username } },
+      success(user) {
+        console.log(user);
       }
     });
   }
