@@ -9,7 +9,7 @@ const Note = React.createClass({
 
   getInitialState() {
     let note = NoteStore.currentNote();
-    return ({ note: note, newTag: "" });
+    return ({ note: note, newTag: "" , imageFile: null, imageUrl: null });
   },
   componentDidMount(){
     this.noteListener = NoteStore.addListener(this.switchNote);
@@ -20,7 +20,7 @@ const Note = React.createClass({
   switchNote() {
     this.silentSave();
     let note = NoteStore.currentNote();
-    this.setState({ note: note, newTag: "" });
+    this.setState({ note: note, newTag: "", imageUrl: null, imageFile: null });
   },
   handleTitleChange (event) {
     let newState = this.state;
@@ -57,6 +57,26 @@ const Note = React.createClass({
     this.setState({ newTag: "" });
     setTimeout(() => confirmation.className = "hide", 2000);
   },
+  updateFile(event) {
+    let file = event.currentTarget.files[0];
+    let reader = new FileReader();
+
+    reader.onloadend = function() {
+      this.setState({ imageFile: file, imageUrl: reader.result });
+    }.bind(this);
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({ imageUrl: "", imageFile: null });
+    }
+  },
+  submitImage(event) {
+    event.preventDefault();
+    let formData = new FormData();
+    formData.append("note[image]", this.state.imageFile);
+    NoteActions.addImage(this.state.note.id, formData);
+  },
   render () {
     let imageClass = (this.state.note.image_url === "") ? "hide" : "show";
 
@@ -81,6 +101,11 @@ const Note = React.createClass({
             <ReactQuill theme="snow" id="body-text" onChange={this.handleBodyChange} value={this.state.note.body} autofocus/>
 
             <div id="note-images">
+              <form onSubmit={this.submitImage}>
+                <input type="file" onChange={this.updateFile} />
+                <button>upload</button>
+              </form>
+
               <img id="note-image" className={imageClass} src={this.state.note.image_url} />
             </div>
           </div>

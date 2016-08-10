@@ -71,6 +71,20 @@ const NoteApiUtil = {
         callback(notes);
       }
     });
+  },
+
+  addImage(noteId, formData, callback) {
+    $.ajax({
+      url: `/api/notes/${noteId}/images`,
+      method: 'POST',
+      dataType: 'json',
+      contentType: false,
+      processData: false,
+      data: formData,
+      success(image) {
+        callback(image);
+      }
+    });
   }
 };
 

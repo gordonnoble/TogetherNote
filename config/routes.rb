@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   patch '/api/notes/:id/tag', to: 'api/notes#tag'
   get 'api/users/:id/tags', to: 'api/tags#users_tags'
   get 'api/tags/:id/notes', to: 'api/notes#tags_notes'
+  post 'api/notes/:id/images', to: 'api/notes#add_image'
 
   root to: 'static_pages#root'
 end

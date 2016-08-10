@@ -58,6 +58,15 @@ class Api::NotesController < ApplicationController
     render 'api/tags/show_with_notes'
   end
 
+  def add_image
+    note = Note.find(params[:id])
+
+    note.image = params[:note][:image]
+    note.save!
+
+    render json: { image: note.image.url }
+  end
+
   private
 
   def note_params
