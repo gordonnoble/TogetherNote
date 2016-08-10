@@ -68,7 +68,7 @@ const Note = React.createClass({
     if (file) {
       reader.readAsDataURL(file);
     } else {
-      this.setState({ imageUrl: "", imageFile: null });
+      this.setState({ imageUrl: null, imageFile: null });
     }
   },
   submitImage(event) {
@@ -78,7 +78,7 @@ const Note = React.createClass({
     NoteActions.addImage(this.state.note.id, formData);
   },
   render () {
-    let imageClass = (this.state.note.image_url === "") ? "hide" : "show";
+    let buttonClass = (this.state.imageFile === null) ? "hide" : "show";
 
     if ( this.state.note.title === undefined ) {
       return (
@@ -104,10 +104,10 @@ const Note = React.createClass({
 
             <div id="note-images">
               <form onSubmit={this.submitImage}>
-                <label id="file-label" onChange={this.updateFile}>add image...
+                <label id="file-label">add image...
                   <input id="file-input" type="file" onChange={this.updateFile} />
                 </label>
-                <button onClick={this.submitImage} id="image-upload-button"><img src={window.upload} /></button>
+                <button onClick={this.submitImage} id="image-upload-button" className={buttonClass}><img src={window.upload} /></button>
               </form>
 
               <ul id="note-image-list">
