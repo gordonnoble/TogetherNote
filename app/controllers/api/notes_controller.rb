@@ -59,12 +59,14 @@ class Api::NotesController < ApplicationController
   end
 
   def add_image
+    @picture = Picture.new(note_id: params[:id])
+    @picture.image = params[:note][:image]
+    @picture.save!
+
     note = Note.find(params[:id])
+    note.picture_ids += [@picture.id]
 
-    note.image = params[:note][:image]
-    note.save!
-
-    render json: { image: note.image.url }
+    render :picture
   end
 
   private

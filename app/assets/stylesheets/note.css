@@ -95,24 +95,76 @@
   flex-direction: row;
 }
 
-#note-text {
-  flex: 1;
+#body-text {
+  width: 75%;
 }
 
 #note-images {
-  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 60px 20px 0px;
+  width: 25%;
 }
 
-#note-image {
-  width: 300px;
-  float: left;
-  box-shadow: -1px 2px 3px 2px rgba(45,190,96,0.75);
+#note-images form {
+  height: 57px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #D3D3D3;
 }
 
-#note-image.hide {
+#file-input {
   display: none;
 }
 
+#file-label {
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-family: 'Lato', sans-serif;
+  color: #2DBE60;
+}
+
+#file-label:hover {
+  color: white;
+  background-color: #2DBE60;
+}
+
+#image-upload-button {
+  width: 30px;
+  height: 30px;
+  border: none;
+}
+
+#image-upload-button img {
+  height: 100%;
+}
+
+#image-upload-button:hover {
+  background-color: #2DBE60;
+}
+
+#note-image-list {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.note-image {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.note-image.hide {
+  display: none;
+}
+
+.note-image img {
+  width: 100%;
+  box-shadow: 1px 2px 3px 1px rgba(45,42,42,0.75);
+}
 
 /*Note Splash*/
 #note-splash {

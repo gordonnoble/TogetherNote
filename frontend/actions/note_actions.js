@@ -81,13 +81,13 @@ NoteActions.receiveTaggedNotes = function(tagNotebook) {
 };
 
 NoteActions.addImage = function(noteId, formData) {
-  NoteApiUtil.addImage(noteId, formData, NoteActions.receiveImage);
+  NoteApiUtil.addImage(noteId, formData, NoteActions.receivePicture);
 };
 
-NoteActions.receiveImage = function(image) {
+NoteActions.receivePicture = function(picture) {
   Dispatcher.dispatch({
-    actionType: NoteConstants.RECEIVE_IMAGE,
-    image: image
+    actionType: NoteConstants.RECEIVE_PICTURE,
+    picture: picture
   });
 };
 

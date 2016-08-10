@@ -88,7 +88,8 @@ const Note = React.createClass({
       return (
         <div className="note">
           <header id="note-header">
-            <input type="text" className="title" value={this.state.note.title} onChange={this.handleTitleChange} />
+            <input type="text" className="title"
+              onChange={this.handleTitleChange} value={this.state.note.title} />
 
               <form id="tag-form" onSubmit={this.submitNewTag}>
                 <img id="tag-label" className="tag-button" src={window.tag} />
@@ -98,15 +99,23 @@ const Note = React.createClass({
 
           </header>
           <div id="note-body">
-            <ReactQuill theme="snow" id="body-text" onChange={this.handleBodyChange} value={this.state.note.body} autofocus/>
+            <ReactQuill theme="snow" id="body-text"
+              onChange={this.handleBodyChange} value={this.state.note.body} autofocus/>
 
             <div id="note-images">
               <form onSubmit={this.submitImage}>
-                <input type="file" onChange={this.updateFile} />
-                <button>upload</button>
+                <label id="file-label" onChange={this.updateFile}>add image...
+                  <input id="file-input" type="file" onChange={this.updateFile} />
+                </label>
+                <button onClick={this.submitImage} id="image-upload-button"><img src={window.upload} /></button>
               </form>
 
-              <img id="note-image" className={imageClass} src={this.state.note.image_url} />
+              <ul id="note-image-list">
+                {
+                  this.state.note.pictures.map( pic =>
+                    <li className="note-image" key={pic.id}><img src={pic.image_url}></img></li> )
+                }
+              </ul>
             </div>
           </div>
         </div>

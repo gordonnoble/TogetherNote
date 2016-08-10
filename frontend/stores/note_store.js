@@ -57,8 +57,8 @@ NoteStore.switchBook = function(book) {
   NoteStore.__emitChange();
 };
 
-NoteStore.addImage = function(image) {
-  _note.image_url = image.image;
+NoteStore.addPicture = function(picture) {
+  _note.pictures.push(picture);
   NoteStore.__emitChange();
 };
 
@@ -88,8 +88,8 @@ NoteStore.__onDispatch = function(payload) {
     case NoteConstants.RECEIVE_TAGGED_NOTES:
       NoteStore.switchBook(payload.tagNotebook);
       break;
-    case NoteConstants.RECEIVE_IMAGE:
-      NoteStore.addImage(payload.image);
+    case NoteConstants.RECEIVE_PICTURE:
+      NoteStore.addPicture(payload.picture);
       break;
   }
 };
