@@ -92,9 +92,6 @@ const NoteApiUtil = {
       url: `/api/notes/${noteId}/users`,
       method: 'POST',
       data: { user: { username: username } },
-      success(user) {
-        console.log(user);
-      }
     });
   }
 };
