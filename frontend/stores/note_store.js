@@ -26,11 +26,18 @@ NoteStore.currentNote = function() {
 };
 
 NoteStore.startDrag = function(id) {
-  _dragNoteId = id;
+  if (_dragNoteId === undefined) {
+    _dragNoteId = id;
+  }
+  console.log(_dragNoteId);
 };
 
 NoteStore.dragNoteId = function() {
   return _dragNoteId;
+};
+
+NoteStore.endDrag = function() {
+  _dragNoteId = undefined;
 };
 
 NoteStore.setupNewNotebooks = function(notes) {
@@ -78,6 +85,9 @@ NoteStore.__onDispatch = function(payload) {
       break;
     case NoteConstants.START_DRAG:
       NoteStore.startDrag(payload.id);
+      break;
+    case NoteConstants.END_DRAG:
+      NoteStore.endDrag();
       break;
     case NotebookConstants.RECEIVE_NEW_NOTEBOOK:
       NoteStore.switchBook(payload.notebook);

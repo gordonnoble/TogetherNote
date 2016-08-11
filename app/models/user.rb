@@ -77,6 +77,10 @@ class User < ApplicationRecord
     tags_hash
   end
 
+  def set_open_notebook!(notebookId)
+    self.open_notebook_id = notebookId
+    self.save!
+  end
 
   private
 

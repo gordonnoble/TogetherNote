@@ -65,6 +65,12 @@ NoteActions.startDrag = function(id) {
   });
 };
 
+NoteActions.endDrag = function() {
+  Dispatcher.dispatch({
+    actionType: NoteConstants.END_DRAG,
+  });
+};
+
 NoteActions.switchNotesNotebook = function(noteId, notebookId) {
   NoteApiUtil.switchNotesNotebook(noteId, notebookId, NotebookActions.updateAll);
 };

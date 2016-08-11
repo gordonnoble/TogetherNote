@@ -22,7 +22,7 @@ const NoteIndexItem = React.createClass({
       <li className="note-index-item"
         onClick={this.openNote}
         draggable="true"
-        onDragOver={this.drag}>
+        onDragStart={this.drag}>
 
         <header className="clearfix">
           <h3>{this.props.note.title}</h3>

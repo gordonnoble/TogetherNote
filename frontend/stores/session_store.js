@@ -2,6 +2,7 @@ const Store = require('flux/utils').Store;
 const Dispatcher = require('../dispatcher/dispatcher');
 const SessionStore = new Store(Dispatcher);
 const SessionConstants = require('../constants/session_constants');
+const NotebookConstants = require('../constants/notebook_constants');
 
 var _currentUser = {};
 

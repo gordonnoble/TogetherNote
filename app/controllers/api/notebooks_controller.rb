@@ -2,6 +2,7 @@ class Api::NotebooksController < ApplicationController
 
   def show
     @notebook = Notebook.find(params[:id])
+    current_user.set_open_notebook!(@notebook.id)
     render :show
   end
 
@@ -14,7 +15,7 @@ class Api::NotebooksController < ApplicationController
     @notebook = current_user.notebooks.new(notebook_params)
 
     if @notebook.save
-      @notebooks = current_user.notebooks
+      current_user.set_open_notebook!(@notebook.id)
       render :show
     else
       render @notebook.errors.full_messages, status: 422
@@ -25,6 +26,17 @@ class Api::NotebooksController < ApplicationController
     @notebook = Notebook.find(params[:id])
 
     if @notebook.destroy
+      recycling = current_user.notebooks.where(name: "Recycling").first
+      old_id = @notebook.id
+
+      @notebook.notes.each do |note|
+        note.notebook_notes.where(notebook_id: old_id).first.destroy!
+        note.notebook_ids += [recycling.id]
+      end
+
+      new_notebook = current_user.notebooks[0]
+      current_user.set_open_notebook!(new_notebook.id)
+
       render :show
     else
       render @notebook.errors.full_messages, status: 422

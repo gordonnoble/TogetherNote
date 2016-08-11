@@ -1,21 +1,12 @@
-
-# Wipe all information
-User.destroy_all
-Notebook.destroy_all
-Note.destroy_all
-NotebookNote.destroy_all
-Tagging.destroy_all
-Tag.destroy_all
-
 #Wipe guest information
-# guest = User.find_by(username: "guest")
-#
-# unless guest.nil?
-#   guest.all_notes.each{ |note| note.destroy! }
-#   guest.notebooks.each{ |notebook| notebook.destroy! }
-#   guest.reset_token!
-#   guest.destroy!
-# end
+guest = User.find_by(username: "guest")
+
+unless guest.nil?
+  guest.all_notes.each{ |note| note.destroy! }
+  guest.notebooks.each{ |notebook| notebook.destroy! }
+  guest.reset_token!
+  guest.destroy!
+end
 
 #Create guest user and default notebooks
 guest = User.new(username: 'guest', password: 'guestpass')

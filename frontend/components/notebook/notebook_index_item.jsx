@@ -26,6 +26,7 @@ const NotebookIndexItem = React.createClass({
     let noteId = NoteStore.dragNoteId();
     if ( noteId === undefined) { return; }
     NoteActions.switchNotesNotebook(noteId, this.props.notebook.id);
+    NoteActions.endDrag();
   },
   render() {
     this.uniqueId = "notebook-item " + this.props.notebook.id;

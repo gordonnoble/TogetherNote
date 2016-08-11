@@ -48,6 +48,7 @@ NotebookActions.removeNotebook = function(notebook) {
     actionType: NotebookConstants.REMOVE_NOTEBOOK,
     notebook: notebook
   });
+  NotebookActions.fetchNotebooks();
 };
 
 NotebookActions.updateAll = function() {
