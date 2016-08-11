@@ -17,6 +17,10 @@
   transition: all 300ms ease;
 }
 
+#notebook-drawer.closed * {
+  display: none;
+}
+
 #notebook-drawer.open {
   width: 500px;
   opacity: 1;

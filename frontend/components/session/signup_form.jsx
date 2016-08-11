@@ -27,6 +27,9 @@ const SignupForm = React.createClass({
       hashHistory.push(`/notebooks/${id}`);
     }
   },
+  logInGuest() {
+    SessionActions.logInGuest();
+  },
   updateUsername(event) {
     this.setState({ username: event.target.value });
   },
@@ -90,8 +93,9 @@ const SignupForm = React.createClass({
               onBlur={this.resetPasswordPlaceholder}
               />
 
-            <input className="signup-in-input signup-in-button" type="submit" value="Create Account" />
+            <button className="signup-in-input signup-in-button" type="submit">Create Account</button>
           </form>
+            <button id="guest-login" onClick={this.logInGuest}>Try It Out</button>
 
             <div className="signup-in-link">
               <span>Already have an account?</span>

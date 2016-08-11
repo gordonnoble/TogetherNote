@@ -61,7 +61,7 @@ const LoginForm = React.createClass({
     }
 
     return (
-      <div className="signup-in-page">
+      <div className="signup-in-page login-page">
         <div className="signup-in-box login-box">
           <h1>Log In</h1>
           <img className="logo" src={window.logo} />
@@ -89,7 +89,7 @@ const LoginForm = React.createClass({
               onBlur={this.resetPasswordPlaceholder}
               />
 
-            <input className="signup-in-input signup-in-button" type="submit" value="Log In" />
+            <button className="signup-in-input signup-in-button" type="submit">Log In</button>
 
           </form>
             <div className="signup-in-link signup-link">

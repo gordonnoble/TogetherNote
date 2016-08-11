@@ -3,8 +3,8 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    shared = @user.notebooks.new(name: "Shared", removable: false)
-    shared.save!
+    inbox = @user.notebooks.new(name: "Inbox", removable: false)
+    inbox.save!
     recycling = @user.notebooks.new(name: "Recycling", removable: false)
     recycling.save!
     getting_started = @user.notebooks.new(name: "Getting Started")
@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
       body: "Start writing! We'll save everything automagically.\nUse the 'Collaborate' button to add collaborators to this note.")
 
     @user.open_notebook_id = getting_started.id
-      
+
     if @user.save
       login(@user)
       render :show

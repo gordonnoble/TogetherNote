@@ -31,6 +31,16 @@ const SessionApiUtil = {
     });
   },
 
+  logInGuest(callback) {
+    $.ajax({
+      url: 'api/session/guest',
+      method: 'POST',
+      success (user) {
+        callback(user);
+      }
+    });
+  },
+
   logout (user, successCB) {
     $.ajax({
 

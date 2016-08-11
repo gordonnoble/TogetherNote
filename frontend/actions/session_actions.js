@@ -21,6 +21,10 @@ SessionActions.login = function(user) {
     ErrorActions.setErrors);
 };
 
+SessionActions.logInGuest = function() {
+  SessionApiUtil.logInGuest(SessionActions.receiveCurrentUser);
+};
+
 SessionActions.logout = function() {
   let user = SessionStore.currentUser();
   SessionApiUtil.logout(user, SessionActions.removeCurrentUser);

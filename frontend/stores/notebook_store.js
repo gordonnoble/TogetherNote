@@ -60,6 +60,14 @@ NotebookStore.incrementNoteCount = function() {
   NotebookStore.__emitChange();
 };
 
+NotebookStore.inboxId = function() {
+  for(let key in _notebooks) {
+    if (_notebooks[key].name === "Inbox") {
+      return key;
+    }
+  }
+};
+
 NotebookStore.__onDispatch = function(payload) {
   switch (payload.actionType) {
     case NotebookConstants.RECEIVE_NEW_NOTEBOOK:

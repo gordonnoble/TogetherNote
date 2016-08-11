@@ -9,40 +9,21 @@ const Sidebar = require('./sidebar');
 const Note = require('./note');
 const NotebookDrawer = require('./notebook_drawer');
 const TagDrawer = require('./tag_drawer');
+const ShareNotification = require('./share_notification');
 
 const Notebook = React.createClass({
   componentDidMount(){
-    let user = SessionStore.currentUser();
-    this.id = this.props.params.id || user.open_notebook_id;
-    NotebookActions.fetchNotebook(this.id);
-
-    this.pusher = new Pusher('89f280eab9d24268d9be');
-    let channel = this.pusher.subscribe('share_channel_' + user.id);
-    channel.bind('shared_note', this.notifyShare);
-  },
-  notifyShare(note) {
-    NotebookActions.fetchNotebooks();
-    let notification = document.getElementById("share-notification");
-    notification.className = "show";
-    setTimeout(() => notification.className = "hide", 5000);
+    let id = this.props.params.id || SessionStore.currentUser().open_notebook_id;
+    NotebookActions.fetchNotebook(id);
   },
   render () {
     return (
       <div id="notebook">
         <Sidebar />
-
+        <ShareNotification />
         <NotebookDrawer />
-
         <TagDrawer />
-
-        <div id="share-notification">
-          <p>
-            You received a new note!
-          </p>
-        </div>
-
         <NoteIndex />
-
         <Note />
       </div>
     );

@@ -80,11 +80,12 @@ class Api::NotesController < ApplicationController
     user = User.find_by(username: params[:user][:username])
 
     if user
-      notebook = user.notebooks.where(name: "Shared")[0]
+      notebook = user.notebooks.where(name: "Inbox")[0]
       notebook.note_ids += [@note.id]
 
       Pusher.trigger('share_channel_' + user.id.to_s, 'shared_note', {
         title: @note.title,
+        id: @note.id,
         username: current_user.username
       })
 

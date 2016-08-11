@@ -111,7 +111,7 @@ API. Notes are organized by notebook.
 - [ ] Notes keep track of which sessions they are opened in
 - [ ] NoteSessions are added when a note's `NoteDetail` component is rendered,
     removed when a note's `NoteDetail` is no longer rendered
-- [ ] Notes can be shared with other users, defaults to "Shared" notebook
+- [ ] Notes can be shared with other users, defaults to "Inbox" notebook
 - [ ] Notes update realtime with multiple users at different locations
 - [ ] Alert if note conflict (if I have time)
 - [ ] Deleted notes go to hidden Recycling notebook (if I have time)

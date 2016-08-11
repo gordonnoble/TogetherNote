@@ -55,7 +55,11 @@
   margin-bottom: 20px;
 }
 
-.signup-in-button {
+.signup-in-button:hover {
+  cursor: pointer;
+}
+
+.signup-in-box button {
   font-weight: 300;
   color: #FFFFFF;
   background-color: #2DBE60;
@@ -65,9 +69,6 @@
   border: none;
 }
 
-.signup-in-button:hover {
-  cursor: pointer;
-}
 
 .signup-in-link {
   font-family: 'Lato', sans-serif;

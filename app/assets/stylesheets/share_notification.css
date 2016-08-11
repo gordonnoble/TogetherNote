@@ -1,0 +1,45 @@
+#share-notification {
+  z-index: 3;
+  position: absolute;
+  right: 0;
+  height: 0px;
+  background-color: white;
+  color: #2DBE60;
+  border-radius: 3px;
+  border: 1px solid #D3D3D3;
+  opacity: 0.0;
+  display: none;
+}
+
+#share-notification:hover {
+  cursor: pointer;
+}
+
+#sharing-message {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  color: #808080;
+  font-size: 18px;
+  padding: 30px 40px;
+}
+
+#share-notification.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  opacity: 1.0;
+  transition: all 250ms ease-in-out;
+  box-shadow: 0px 3px 3px 1px rgba(45,42,42,0.75);
+}
+
+#share-notification.hide {
+  transition: all 250ms ease-in-out;
+  display: none;
+  height: 0px;
+  opacity: 0.0;
+}
+
+#sharing-user {
+  color: #2DBE60
+}

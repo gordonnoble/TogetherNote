@@ -72,6 +72,10 @@
   color: #4D4D4D;
   font-weight: 600;
   font-size: 18px;
+  width: 80%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   padding: 10px 10px 5px 10px;
 }
 

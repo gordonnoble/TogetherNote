@@ -6,12 +6,13 @@ Rails.application.routes.draw do
     resources :notes, only: [:show, :update, :create, :destroy]
   end
 
-  patch '/api/notes/:id/switch', to: 'api/notes#switch'
-  post '/api/notes/:id/tags', to: 'api/notes#tag'
+  patch 'api/notes/:id/switch', to: 'api/notes#switch'
+  post 'api/notes/:id/tags', to: 'api/notes#tag'
   get 'api/users/:id/tags', to: 'api/tags#users_tags'
   get 'api/tags/:id/notes', to: 'api/notes#tags_notes'
   post 'api/notes/:id/images', to: 'api/notes#add_image'
   post 'api/notes/:id/users', to: 'api/notes#add_user'
+  post 'api/session/guest', to: 'api/sessions#create_guest'
 
   root to: 'static_pages#root'
 end
