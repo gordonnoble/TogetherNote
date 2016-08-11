@@ -263,6 +263,14 @@
   width: 30px;
   height: 30px;
   border: none;
+  animation: blink-animation 800ms linear infinite;
+}
+
+@keyframes blink-animation {
+  to {
+    opacity: 0.5;
+    transition: all 100ms ease-in-out;
+  }
 }
 
 #image-upload-button img {
