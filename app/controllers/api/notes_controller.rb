@@ -61,6 +61,7 @@ class Api::NotesController < ApplicationController
   def tags_notes
     @tag = Tag.find(params[:id])
     @notes = @tag.notes_hash_by_user(current_user)
+    @first_note = Note.find(@notes.first[0])
     render 'api/tags/show_with_notes'
   end
 

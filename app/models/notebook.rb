@@ -14,4 +14,8 @@ class Notebook < ApplicationRecord
   def notes_hash
     return Note.hashify(self.notes)
   end
+
+  def first_note
+    self.notes[0]
+  end
 end

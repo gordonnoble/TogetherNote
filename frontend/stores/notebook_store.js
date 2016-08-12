@@ -18,7 +18,7 @@ NotebookStore.addNotebook = function(notebook) {
     id: notebook.id, name: notebook.name,
     created_at: notebook.created_at, updated_at: notebook.updated_at,
     removable: notebook.removable,
-    note_count: 0
+    note_count: 1
   };
 
   NotebookStore.__emitChange();

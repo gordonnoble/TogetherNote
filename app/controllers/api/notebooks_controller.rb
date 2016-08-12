@@ -15,6 +15,7 @@ class Api::NotebooksController < ApplicationController
     @notebook = current_user.notebooks.new(notebook_params)
 
     if @notebook.save
+      @notebook.notes.create!(title: "", body: "")
       current_user.set_open_notebook!(@notebook.id)
       render :show
     else

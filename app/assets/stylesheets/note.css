@@ -1,8 +1,8 @@
 /*Note*/
 .note {
   flex: 1;
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
   width: 70%;
   background: #FFFFFF;
 }
@@ -10,9 +10,9 @@
 
 /*Note Header*/
 #note-header {
+  height: 70px;
   display: flex;
   align-items: center;
-  height: 64px;
   border-bottom: 1px solid #D3D3D3;
 }
 
@@ -24,7 +24,7 @@
   color: #2DBE60;
   display: inline;
   width: 50%;
-  margin: 0 20px;
+  padding-left: 40px;
 }
 
 
@@ -140,6 +140,7 @@
 
 #note-body {
   display: flex;
+  flex: 1;
   flex-direction: row;
 }
 

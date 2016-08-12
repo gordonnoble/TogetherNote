@@ -9,7 +9,7 @@
 
 #note-index>header {
   display: flex;
-  height: 64px;
+  height: 70px;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #D3D3D3;
@@ -25,6 +25,7 @@
 
 #note-index ul {
   overflow: auto;
+  flex: 1;
 }
 
 .new-note {

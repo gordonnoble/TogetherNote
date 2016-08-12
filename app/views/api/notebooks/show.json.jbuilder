@@ -6,3 +6,6 @@ json.removable @notebook.removable
 json.created_at @notebook.created_at
 json.updated_at @notebook.updated_at
 json.notes @notebook.notes_hash
+json.first_note do
+  json.partial! "api/notes/note", note: @notebook.first_note
+end

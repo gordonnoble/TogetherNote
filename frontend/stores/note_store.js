@@ -29,7 +29,6 @@ NoteStore.startDrag = function(id) {
   if (_dragNoteId === undefined) {
     _dragNoteId = id;
   }
-  console.log(_dragNoteId);
 };
 
 NoteStore.dragNoteId = function() {
@@ -58,9 +57,7 @@ NoteStore.deleteNote = function(note) {
 };
 
 NoteStore.switchBook = function(book) {
-  let firstKey;
-  for(firstKey in book) { break; }
-  _note = book[firstKey];
+  _note = book.first_note;
   NoteStore.__emitChange();
 };
 

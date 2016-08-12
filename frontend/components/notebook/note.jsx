@@ -141,9 +141,11 @@ const Note = React.createClass({
               </form>
 
           </header>
-          <div id="note-body">
-            <ReactQuill theme="snow" id="body-text"
-              onChange={this.handleBodyChange} value={this.state.note.body} autofocus/>
+          <div id="note-body" onBlur={this.save}>
+
+              <ReactQuill theme="snow" id="body-text"
+                onChange={this.handleBodyChange} value={this.state.note.body}
+                autofocus/>
 
             <div id="note-images">
               <form onSubmit={this.submitImage}>
