@@ -32,7 +32,7 @@ kombucha = projects.notes.create!(
 tag1 = Tag.find_by(name: "cooking") || Tag.create!(name: "cooking")
 kombucha.tag_ids += [tag1.id]
 
-pic1 = Picture.new(note_id: cat_tree.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/kombucha.jpg"); pic1.save!
+pic1 = Picture.new(note_id: kombucha.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/kombucha.jpg"); pic1.save!
 kombucha.picture_ids += [pic1.id]
 
 ### Cat Tree
@@ -169,7 +169,7 @@ cooper = inbox.notes.create!(
   body: "<div><a href=\"https://www.petfinder.com/petdetail/35221406\">https://www.petfinder.com/petdetail/35221406</a></div><div><br></div><div>Add this guy too</div>"
 )
 
-pic1 = Picture.new(note_id: quasi.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/cooper.jpeg"); pic1.save!
+pic1 = Picture.new(note_id: cooper.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/cooper.jpeg"); pic1.save!
 cooper.picture_ids += [pic1.id]
 
 
