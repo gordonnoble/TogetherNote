@@ -17,7 +17,7 @@ A note has a title, rich text body, and album of images on the right. The body m
 Every note is saved immediately upon creation and automatically thereafter. No save button! To create a new note simply click the plus icon next to notebook name on the left.
 
 
-# Recycling
+## Recycling
 
 Notes can be deleted by hovering over the note's position in the note list and clicking the trash icon. Any note not in the 'Recycling' notebook will move first to this notebook before permanent removal. Any note in the 'Recycling' notebook, though, will be deleted permanently. Don't say I didn't warn you!
 
