@@ -1,124 +1,39 @@
-# FresherNote
+# TogetherNote
 
-[TogetherNote](https://togethernote.herokuapp.com/)
+TogetherNote is a note taking and organizing app inspired by Evernote. Additionally it allows for multiple users to collaborate on the same note in real time.
 
 [heroku]: http://www.herokuapp.com
 
-## Minimum Viable Product
 
-(App Name) is a web application inspired by Evernote that will be build using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
+## Notebooks
 
-- [x] Hosting on Heroku
-- [x] New account creation, login, and guest/demo login
-- [ ] A production README, replacing this README (**NB**: check out the [sample production README](docs/production_readme.md) -- you'll write this later)
-- [ ] Notebooks for organizing notes
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
-- [ ] Notes
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
-- [ ] Tags for notes
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
-- [ ] Rich Text Editing of notes
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
-- [ ] Live multi-user editing of a single note
-  - [ ] Shareable notes
-  - [ ] Notes update live, without use of a 'save' button
-  - [ ] Two users can update a single note at once from different locations
-
-## Design Docs
-* [View Wireframes][views]
-* [React Components][components]
-* [Flux Cycles][flux-cycles]
-* [API endpoints][api-endpoints]
-* [DB schema][schema]
-
-[views]: docs/views.md
-[components]: docs/components.md
-[flux-cycles]: docs/flux-cycles.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
-
-## Implementation Timeline
-
-### Phase 1: Back and Front End Authentication (1 day, W1 Tu 6pm)
-**Objective:** Functioning rails project with full authentication
-
-- [x] create new project
-- [x] set up webpack & flux scaffold with skeleton files
-- [x] create `User` model
-- [x] authentication backend setup
-- [x] create `StaticPages` controller and root view
-- [x] set up flux cycle for frontend auth
-- [x] user signup/signin components
-- [x] blank landing component after signin
-- [x] seed users
-
-### Phase 2: Notebook and Note Basics (2 days, W1 Th 6pm)
-**Objective:** Notes can be created, read, edited, and destroyed through the
-API. Notes are organized by notebook.
-
-- [x] create a `Notebook` model
-- [x] R/CRUD API for notebooks (`NotebooksController`)
-  - [x] for now user's are defaulted to one notebook
-- [x] create a `Note` model, `NotebookNote` model
-  - [x] `NotebookNote` is a join table
-- [x] CRUD API for notes (`NotesController`)
-- [x] seed the database with a small amount of test data
-- [x] jBuilder views for notebooks and notes
-- [x] implement `Notebook` component with flux loop as needed
-- [x] implement `NoteIndex` component with flux loop as needed
-- [x] implement each component, building out the flux loop as needed.
-  - [x] `Sidebar`
-  - [x] `NoteIndexItem`
-  - [x] `NoteDetail`
-    - [x] Updates are saved when user idles or clicks away
+Notebooks are the primary way of organizing notes. Every note belongs to a single notebook, and new notebooks can be created in the notebook drawer by clicking the plus icon. Additionally, notes can easily be moved between notebooks simply by dragging the note to its new notebook. Just start dragging a note to see this in action.
 
 
-### Phase 3: Refinement of `Notebook` component (1 day, W2 F 6pm)
-**Objective:** Notebooks can be created, updated, destroyed via the notebook drawer
+## Notes
 
-- [x] CUD/CRUD API for notebooks
-  - [x] implement notebook drawer
-  - [x] implement switching between notebooks
+A note has a title, rich text body, and album of images on the right. The body may contain hyperlinks, lists, and other specially formatted text. The album view can be used to store a scrollable list of pictures associated with the note.
 
-### Phase 4: CSS Refinement and Tags (1 day, W2 M 6pm)
-**objective:** Clean up CSS and enable tagging and searchy-by-tags
-
-- [x] Integrate RTF (`react-quill`, based on Quill.js)
-- [x] Use Rails helpers to sanitize HTML before rendering.
-- [x] Style the new Quill elements.
-- [x] Add Quill styling to seeded notes
-
-### Phase 5: Complex Styling in Notes (1 day, W2 Tu 6pm)
-**objective:** Enable complex styling of notes.
-
-- [x] Clean up and refine CSS
-- [x] Create Tag model and join table
-  - [x] API, flux loops, and components for tagging notes and
-  filtering by note tags
-
-### Phase 6: - Live Editing by Multiple Users (3 day,s W2 F 6pm)
-**objective:** Enable live editing of one note by multiple users
-
-- [ ] Implement `NoteSession` model and join table
-- [ ] Notes keep track of which sessions they are opened in
-- [ ] NoteSessions are added when a note's `NoteDetail` component is rendered,
-    removed when a note's `NoteDetail` is no longer rendered
-- [ ] Notes can be shared with other users, defaults to "Inbox" notebook
-- [ ] Notes update realtime with multiple users at different locations
-- [ ] Alert if note conflict (if I have time)
-- [ ] Deleted notes go to hidden Recycling notebook (if I have time)
+Every note is saved immediately upon creation and automatically thereafter. No save button! To create a new note simply click the plus icon next to notebook name on the left.
 
 
-[phase-one]: docs/phases/phase1.md
-[phase-two]: docs/phases/phase2.md
-[phase-three]: docs/phases/phase3.md
-[phase-four]: docs/phases/phase4.md
-[phase-five]: docs/phases/phase5.md
+# Recycling
+
+Notes can be deleted by hovering over the note's position in the note list and clicking the trash icon. Any note not in the 'Recycling' notebook will move first to this notebook before permanent removal. Any note in the 'Recycling' notebook, though, will be deleted permanently. Don't say I didn't warn you!
+
+Notebooks too can also be deleted, and all their notes will appear in the 'Recycling' notebook as well. The only notebooks that cannot be removed are the 'Inbox' notebook and 'Recycling' notebook itself. In the future I'd like to add a 'delete all' button to easily clean out the recycling notebook when it gets too full.
+
+
+## Tags and Notebooks
+
+Notes can be tagged with any number of labels for an added layer of organization over notebooks. To tag a note, just enter the tag name in the note's 'tag it' field and hit enter. If the tag does not exist it will be created and added to the note. Otherwise the existing tag will be associated to the note. Your tags can be accessed via the tag drawer in the sidebar, where clicking a tag will display a list of all notes associated with that tag.
+
+
+## Sharing
+
+The 'share it' field provides a way to grant another user access to a note. Enter the user's username and hit enter. The recipient, if online, will see a notification of the new note which can be clicked to open the note immediately. If the note is not opened immediately, though, they will have access to it in their 'Inbox' notebook. This is the default location for shared notes, but notes can be moved elsewhere without affecting the sender.
+
+
+## Collaboration
+
+Notes can be edited live by multiple users. Saving occurs periodically for each user, and updates are received live by all online users collaborating on the same note. For now the saving is very simple and overwrites previous versions entirely. I would like to implement a smarter, version-merging system on the back end to avoid lost work.

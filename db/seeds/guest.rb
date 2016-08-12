@@ -50,7 +50,7 @@ cat_tree.picture_ids += [pic1.id, pic2.id, pic3.id]
 
 ### Smart Lighting
 lighting = projects.notes.create!(
-  title: "Install Smart Lighting",
+  title: "Smart Lighting",
   body: "<div><b><span style=\"font-size: 24px;\">Bulbs</span></b></div><ol><li><a href=\"https://www.amazon.com/GE-Wireless-Connected-60-Watt-Equivalent/dp/B00NOL16K0/ref=sr_1_4?ie=UTF8&amp;qid=1470928813&amp;sr=8-4&amp;keywords=smart+bulb\">GE</a></li></ol><ol><li><a href=\"https://www.amazon.com/LUCERO-Smart-Bulb-Bluethooth-Multicolor/dp/B01A85LTQU/ref=sr_1_5?ie=UTF8&amp;qid=1470928856&amp;sr=8-5&amp;keywords=smart+bulb\">Lucero</a></li><li><a href=\"https://www.amazon.com/Flux-Bluetooth-Smart-Light-Generation/dp/B016NVSI7G/ref=sr_1_6?ie=UTF8&amp;qid=1470928856&amp;sr=8-6&amp;keywords=smart+bulb\">Flux</a></li><li><a href=\"https://www.amazon.com/Philips-455295-White-Equivalent-Single/dp/B01C5C9ZLK/ref=sr_1_8?ie=UTF8&amp;qid=1470928856&amp;sr=8-8&amp;keywords=smart+bulb\">Philips</a></li></ol><div><br></div><div><span style=\"font-size: 24px;\"><b>In Stock At:</b></span></div><ol><li><a href=\"https://www.google.com/maps/place/The+Home+Depot/@40.667606,-74.0012007,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25aefe7c670e7:0xe01d1fc2a3324414!8m2!3d40.667602!4d-73.999012\">Home Depot</a></li><li><a href=\"https://www.google.com/maps/search/best+buy/@40.7325558,-73.9982544,13.96z\">Best Buy</a></li></ol><div><br></div><div>Living Room: 4 bulbs</div><div>Bedroom: 2 bulbs</div><div>Bathroom: 0 (right?)</div><div>Kitchen: 2 bulb</div>"
 )
 
@@ -148,13 +148,13 @@ petfinder.notes.create!(
 ### Tapas
 inbox.notes.create!(
   title: "Tapas!",
-  body: "<div>Let's do it: <a href=\"http://www.mitimitinyc.com/\">http://www.mitimitinyc.com/</a></div><div><br></div><div>I'm free Thursday and Friday after work, Sunday.</div><div><br></div><div>Now you go: </div>"
+  body: "<div>Let's do it: <a href=\"http://www.mitimitinyc.com/\">http://www.mitimitinyc.com/</a></div><div><br></div><div>Who's in?</div>"
 )
 
 ### Cooper
 cooper = inbox.notes.create!(
   title: "Cooper",
-  body: "<div><a href=\"https://www.petfinder.com/petdetail/35221406\">https://www.petfinder.com/petdetail/35221406</a></div><div><br></div><div>You're keeping track, right? Add this guy too</div>"
+  body: "<div><a href=\"https://www.petfinder.com/petdetail/35221406\">https://www.petfinder.com/petdetail/35221406</a></div><div><br></div><div>Add this guy too</div>"
 )
 
 tag1 = Tag.find_by(name: "dogs") || Tag.create!(name: "dogs")
@@ -171,7 +171,7 @@ inbox.notes.create!(
 ### Groceries
 groceries = recycling.notes.create!(
   title: "Groceries",
-  body: "<ul><li><s>Cheese (cheddar or jack)</s></li><li>Canola oil</li></ul><ul><li><s>Eggs (get Vital Farms)</s></li><li><s>Arborio Rice</s></li><li><s>Shrimp</s></li></ul><ul><li><s>Peppers</s></li><li><s>Asparagus</s></li><li><s>Cumin</s></li><li><s>Garlic powder</s></li><li><s>Dishwashing soap</s></li><li><s>Kitchen trash bags</s></li></ul>"
+  body: "<ul><li><s>Cheese (cheddar jack)</s></li><li>Canola oil</li></ul><ul><li><s>Eggs (get Vital Farms)</s></li><li><s>Arborio Rice</s></li><li><s>Shrimp</s></li></ul><ul><li><s>Peppers</s></li><li><s>Asparagus</s></li><li><s>Cumin</s></li><li><s>Garlic powder</s></li><li><s>Dishwashing soap</s></li><li><s>Kitchen trash bags</s></li></ul>"
 )
 
 tag1 = Tag.find_by(name: "to-do") || Tag.create!(name: "to-do")
@@ -181,7 +181,7 @@ groceries.tag_ids += [tag1.id]
 ### Nothing Useful
 delete_me.notes.create!(
   title: "Nothing useful in here anyway",
-  body: "<div>1 + 1 = orange</div>"
+  body: "<div>4 / 0 = orange</div>"
 )
 
 ### Besides
