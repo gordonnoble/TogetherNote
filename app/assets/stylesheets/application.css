@@ -17,13 +17,13 @@
 * {
    margin: 0;
    padding: 0;
-  opacity: inherit;
+   opacity: inherit;
  }
 
  html {
    background-position: center center;
    background-size: cover;
-   font-family: inherit;
+   font-family: 'Josefin Sans', sans-serif;
  }
 
  body {

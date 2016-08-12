@@ -129,8 +129,8 @@
 .ql-container {
   box-sizing: border-box;
   cursor: text;
-  font-family: Helvetica, 'Arial', sans-serif;
-  font-size: 13px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
   height: 100%;
   line-height: 1.42;
   margin: 40px 40px 0px 40px !important;
@@ -146,7 +146,7 @@
   outline: none;
   tab-size: 4;
   white-space: pre-wrap;
-  font-family: 'Josefin Slab', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
 .ql-editor div {
   margin: 0;
@@ -212,7 +212,7 @@
 .ql-snow .ql-multi-cursor .cursor-name {
   border-radius: 4px;
   font-size: 11px;
-  font-family: Arial;
+  font-family: 'Josefin Slab';
   margin-left: -50%;
   padding: 4px 10px;
 }
