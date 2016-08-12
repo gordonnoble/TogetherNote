@@ -23,15 +23,17 @@ guest.save!
 
 # Populate each notebook with notes
 ## Projects
-### Sharpen Knives
-knives = projects.notes.create!(
-  title: "Sharpen Kitchen Knives",
-  body: "<ul><li><s>Option A: go </s><a href=\"https://www.yelp.com/biz/korin-new-york\"><s>here</s></a><s> and pay $15/knife, probably $75-100 total</s></li><li><s>Option B: pick up a sharpening stone from </s><a href=\"https://www.amazon.com/Winco-12-Inch-Grain-Sharpening-Medium/dp/B0016J5OFU/ref=sr_1_6?ie=UTF8&amp;qid=1470931014&amp;sr=8-6&amp;keywords=sharpening+stone\"><s>amazon</s></a><s> for $10 and do it myself</s></li><li>Option C: befriend a professional chef and convince them to sharpen my knives for me</li></ul><div>&nbsp;</div><div><br></div><div>John knows some chefs, right? </div>"
+### Kombucha
+kombucha = projects.notes.create!(
+  title: "Kombucha - Making a SCOBY",
+  body: "<div>Pick up:</div><ul><li>sugar</li><li>black tea (loose leaf)</li><li>64 oz jar</li><li>any bottle of unfiltered kombucha</li></ul><div><br></div><div>Do:</div><ul><li>Boil enough water to fill the jar</li><li>Add 1 tablespoon black tea and 1/2 cup sugar</li><li>Let cool to room temp</li><li>Add 1 cup starter kombucha</li><li>Cover with coffee filter and use rubber band to secure it</li><li>Place in a dark location</li><li>Wait 2-4 weeks</li></ul>"
 )
 
 tag1 = Tag.find_by(name: "cooking") || Tag.create!(name: "cooking")
-tag2 = Tag.find_by(name: "to-do") || Tag.create!(name: "to-do")
-knives.tag_ids += [tag1.id, tag2.id]
+kombucha.tag_ids += [tag1.id]
+
+pic1 = Picture.new(note_id: cat_tree.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/kombucha.jpg"); pic1.save!
+kombucha.picture_ids += [pic1.id]
 
 ### Cat Tree
 cat_tree = projects.notes.create!(
@@ -47,6 +49,16 @@ pic1 = Picture.new(note_id: cat_tree.id, image: "https://s3.amazonaws.com/togeth
 pic2 = Picture.new(note_id: cat_tree.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/shelf_cat.jpg"); pic2.save!
 pic3 = Picture.new(note_id: cat_tree.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/ikea_cat.jpg"); pic3.save!
 cat_tree.picture_ids += [pic1.id, pic2.id, pic3.id]
+
+### Sharpen Knives
+knives = projects.notes.create!(
+  title: "Sharpen Kitchen Knives",
+  body: "<ul><li><s>Option A: go </s><a href=\"https://www.yelp.com/biz/korin-new-york\"><s>here</s></a><s> and pay $15/knife, probably $75-100 total</s></li><li><s>Option B: pick up a sharpening stone from </s><a href=\"https://www.amazon.com/Winco-12-Inch-Grain-Sharpening-Medium/dp/B0016J5OFU/ref=sr_1_6?ie=UTF8&amp;qid=1470931014&amp;sr=8-6&amp;keywords=sharpening+stone\"><s>amazon</s></a><s> for $10 and do it myself</s></li><li>Option C: befriend a professional chef</li></ul><div><br></div>"
+)
+
+tag1 = Tag.find_by(name: "cooking") || Tag.create!(name: "cooking")
+tag2 = Tag.find_by(name: "to-do") || Tag.create!(name: "to-do")
+knives.tag_ids += [tag1.id, tag2.id]
 
 ### Smart Lighting
 lighting = projects.notes.create!(
@@ -148,7 +160,7 @@ petfinder.notes.create!(
 ### Tapas
 inbox.notes.create!(
   title: "Tapas!",
-  body: "<div>Let's do it: <a href=\"http://www.mitimitinyc.com/\">http://www.mitimitinyc.com/</a></div><div><br></div><div>Who's in?</div>"
+  body: "<div>Who's in: <a href=\"http://www.mitimitinyc.com/\">http://www.mitimitinyc.com/</a></div><div><br></div>"
 )
 
 ### Cooper
@@ -156,6 +168,10 @@ cooper = inbox.notes.create!(
   title: "Cooper",
   body: "<div><a href=\"https://www.petfinder.com/petdetail/35221406\">https://www.petfinder.com/petdetail/35221406</a></div><div><br></div><div>Add this guy too</div>"
 )
+
+pic1 = Picture.new(note_id: quasi.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/cooper.jpeg"); pic1.save!
+cooper.picture_ids += [pic1.id]
+
 
 tag1 = Tag.find_by(name: "dogs") || Tag.create!(name: "dogs")
 cooper.tag_ids += [tag1.id]
