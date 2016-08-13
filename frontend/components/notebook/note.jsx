@@ -130,14 +130,14 @@ const Note = React.createClass({
                 <img id="share-label" src={window.share} />
                 <input id="share-input" type="text" placeholder="share it" onFocus={this.clearSharePlaceholder}
                   onBlur={this.resetSharePlaceholder} onChange={this.handleShareInput} value={this.state.newShare}/>
-                <span id="share-confirmation" className="hide">share added</span>
+                <span id="share-confirmation" className="hide">shared</span>
               </form>
 
               <form id="tag-form" onSubmit={this.submitNewTag}>
                 <img id="tag-label" src={window.tag} />
                 <input id="tag-input" type="text" placeholder="tag it" onFocus={this.clearTagPlaceholder}
                   onBlur={this.resetTagPlaceholder} onChange={this.handleTagInput} value={this.state.newTag}/>
-                <span id="tag-confirmation" className="hide">tag added</span>
+                <span id="tag-confirmation" className="hide">tagged</span>
               </form>
 
           </header>
