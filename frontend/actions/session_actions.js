@@ -45,4 +45,16 @@ SessionActions.removeCurrentUser = function(user) {
   hashHistory.push('/login');
 };
 
+SessionActions.updateAvatar = function(formData) {
+  let userId = SessionStore.currentUser().id;
+  SessionApiUtil.updateAvatar(userId, formData, SessionActions.receiveNewAvatar);
+};
+
+SessionActions.receiveNewAvatar = function(image) {
+  Dispatcher.dispatch({
+    actionType: SessionConstants.RECEIVE_NEW_AVATAR,
+    image: image
+  });
+};
+
 module.exports = SessionActions;

@@ -9,7 +9,7 @@ const Note = React.createClass({
 
   getInitialState() {
     let note = NoteStore.currentNote();
-    return ({ note: note, newTag: "" , newShare: "", imageFile: null, imageUrl: null });
+    return ({ note: note, newTag: "" , newShare: "" });
   },
   componentDidMount(){
     this.noteListener = NoteStore.addListener(this.switchNote);
@@ -32,7 +32,7 @@ const Note = React.createClass({
     let channel = this.pusher.subscribe('note_' + note.id);
     channel.bind('external_update', this.handleExternalUpdate);
 
-    this.setState({ note: note, newTag: "", newShare: "", imageUrl: null, imageFile: null });
+    this.setState({ note: note, newTag: "", newShare: "" });
   },
   handleTitleChange (event) {
     let newState = this.state;
@@ -79,26 +79,6 @@ const Note = React.createClass({
     confirmation.className = "show";
     this.setState({ newShare: "" });
     setTimeout(() => confirmation.className = "hide", 2000);
-  },
-  updateFile(event) {
-    let file = event.currentTarget.files[0];
-    let reader = new FileReader();
-
-    reader.onloadend = function() {
-      this.setState({ imageFile: file, imageUrl: reader.result });
-    }.bind(this);
-
-    if (file) {
-      reader.readAsDataURL(file);
-    } else {
-      this.setState({ imageUrl: null, imageFile: null });
-    }
-  },
-  submitImage(event) {
-    event.preventDefault();
-    let formData = new FormData();
-    formData.append("note[image]", this.state.imageFile);
-    NoteActions.addImage(this.state.note.id, formData);
   },
   clearTagPlaceholder() {
     document.getElementById("tag-input").placeholder = "";
@@ -147,21 +127,6 @@ const Note = React.createClass({
                 onChange={this.handleBodyChange} value={this.state.note.body}
                 autofocus/>
 
-            <div id="note-images">
-              <form onSubmit={this.submitImage}>
-                <label id="file-label">add image...
-                  <input id="file-input" type="file" onChange={this.updateFile} />
-                </label>
-                <button onClick={this.submitImage} id="image-upload-button" className={buttonClass}><img src={window.upload} /></button>
-              </form>
-
-              <ul id="note-image-list">
-                {
-                  this.state.note.pictures.map( pic =>
-                    <li className="note-image" key={pic.id}><img src={pic.image_url}></img></li> )
-                }
-              </ul>
-            </div>
           </div>
         </div>
       );

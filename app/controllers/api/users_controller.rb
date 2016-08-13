@@ -2,7 +2,6 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
     inbox = @user.notebooks.new(name: "Inbox", removable: false)
     inbox.save!
     recycling = @user.notebooks.new(name: "Recycling", removable: false)
@@ -16,12 +15,21 @@ class Api::UsersController < ApplicationController
 
     @user.open_notebook_id = getting_started.id
 
+
     if @user.save
       login(@user)
       render :show
     else
       render json: @user.errors.full_messages, status: 422
     end
+  end
+
+  def update_avatar
+    user = User.find(params[:id])
+    user.avatar = params[:user][:avatar]
+    user.save!
+
+    render json: {image_url: user.avatar.url}
   end
 
   def user_params

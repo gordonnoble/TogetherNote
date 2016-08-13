@@ -65,17 +65,6 @@ class Api::NotesController < ApplicationController
     render 'api/tags/show_with_notes'
   end
 
-  def add_image
-    @picture = Picture.new(note_id: params[:id])
-    @picture.image = params[:note][:image]
-    @picture.save!
-
-    note = Note.find(params[:id])
-    note.picture_ids += [@picture.id]
-
-    render :picture
-  end
-
   def add_user
     @note = Note.find(params[:id])
     user = User.find_by(username: params[:user][:username])

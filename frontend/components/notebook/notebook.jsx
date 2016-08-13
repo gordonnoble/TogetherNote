@@ -1,15 +1,13 @@
 const React = require('react');
 const SessionStore = require('../../stores/session_store');
-const hashHistory = require('react-router').hashHistory;
-const NotebookStore = require('../../stores/notebook_store');
 const NotebookActions = require('../../actions/notebook_actions');
 const NoteIndex = require('./note_index');
-const NoteActions = require('../../actions/note_actions');
 const Sidebar = require('./sidebar');
 const Note = require('./note');
 const NotebookDrawer = require('./notebook_drawer');
 const TagDrawer = require('./tag_drawer');
 const ShareNotification = require('./share_notification');
+const AccountEdit = require('./account_edit');
 
 const Notebook = React.createClass({
   componentDidMount(){
@@ -20,6 +18,7 @@ const Notebook = React.createClass({
     return (
       <div id="notebook">
         <Sidebar />
+        <AccountEdit />
         <ShareNotification />
         <NotebookDrawer />
         <TagDrawer />

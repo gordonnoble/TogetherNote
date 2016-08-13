@@ -2,3 +2,86 @@
   display: flex;
   height: 100%;
 }
+
+#account-edit {
+  background-color: #FFFFFF;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+
+#account-edit.show {
+  display: block;
+}
+
+#account-edit.hide {
+  display: none;
+}
+
+#account-edit-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+}
+
+#account-edit-box h1 {
+  text-align: center;
+  margin: 20px;
+}
+
+#file-input {
+  display: none;
+}
+
+#account-edit-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#account-edit-form * {
+  padding: 5px 0px;
+  border-radius: 3px;
+  text-align: center;
+  flex: 1;
+  font-family: 'Lato', sans-serif;
+  color: #2DBE60;
+  font-size: 14px;
+}
+
+#file-label:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #2DBE60;
+}
+
+#image-upload-button {
+  border: none;
+  display: none;
+}
+
+#image-upload-button.show {
+  display: block;
+}
+
+#image-upload-button.hide {
+  display: none;
+}
+
+#image-upload-button:hover {
+  background-color: #2DBE60;
+  color: #FFFFFF;
+}
+
+#avatar-preview {
+  width: 100%;
+  height: auto;
+  box-shadow: 1px 2px 3px 0px rgba(117,117,117,1);
+}

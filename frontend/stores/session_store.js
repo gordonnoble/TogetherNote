@@ -24,6 +24,11 @@ SessionStore.isLoggedIn = function() {
   return !!_currentUser.id;
 };
 
+SessionStore.updateAvatar = function(image) {
+  _currentUser.image_url = image.image_url;
+  SessionStore.__emitChange();
+};
+
 SessionStore.__onDispatch = function(payload) {
   switch (payload.actionType) {
     case SessionConstants.LOGIN:
@@ -31,6 +36,9 @@ SessionStore.__onDispatch = function(payload) {
       break;
     case SessionConstants.LOGOUT:
       _logout();
+      break;
+    case SessionConstants.RECEIVE_NEW_AVATAR:
+      SessionStore.updateAvatar(payload.image);
       break;
   }
 };

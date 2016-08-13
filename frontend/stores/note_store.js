@@ -61,10 +61,6 @@ NoteStore.switchBook = function(book) {
   NoteStore.__emitChange();
 };
 
-NoteStore.addPicture = function(picture) {
-  _note.pictures.push(picture);
-  NoteStore.__emitChange();
-};
 
 NoteStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
@@ -94,9 +90,6 @@ NoteStore.__onDispatch = function(payload) {
       break;
     case NoteConstants.RECEIVE_TAGGED_NOTES:
       NoteStore.switchBook(payload.tagNotebook);
-      break;
-    case NoteConstants.RECEIVE_PICTURE:
-      NoteStore.addPicture(payload.picture);
       break;
   }
 };

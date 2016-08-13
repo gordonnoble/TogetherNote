@@ -3,7 +3,6 @@ class Note < ApplicationRecord
     has_many :notebooks, through: :notebook_notes
     has_many :taggings, dependent: :destroy, inverse_of: :note
     has_many :tags, through: :taggings
-    has_many :pictures, inverse_of: :note
 
     def all_users
       self.notebooks.includes(:user).map{ |nb| nb.user }.flatten

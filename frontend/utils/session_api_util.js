@@ -55,6 +55,20 @@ const SessionApiUtil = {
         console.log("signup", errors);
       }
     });
+  },
+
+  updateAvatar (userId, formData, callback) {
+    $.ajax({
+      url: `api/users/${userId}`,
+      method: 'PATCH',
+      dataType: 'json',
+      contentType: false,
+      processData: false,
+      data: formData,
+      success(image) {
+        callback(image);
+      }
+    });
   }
 
 };

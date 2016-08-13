@@ -90,15 +90,4 @@ NoteActions.shareNote = function(noteId, username) {
   NoteApiUtil.shareNote(noteId, username);
 };
 
-NoteActions.addImage = function(noteId, formData) {
-  NoteApiUtil.addImage(noteId, formData, NoteActions.receivePicture);
-};
-
-NoteActions.receivePicture = function(picture) {
-  Dispatcher.dispatch({
-    actionType: NoteConstants.RECEIVE_PICTURE,
-    picture: picture
-  });
-};
-
 module.exports = NoteActions;
