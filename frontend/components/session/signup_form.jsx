@@ -95,7 +95,7 @@ const SignupForm = React.createClass({
 
             <button className="signup-in-input signup-in-button" type="submit">Create Account</button>
           </form>
-            <button id="guest-login" onClick={this.logInGuest}>Try It Out</button>
+            <button id="guest-login" onClick={this.logInGuest}>Guest Login</button>
 
             <div className="signup-in-link">
               <span>Already have an account?</span>
