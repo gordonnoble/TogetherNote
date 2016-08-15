@@ -27,4 +27,16 @@ TagActions.receiveAll = function(tags) {
   });
 };
 
+TagActions.unTagNote = function(noteId, tag) {
+  NoteApiUtil.unTagNote(noteId, tag, TagActions.removeTag);
+};
+
+TagActions.removeTag = function(tag) {
+  Dispatcher.dispatch({
+    actionType: TagConstants.REMOVE_TAG,
+    tag: tag
+  });
+  TagActions.fetchAll();
+};
+
 module.exports = TagActions;

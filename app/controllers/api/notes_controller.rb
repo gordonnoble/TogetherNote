@@ -58,6 +58,13 @@ class Api::NotesController < ApplicationController
     render 'api/tags/show'
   end
 
+  def untag
+    note = Note.find(params[:id])
+
+    note.tag_ids -= [params[:tag][:id].to_i]
+    render json: { id: params[:tag][:id], name: params[:tag][:name] }
+  end
+
   def tags_notes
     @tag = Tag.find(params[:id])
     @notes = @tag.notes_hash_by_user(current_user)

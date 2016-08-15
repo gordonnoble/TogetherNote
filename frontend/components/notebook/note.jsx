@@ -83,6 +83,7 @@ const Note = React.createClass({
     setTimeout(() => confirmation.className = "hide", 2000);
   },
   toggleNotesTags(event) {
+    event.stopPropagation();
     event.preventDefault();
     DisplayActions.toggleNotesTags();
   },
@@ -100,6 +101,7 @@ const Note = React.createClass({
   },
   render () {
     let buttonClass = (this.state.imageFile === null) ? "hide" : "show";
+    let tagsArray = NoteStore.tags();
 
     if ( this.state.note.title === undefined ) {
       return (
@@ -135,7 +137,7 @@ const Note = React.createClass({
                 onChange={this.handleBodyChange} value={this.state.note.body}
                 autofocus/>
 
-              <NotesTags tags={this.state.note.tags} />
+              <NotesTags tags={tagsArray} noteId={this.state.note.id}/>
           </div>
         </div>
       );

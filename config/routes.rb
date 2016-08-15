@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   patch 'api/notes/:id/switch', to: 'api/notes#switch'
   post 'api/notes/:id/tags', to: 'api/notes#tag'
+  delete 'api/notes/:id/tags', to: 'api/notes#untag'
   get 'api/users/:id/tags', to: 'api/tags#users_tags'
   get 'api/tags/:id/notes', to: 'api/notes#tags_notes'
   patch 'api/users/:id', to: 'api/users#update_avatar'

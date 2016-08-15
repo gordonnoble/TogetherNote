@@ -63,6 +63,17 @@ const NoteApiUtil = {
     });
   },
 
+  unTagNote(noteId, tag, callback) {
+    $.ajax({
+      url: `/api/notes/${noteId}/tags`,
+      method: 'DELETE',
+      data: { tag: tag },
+      success(tag) {
+        callback(tag);
+      }
+    });
+  },
+
   searchByTag(tagId, callback) {
     $.ajax({
       url: `/api/tags/${tagId}/notes`,

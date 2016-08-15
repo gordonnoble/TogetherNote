@@ -1,6 +1,7 @@
 const React = require('react');
 const DisplayStore = require('../../stores/display_store');
 const DisplayActions = require('../../actions/display_actions');
+const NoteTagItem = require('./note_tag_item');
 
 const NotesTags = React.createClass({
   componentDidMount() {
@@ -25,13 +26,16 @@ const NotesTags = React.createClass({
     }
   },
   render() {
+    let header = (this.props.tags.length === 0) ? "No Tags On This Note" : "This Note's Tags";
+    let tags = this.props.tags.map( tag =>
+      <NoteTagItem key={tag.id} tag={tag} noteId={this.props.noteId}/>
+    );
+
     return (
       <div id="notes-tags" className="hide">
+        <h2>{header}</h2>
         <ul id="notes-tags-list">
-          {
-            this.props.tags.map( tag =>
-              <li className="note-tag-item" key={tag.id}>{tag.name}</li>)
-          }
+          { tags }
         </ul>
       </div>
     );

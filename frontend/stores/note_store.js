@@ -3,6 +3,7 @@ const Dispatcher = require('../dispatcher/dispatcher');
 const NoteStore = new Store(Dispatcher);
 const NoteConstants = require('../constants/note_constants');
 const NotebookConstants = require('../constants/notebook_constants');
+const TagConstants = require('../constants/tag_constants');
 
 const _undefinedNote = { id: undefined, title: undefined, body: undefined, collaborators: undefined};
 var _note = {};
@@ -61,6 +62,23 @@ NoteStore.switchBook = function(book) {
   NoteStore.__emitChange();
 };
 
+NoteStore.addTag = function(tag) {
+  _note.tags[tag.id] = tag;
+  NoteStore.__emitChange();
+};
+
+NoteStore.removeTag = function(tag) {
+  delete _note.tags[tag.id];
+  NoteStore.__emitChange();
+};
+
+NoteStore.tags = function() {
+  let tags = [];
+  for(let key in _note.tags){
+    tags.push(_note.tags[key]);
+  }
+  return tags;
+};
 
 NoteStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
@@ -90,6 +108,12 @@ NoteStore.__onDispatch = function(payload) {
       break;
     case NoteConstants.RECEIVE_TAGGED_NOTES:
       NoteStore.switchBook(payload.tagNotebook);
+      break;
+    case TagConstants.RECEIVE_TAG:
+      NoteStore.addTag(payload.tag);
+      break;
+    case TagConstants.REMOVE_TAG:
+      NoteStore.removeTag(payload.tag);
       break;
   }
 };

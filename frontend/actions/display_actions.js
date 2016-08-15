@@ -39,15 +39,15 @@ DisplayActions.hideNotebookForm = function() {
   });
 };
 
-DisplayActions.toggleNotesTags = function() {
-  Dispatcher.dispatch({
-    actionType: DisplayConstants.TOGGLE_NOTES_TAGS
-  });
-};
-
 DisplayActions.closeNotesTags = function() {
   Dispatcher.dispatch({
     actionType: DisplayConstants.CLOSE_NOTES_TAGS
+  });
+};
+
+DisplayActions.toggleNotesTags = function() {
+  Dispatcher.dispatch({
+    actionType: DisplayConstants.TOGGLE_NOTES_TAGS
   });
 };
 

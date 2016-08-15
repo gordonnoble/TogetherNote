@@ -9,6 +9,7 @@
 
 #note-body {
   position: relative;
+  flex: 1;
 }
 
 
@@ -87,16 +88,16 @@
 }
 
 #toggle-tags-button {
-  width: 40px;
-  height: 40px;
   margin: 10px;
+  margin-right: 20px;
   border-radius: 3px;
   border: 1px solid #2DBE60;
+  border: none;
 }
 
 #toggle-tags-button img {
-  width: 100%;
-  height: auto;
+  width: 30px;
+  height: 30px;
 }
 
 #toggle-tags-button:hover {
@@ -219,6 +220,11 @@
   transition: all 500ms ease-in-out;
 }
 
+#notes-tags h2 {
+  margin-top: 40px;
+  text-align: center;
+}
+
 .note-tag-item {
   font-weight: 400;
   float: left;
@@ -226,12 +232,38 @@
   border-radius: 5px;
   margin: 40px;
   margin-bottom: 10px;
-  display: inline;
+  display: flex;
   border: 1px solid #2DBE60;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
 }
 
 .note-tag-item:hover {
-  background-color: rgba(45,190,96,0.9);
+  background-color: rgba(45,190,96,0.95);
   color: #FFFFFF;
   cursor: pointer;
+}
+
+.x-out-tag-note-item {
+  width: 15px;
+  height: 15px;
+  padding: 5px;
+  margin-left: 10px;
+  display: inline;
+  border-radius: 3px;
+}
+
+.x-out-tag-note-item img {
+  width: 100%;
+  height: auto;
+}
+
+.x-out-tag-note-item:hover {
+  background-color: #2F4F4F;
+}
+
+.x-out-tag-note-item:hover img {
+  filter: grayscale(100%) brightness(300%);
+  -webkit-filter: grayscale(100%) brightness(300%);
 }

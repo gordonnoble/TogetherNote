@@ -50,14 +50,15 @@ DisplayStore.isNotebookFormVisible = function() {
   return _notebookFormVisibile;
 };
 
-DisplayStore.toggleNotesTags = function() {
-  _notesTagsVisible = (_notesTagsVisible) ? false : true;
-  console.log("yup");
+DisplayStore.closeNotesTags = function() {
+  console.log('closing');
+  _notesTagsVisible = false;
   DisplayStore.__emitChange();
 };
 
-DisplayStore.closeNotesTags = function() {
-  _notesTagsVisible = false;
+DisplayStore.toggleNotesTags = function() {
+  console.log('toggling');
+  _notesTagsVisible = (_notesTagsVisible) ? false : true;
   DisplayStore.__emitChange();
 };
 

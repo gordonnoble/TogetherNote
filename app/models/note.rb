@@ -12,6 +12,20 @@ class Note < ApplicationRecord
       ActionView::Base.full_sanitizer.sanitize(self.body).to_s
     end
 
+    def tags_hash
+      tags_hash = {}
+
+      self.tags.each do |tag|
+        id = tag.id
+        tags_hash[id] = {
+                          id: id,
+                          name: tag.name
+                        }
+      end
+
+      tags_hash
+    end
+
     def self.hashify(notes_array)
       notesHash = {}
 
