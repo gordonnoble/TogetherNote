@@ -9,13 +9,12 @@
 
 #note-body {
   position: relative;
-  flex: 1;
 }
-
 
 /*Note Header*/
 #note-header {
   height: 70px;
+  flex: 1;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #D3D3D3;
@@ -174,13 +173,17 @@
 
 /*Body Text*/
 
-#body-text img {
+#note-body {
+  height: 100%;
+}
+
+/*#body-text img {
   box-shadow: 0px 0px 3px 0px rgba(47,47,47,1);
   border-radius: 2px;
   height: 200px;
   float: right;
   width: auto;
-}
+}*/
 
 .quill-toolbar.ql-toolbar.ql-snow * {
   font-family: 'Lato', sans-serif;
@@ -195,10 +198,6 @@
   overflow: auto;
   border-left: 1px solid #D3D3D3;
   border-top: 1px solid #D3D3D3;
-}
-
-.ql-editor {
-  overflow: auto !important;
 }
 
 /*Notes Tags*/

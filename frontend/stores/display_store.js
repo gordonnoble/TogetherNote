@@ -51,13 +51,11 @@ DisplayStore.isNotebookFormVisible = function() {
 };
 
 DisplayStore.closeNotesTags = function() {
-  console.log('closing');
   _notesTagsVisible = false;
   DisplayStore.__emitChange();
 };
 
 DisplayStore.toggleNotesTags = function() {
-  console.log('toggling');
   _notesTagsVisible = (_notesTagsVisible) ? false : true;
   DisplayStore.__emitChange();
 };
