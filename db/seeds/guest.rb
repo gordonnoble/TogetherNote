@@ -32,8 +32,8 @@ kombucha = projects.notes.create!(
 tag1 = Tag.find_by(name: "cooking") || Tag.create!(name: "cooking")
 kombucha.tag_ids += [tag1.id]
 
-pic1 = Picture.new(note_id: kombucha.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/kombucha.jpg"); pic1.save!
-kombucha.picture_ids += [pic1.id]
+# pic1 = Picture.new(note_id: kombucha.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/kombucha.jpg"); pic1.save!
+# kombucha.picture_ids += [pic1.id]
 
 ### Cat Tree
 cat_tree = projects.notes.create!(
@@ -45,10 +45,10 @@ tag1 = Tag.find_by(name: "home improvement") || Tag.create!(name: "home improvem
 tag2 = Tag.find_by(name: "cats") || Tag.create!(name: "cats")
 cat_tree.tag_ids += [tag1.id, tag2.id]
 
-pic1 = Picture.new(note_id: cat_tree.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/book_cat.jpg"); pic1.save!
-pic2 = Picture.new(note_id: cat_tree.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/shelf_cat.jpg"); pic2.save!
-pic3 = Picture.new(note_id: cat_tree.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/ikea_cat.jpg"); pic3.save!
-cat_tree.picture_ids += [pic1.id, pic2.id, pic3.id]
+# pic1 = Picture.new(note_id: cat_tree.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/book_cat.jpg"); pic1.save!
+# pic2 = Picture.new(note_id: cat_tree.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/shelf_cat.jpg"); pic2.save!
+# pic3 = Picture.new(note_id: cat_tree.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/ikea_cat.jpg"); pic3.save!
+# cat_tree.picture_ids += [pic1.id, pic2.id, pic3.id]
 
 ### Sharpen Knives
 knives = projects.notes.create!(
@@ -70,8 +70,8 @@ tag1 = Tag.find_by(name: "home improvement") || Tag.create!(name: "home improvem
 tag2 = Tag.find_by(name: "tech") || Tag.create!(name: "tech")
 lighting.tag_ids += [tag1.id, tag2.id]
 
-pic1 = Picture.new(note_id: lighting.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/smartbulb.jpg"); pic1.save!
-lighting.picture_ids += [pic1.id]
+# pic1 = Picture.new(note_id: lighting.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/smartbulb.jpg"); pic1.save!
+# lighting.picture_ids += [pic1.id]
 
 ### Drag To Petfinder
 drag_to_petfinder = projects.notes.create!(
@@ -82,8 +82,8 @@ drag_to_petfinder = projects.notes.create!(
 tag1 = Tag.find_by(name: "dogs") || Tag.create!(name: "dogs")
 drag_to_petfinder.tag_ids += [tag1.id]
 
-pic1 = Picture.new(note_id: drag_to_petfinder.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/bori.jpeg"); pic1.save!
-drag_to_petfinder.picture_ids += [pic1.id]
+# pic1 = Picture.new(note_id: drag_to_petfinder.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/bori.jpeg"); pic1.save!
+# drag_to_petfinder.picture_ids += [pic1.id]
 
 
 
@@ -97,8 +97,8 @@ rosie = petfinder.notes.create!(
 tag1 = Tag.find_by(name: "dogs") || Tag.create!(name: "dogs")
 rosie.tag_ids += [tag1.id]
 
-pic1 = Picture.new(note_id: rosie.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/rosie.jpeg"); pic1.save!
-rosie.picture_ids += [pic1.id]
+# pic1 = Picture.new(note_id: rosie.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/rosie.jpeg"); pic1.save!
+# rosie.picture_ids += [pic1.id]
 
 ### Kirby
 kirby = petfinder.notes.create!(
@@ -109,8 +109,8 @@ kirby = petfinder.notes.create!(
 tag1 = Tag.find_by(name: "cats") || Tag.create!(name: "cats")
 kirby.tag_ids += [tag1.id]
 
-pic1 = Picture.new(note_id: kirby.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/kirby.jpeg"); pic1.save!
-kirby.picture_ids += [pic1.id]
+# pic1 = Picture.new(note_id: kirby.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/kirby.jpeg"); pic1.save!
+# kirby.picture_ids += [pic1.id]
 
 
 ### Aramis
@@ -122,8 +122,8 @@ aramis = petfinder.notes.create!(
 tag1 = Tag.find_by(name: "dogs") || Tag.create!(name: "dogs")
 aramis.tag_ids += [tag1.id]
 
-pic1 = Picture.new(note_id: aramis.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/aramis.jpeg"); pic1.save!
-aramis.picture_ids += [pic1.id]
+# pic1 = Picture.new(note_id: aramis.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/aramis.jpeg"); pic1.save!
+# aramis.picture_ids += [pic1.id]
 
 ### Annick
 annick = petfinder.notes.create!(
@@ -134,8 +134,8 @@ annick = petfinder.notes.create!(
 tag1 = Tag.find_by(name: "dogs") || Tag.create!(name: "dogs")
 annick.tag_ids += [tag1.id]
 
-pic1 = Picture.new(note_id: annick.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/annick.jpeg"); pic1.save!
-annick.picture_ids += [pic1.id]
+# pic1 = Picture.new(note_id: annick.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/annick.jpeg"); pic1.save!
+# annick.picture_ids += [pic1.id]
 
 ### Quasi
 quasi = petfinder.notes.create!(
@@ -146,8 +146,8 @@ quasi = petfinder.notes.create!(
 tag1 = Tag.find_by(name: "cats") || Tag.create!(name: "cats")
 quasi.tag_ids += [tag1.id]
 
-pic1 = Picture.new(note_id: quasi.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/quasi.jpeg"); pic1.save!
-quasi.picture_ids += [pic1.id]
+# pic1 = Picture.new(note_id: quasi.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/quasi.jpeg"); pic1.save!
+# quasi.picture_ids += [pic1.id]
 
 ### Delete Me
 petfinder.notes.create!(
@@ -169,8 +169,8 @@ cooper = inbox.notes.create!(
   body: "<div><a href=\"https://www.petfinder.com/petdetail/35221406\">https://www.petfinder.com/petdetail/35221406</a></div><div><br></div><div>Add this guy too</div>"
 )
 
-pic1 = Picture.new(note_id: cooper.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/cooper.jpeg"); pic1.save!
-cooper.picture_ids += [pic1.id]
+# pic1 = Picture.new(note_id: cooper.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/cooper.jpeg"); pic1.save!
+# cooper.picture_ids += [pic1.id]
 
 
 tag1 = Tag.find_by(name: "dogs") || Tag.create!(name: "dogs")
