@@ -26,29 +26,22 @@ guest.save!
 ### Kombucha
 kombucha = projects.notes.create!(
   title: "Kombucha - Making a SCOBY",
-  body: "<div>Pick up:</div><ul><li>sugar</li><li>black tea (loose leaf)</li><li>64 oz jar</li><li>any bottle of unfiltered kombucha</li></ul><div><br></div><div>Do:</div><ul><li>Boil enough water to fill the jar</li><li>Add 1 tablespoon black tea and 1/2 cup sugar</li><li>Let cool to room temp</li><li>Add 1 cup starter kombucha</li><li>Cover with coffee filter and use rubber band to secure it</li><li>Place in a dark location</li><li>Wait 2-4 weeks</li></ul>"
+  body: "<div>Pick up:<img src=\"https://s3.amazonaws.com/togethernote-dev/guest_images/kombucha.jpg\"></div><ul><li>sugar</li><li>black tea (loose leaf)</li><li>64 oz jar</li><li>any bottle of unfiltered kombucha</li></ul><div><br></div><div>Do:</div><ul><li>Boil enough water to fill the jar</li><li>Add 1 tablespoon black tea and 1/2 cup sugar</li><li>Let cool to room temp</li><li>Add 1 cup starter kombucha</li><li>Cover with coffee filter and use rubber band to secure it</li><li>Place in a dark location</li><li>Wait 2-4 weeks</li></ul>"
 )
 
 tag1 = Tag.find_by(name: "cooking") || Tag.create!(name: "cooking")
 kombucha.tag_ids += [tag1.id]
 
-# pic1 = Picture.new(note_id: kombucha.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/kombucha.jpg"); pic1.save!
-# kombucha.picture_ids += [pic1.id]
-
 ### Cat Tree
 cat_tree = projects.notes.create!(
   title: "Cat Tree",
-  body: "<div>Go here: <a href=\"http://iheartcats.com/10-cool-diy-cat-trees/\">http://iheartcats.com/10-cool-diy-cat-trees/</a></div><div><br></div><div><b>Supplies</b>:</div><ol><li>Rope</li><li>Carpeting</li><li>Plywood</li><li>Cats</li></ol><div><br></div><div><br></div><div><br></div><div><b>Booking cat</b>: just get an IKEA shelf and those clip-on attachments. Super easy! Of course, then I have a bookshelf without any books.</div><div><b>Minimalist cat</b>: awesome, but probably a pain to install. Plus, do I trust my heavy cats jumping on shelves I installed?Almost certainly not.</div><div><b>IKEA cat:</b> not crazy into it but maybe I should just peruse IKEA and draw inspiration.</div><div><br></div>"
+  body: "<div>Go here: <a href=\"http://iheartcats.com/10-cool-diy-cat-trees/\">http://iheartcats.com/10-cool-diy-cat-trees/</a></div><div><br></div><div><b>Supplies</b>:</div><ol><li>Rope</li><li>Carpeting</li><li>Plywood</li><li>Cats</li></ol><div><br></div><div><br></div><div><b>Booking cat</b>:<img src=\"https://s3.amazonaws.com/togethernote-dev/guest_images/book_cat.jpg\"> just get an IKEA shelf and those clip-on attachments. Super easy! Of course, then I have a bookshelf without any books.</div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><b>Minimalist cat</b>:<img src=\"https://s3.amazonaws.com/togethernote-dev/guest_images/shelf_cat.jpg\"> awesome, but probably a pain to install. Plus, do I trust my heavy cats jumping on shelves I installed?Almost certainly not.</div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><b>IKEA cat:</b><img src=\"https://s3.amazonaws.com/togethernote-dev/guest_images/ikea_cat.jpg\"> not crazy into it but maybe I should just peruse IKEA and draw inspiration.</div><div><br></div>"
 )
 
 tag1 = Tag.find_by(name: "home improvement") || Tag.create!(name: "home improvement")
 tag2 = Tag.find_by(name: "cats") || Tag.create!(name: "cats")
 cat_tree.tag_ids += [tag1.id, tag2.id]
 
-# pic1 = Picture.new(note_id: cat_tree.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/book_cat.jpg"); pic1.save!
-# pic2 = Picture.new(note_id: cat_tree.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/shelf_cat.jpg"); pic2.save!
-# pic3 = Picture.new(note_id: cat_tree.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/ikea_cat.jpg"); pic3.save!
-# cat_tree.picture_ids += [pic1.id, pic2.id, pic3.id]
 
 ### Sharpen Knives
 knives = projects.notes.create!(
@@ -63,91 +56,68 @@ knives.tag_ids += [tag1.id, tag2.id]
 ### Smart Lighting
 lighting = projects.notes.create!(
   title: "Smart Lighting",
-  body: "<div><b><span style=\"font-size: 24px;\">Bulbs</span></b></div><ol><li><a href=\"https://www.amazon.com/GE-Wireless-Connected-60-Watt-Equivalent/dp/B00NOL16K0/ref=sr_1_4?ie=UTF8&amp;qid=1470928813&amp;sr=8-4&amp;keywords=smart+bulb\">GE</a></li></ol><ol><li><a href=\"https://www.amazon.com/LUCERO-Smart-Bulb-Bluethooth-Multicolor/dp/B01A85LTQU/ref=sr_1_5?ie=UTF8&amp;qid=1470928856&amp;sr=8-5&amp;keywords=smart+bulb\">Lucero</a></li><li><a href=\"https://www.amazon.com/Flux-Bluetooth-Smart-Light-Generation/dp/B016NVSI7G/ref=sr_1_6?ie=UTF8&amp;qid=1470928856&amp;sr=8-6&amp;keywords=smart+bulb\">Flux</a></li><li><a href=\"https://www.amazon.com/Philips-455295-White-Equivalent-Single/dp/B01C5C9ZLK/ref=sr_1_8?ie=UTF8&amp;qid=1470928856&amp;sr=8-8&amp;keywords=smart+bulb\">Philips</a></li></ol><div><br></div><div><span style=\"font-size: 24px;\"><b>In Stock At:</b></span></div><ol><li><a href=\"https://www.google.com/maps/place/The+Home+Depot/@40.667606,-74.0012007,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25aefe7c670e7:0xe01d1fc2a3324414!8m2!3d40.667602!4d-73.999012\">Home Depot</a></li><li><a href=\"https://www.google.com/maps/search/best+buy/@40.7325558,-73.9982544,13.96z\">Best Buy</a></li></ol><div><br></div><div>Living Room: 4 bulbs</div><div>Bedroom: 2 bulbs</div><div>Bathroom: 0 (right?)</div><div>Kitchen: 2 bulb</div>"
+  body: "<div><img src=\"https://s3.amazonaws.com/togethernote-dev/guest_images/smartbulb.jpg\"><b><span style=\"font-size: 24px;\">Bulbs</span></b></div><ol><li><a href=\"https://www.amazon.com/GE-Wireless-Connected-60-Watt-Equivalent/dp/B00NOL16K0/ref=sr_1_4?ie=UTF8&amp;qid=1470928813&amp;sr=8-4&amp;keywords=smart+bulb\">GE</a></li></ol><ol><li><a href=\"https://www.amazon.com/LUCERO-Smart-Bulb-Bluethooth-Multicolor/dp/B01A85LTQU/ref=sr_1_5?ie=UTF8&amp;qid=1470928856&amp;sr=8-5&amp;keywords=smart+bulb\">Lucero</a></li><li><a href=\"https://www.amazon.com/Flux-Bluetooth-Smart-Light-Generation/dp/B016NVSI7G/ref=sr_1_6?ie=UTF8&amp;qid=1470928856&amp;sr=8-6&amp;keywords=smart+bulb\">Flux</a></li><li><a href=\"https://www.amazon.com/Philips-455295-White-Equivalent-Single/dp/B01C5C9ZLK/ref=sr_1_8?ie=UTF8&amp;qid=1470928856&amp;sr=8-8&amp;keywords=smart+bulb\">Philips</a></li></ol><div><br></div><div><span style=\"font-size: 24px;\"><b>In Stock At:</b></span></div><ol><li><a href=\"https://www.google.com/maps/place/The+Home+Depot/@40.667606,-74.0012007,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25aefe7c670e7:0xe01d1fc2a3324414!8m2!3d40.667602!4d-73.999012\">Home Depot</a></li><li><a href=\"https://www.google.com/maps/search/best+buy/@40.7325558,-73.9982544,13.96z\">Best Buy</a></li></ol><div><br></div><div>Living Room: 4 bulbs</div><div>Bedroom: 2 bulbs</div><div>Bathroom: 0 (right?)</div><div>Kitchen: 2 bulb</div>"
 )
 
 tag1 = Tag.find_by(name: "home improvement") || Tag.create!(name: "home improvement")
 tag2 = Tag.find_by(name: "tech") || Tag.create!(name: "tech")
 lighting.tag_ids += [tag1.id, tag2.id]
 
-# pic1 = Picture.new(note_id: lighting.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/smartbulb.jpg"); pic1.save!
-# lighting.picture_ids += [pic1.id]
-
 ### Drag To Petfinder
 drag_to_petfinder = projects.notes.create!(
   title: "Bori (drag me)",
-  body: "<div>Into the Petfinder notebook... </div><div><br></div><div><a href=\"https://www.petfinder.com/petdetail/35794981\">https://www.petfinder.com/petdetail/35794981</a></div><div><br></div>"
+  body: "<div>Into the Petfinder notebook... <img src=\"https://s3.amazonaws.com/togethernote-dev/guest_images/bori.jpeg\"></div><div><br></div><div><a href=\"https://www.petfinder.com/petdetail/35794981\">https://www.petfinder.com/petdetail/35794981</a></div><div><br></div>"
 )
 
 tag1 = Tag.find_by(name: "dogs") || Tag.create!(name: "dogs")
 drag_to_petfinder.tag_ids += [tag1.id]
-
-# pic1 = Picture.new(note_id: drag_to_petfinder.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/bori.jpeg"); pic1.save!
-# drag_to_petfinder.picture_ids += [pic1.id]
-
 
 
 ## Petfinder
 ### Rosie
 rosie = petfinder.notes.create!(
   title: "Rosie",
-  body: "<div><a href=\"https://www.petfinder.com/petdetail/35835015\">https://www.petfinder.com/petdetail/35835015</a></div><div><br></div><div>The piano prodigy?</div>"
+  body: "<div><a href=\"https://www.petfinder.com/petdetail/35835015\">https://www.petfinder.com/petdetail/35835015</a><img src=\"https://s3.amazonaws.com/togethernote-dev/guest_images/rosie.jpeg\"></div><div><br></div><div>The piano prodigy?</div>"
 )
 
 tag1 = Tag.find_by(name: "dogs") || Tag.create!(name: "dogs")
 rosie.tag_ids += [tag1.id]
 
-# pic1 = Picture.new(note_id: rosie.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/rosie.jpeg"); pic1.save!
-# rosie.picture_ids += [pic1.id]
-
 ### Kirby
 kirby = petfinder.notes.create!(
   title: "Kirby",
-  body: "<div><a href=\"https://www.petfinder.com/petdetail/34634040\">https://www.petfinder.com/petdetail/34634040</a></div>"
+  body: "<div><a href=\"https://www.petfinder.com/petdetail/34634040\">https://www.petfinder.com/petdetail/34634040</a><img src=\"https://s3.amazonaws.com/togethernote-dev/guest_images/kirby.jpeg\"></div>"
 )
 
 tag1 = Tag.find_by(name: "cats") || Tag.create!(name: "cats")
 kirby.tag_ids += [tag1.id]
 
-# pic1 = Picture.new(note_id: kirby.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/kirby.jpeg"); pic1.save!
-# kirby.picture_ids += [pic1.id]
-
-
 ### Aramis
 aramis = petfinder.notes.create!(
   title: "Aramis",
-  body: "<div><a href=\"https://www.petfinder.com/petdetail/35830063\">https://www.petfinder.com/petdetail/35830063</a></div><div><br></div>"
+  body: "<div><a href=\"https://www.petfinder.com/petdetail/35830063\">https://www.petfinder.com/petdetail/35830063</a><img src=\"https://s3.amazonaws.com/togethernote-dev/guest_images/aramis.jpeg\"></div><div><br></div>"
 )
 
 tag1 = Tag.find_by(name: "dogs") || Tag.create!(name: "dogs")
 aramis.tag_ids += [tag1.id]
 
-# pic1 = Picture.new(note_id: aramis.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/aramis.jpeg"); pic1.save!
-# aramis.picture_ids += [pic1.id]
-
 ### Annick
 annick = petfinder.notes.create!(
   title: "Annick",
-  body: "<div><a href=\"https://www.petfinder.com/petdetail/35790524\">https://www.petfinder.com/petdetail/35790524</a></div><div><br></div>"
+  body: "<div><a href=\"https://www.petfinder.com/petdetail/35790524\">https://www.petfinder.com/petdetail/35790524</a><img src=\"https://s3.amazonaws.com/togethernote-dev/guest_images/annick.jpeg\"></div><div><br></div>"
 )
 
 tag1 = Tag.find_by(name: "dogs") || Tag.create!(name: "dogs")
 annick.tag_ids += [tag1.id]
 
-# pic1 = Picture.new(note_id: annick.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/annick.jpeg"); pic1.save!
-# annick.picture_ids += [pic1.id]
-
 ### Quasi
 quasi = petfinder.notes.create!(
   title: "Quasi",
-  body: "<div><a href=\"https://www.petfinder.com/petdetail/34866075\">https://www.petfinder.com/petdetail/34866075</a></div>"
+  body: "<div><img src=\"https://s3.amazonaws.com/togethernote-dev/guest_images/quasi.jpeg\"><a href=\"https://www.petfinder.com/petdetail/34866075\">https://www.petfinder.com/petdetail/34866075</a></div>"
 )
 
 tag1 = Tag.find_by(name: "cats") || Tag.create!(name: "cats")
 quasi.tag_ids += [tag1.id]
-
-# pic1 = Picture.new(note_id: quasi.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/quasi.jpeg"); pic1.save!
-# quasi.picture_ids += [pic1.id]
 
 ### Delete Me
 petfinder.notes.create!(
@@ -166,12 +136,8 @@ inbox.notes.create!(
 ### Cooper
 cooper = inbox.notes.create!(
   title: "Cooper",
-  body: "<div><a href=\"https://www.petfinder.com/petdetail/35221406\">https://www.petfinder.com/petdetail/35221406</a></div><div><br></div><div>Add this guy too</div>"
+  body: "<div><a href=\"https://www.petfinder.com/petdetail/35221406\">https://www.petfinder.com/petdetail/35221406</a><img src=\"https://s3.amazonaws.com/togethernote-dev/guest_images/cooper.jpeg\"></div><div><br></div><div>Add this guy too</div>"
 )
-
-# pic1 = Picture.new(note_id: cooper.id, image: "https://s3.amazonaws.com/togethernote-dev/guest_images/cooper.jpeg"); pic1.save!
-# cooper.picture_ids += [pic1.id]
-
 
 tag1 = Tag.find_by(name: "dogs") || Tag.create!(name: "dogs")
 cooper.tag_ids += [tag1.id]
