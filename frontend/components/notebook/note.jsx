@@ -3,6 +3,8 @@ const ReactQuill = require('react-quill');
 const NoteActions = require('../../actions/note_actions');
 const NoteStore = require('../../stores/note_store');
 const TagActions = require('../../actions/tag_actions');
+const NotesTags = require('./notes_tags');
+const DisplayActions = require('../../actions/display_actions');
 
 const Note = React.createClass({
   timer: setTimeout(()=>{}, 0),
@@ -80,6 +82,10 @@ const Note = React.createClass({
     this.setState({ newShare: "" });
     setTimeout(() => confirmation.className = "hide", 2000);
   },
+  toggleNotesTags(event) {
+    event.preventDefault();
+    DisplayActions.toggleNotesTags();
+  },
   clearTagPlaceholder() {
     document.getElementById("tag-input").placeholder = "";
   },
@@ -120,6 +126,8 @@ const Note = React.createClass({
                 <span id="tag-confirmation" className="hide">tagged</span>
               </form>
 
+              <button id="toggle-tags-button" onClick={this.toggleNotesTags}><img src={window.tags} /></button>
+
           </header>
           <div id="note-body" onBlur={this.save}>
 
@@ -127,6 +135,7 @@ const Note = React.createClass({
                 onChange={this.handleBodyChange} value={this.state.note.body}
                 autofocus/>
 
+              <NotesTags tags={this.state.note.tags} />
           </div>
         </div>
       );

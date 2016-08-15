@@ -6,6 +6,7 @@ const DisplayConstants = require('../constants/display_constants');
 var _notebookDrawerVisible = false;
 var _notebookFormVisibile = false;
 var _tagDrawerVisible = false;
+var _notesTagsVisible = false;
 
 DisplayStore.openNotebookDrawer = function() {
   _notebookDrawerVisible = true;
@@ -49,6 +50,21 @@ DisplayStore.isNotebookFormVisible = function() {
   return _notebookFormVisibile;
 };
 
+DisplayStore.toggleNotesTags = function() {
+  _notesTagsVisible = (_notesTagsVisible) ? false : true;
+  console.log("yup");
+  DisplayStore.__emitChange();
+};
+
+DisplayStore.closeNotesTags = function() {
+  _notesTagsVisible = false;
+  DisplayStore.__emitChange();
+};
+
+DisplayStore.areNotesTagsVisible = function() {
+  return _notesTagsVisible;
+};
+
 DisplayStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
     case DisplayConstants.OPEN_NOTEBOOK_DRAWER:
@@ -71,6 +87,12 @@ DisplayStore.__onDispatch = function(payload) {
       break;
     case DisplayConstants.CLOSE_TAG_DRAWER:
       DisplayStore.closeTagDrawer();
+      break;
+    case DisplayConstants.TOGGLE_NOTES_TAGS:
+      DisplayStore.toggleNotesTags();
+      break;
+    case DisplayConstants.CLOSE_NOTES_TAGS:
+      DisplayStore.closeNotesTags();
       break;
     }
 };

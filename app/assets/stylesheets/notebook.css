@@ -24,10 +24,10 @@
 
 #account-edit-box {
   position: absolute;
-  top: 40%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 30%;
+  width: 20%;
 }
 
 #account-edit-box h1 {
@@ -54,6 +54,7 @@
   font-family: 'Lato', sans-serif;
   color: #2DBE60;
   font-size: 14px;
+  margin-bottom: 20px;
 }
 
 #file-label:hover {
@@ -84,4 +85,30 @@
   width: 100%;
   height: auto;
   box-shadow: 1px 2px 3px 0px rgba(117,117,117,1);
+}
+
+#close-account-edit {
+  border: none;
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  top: 0;
+  right: 0;
+  margin: 30px;
+}
+
+#close-account-edit img {
+  width: 100%;
+  height: auto;
+}
+
+#close-account-edit:hover {
+  cursor: pointer;
+  background-color: #2F4F4F;
+  border-radius: 3px;
+}
+
+#close-account-edit:hover img {
+  filter: grayscale(100%) brightness(300%);
+  -webkit-filter: grayscale(100%) brightness(300%);
 }
