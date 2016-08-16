@@ -1,6 +1,7 @@
 #note-index {
   background-color: #FFFFFF;
   border: 1px solid #D3D3D3;
+  border-bottom: none;
   border-top: none;
   width: 400px;
   display: flex;

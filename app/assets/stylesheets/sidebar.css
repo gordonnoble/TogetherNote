@@ -12,9 +12,33 @@
   margin: 10px 5px 20px 15px;
 }
 
-#avatar {
+#sidebar button {
+  border: 1px solid #2DBE60;
+  margin: 20px 10px;
+  width: 50px;
+  height: 50px;
+}
+
+#sidebar button:hover {
+  background-color: #2DBE60;
+}
+
+#sidebar-bottom {
   position: absolute;
-  bottom: 50px;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#sidebar-username {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px;
+  color: #2DBE60;
+}
+
+#avatar {
   width: 80px;
   height: auto;
   border-radius: 100px;
@@ -25,23 +49,10 @@
 }
 
 #sidebar .logout {
-  position: absolute;
-  bottom: 0;
-  margin: 20px auto;
+  margin: 40px 0 20px 0;
   border: none;
   width: auto;
   height: auto;
-}
-
-#sidebar button {
-  border: 1px solid #2DBE60;
-  margin: 20px 10px;
-  width: 50px;
-  height: 50px;
-}
-
-#sidebar button:hover {
-  background-color: #2DBE60;
 }
 
 #sidebar .logout:hover {

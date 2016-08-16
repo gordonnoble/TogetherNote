@@ -5,8 +5,8 @@ const SessionStore = require('../../stores/session_store');
 
 const Sidebar = React.createClass({
   getInitialState() {
-    let user = SessionStore.currentUser();
-    return({ user_avatar: user.image_url });
+    this.user = SessionStore.currentUser();
+    return({ user_avatar: this.user.image_url });
   },
   componentDidMount() {
     this.listener = SessionStore.addListener(this.updateAvatar);
@@ -38,8 +38,11 @@ const Sidebar = React.createClass({
         <img className="logo" src={window.logo} />
         <button onClick={this.openNotebookDrawer} id="notebook-drawer-button"><img className="notebooks" src={window.notebooks} /></button>
         <button onClick={this.openTagDrawer} id="tag-drawer-button"><img className="tags-button" src={window.tags} /></button>
-        <img id="avatar" src={this.state.user_avatar} onClick={this.showAccount}></img>
-        <button onClick={this.logout} className="logout">logout</button>
+        <div id="sidebar-bottom">
+          <span id="sidebar-username">{this.user.username}</span>
+          <img id="avatar" src={this.state.user_avatar} onClick={this.showAccount}></img>
+          <button onClick={this.logout} className="logout">logout</button>
+        </div>
       </div>
     );
   }
