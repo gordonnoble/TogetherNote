@@ -4,16 +4,6 @@ TogetherNote is a note taking and organizing app inspired by Evernote. Additiona
 
 [heroku]: http://www.herokuapp.com
 
-
-## Notebooks
-
-
-Notebooks are the primary way of organizing notes. Every note belongs to a single notebook, and new notebooks can be created in the notebook drawer by clicking the plus icon. Additionally, notes can easily be moved between notebooks simply by dragging the note to its new notebook. Just start dragging a note to see this in action.
-
-
-<img src="./docs/screenshots/notebooks.png" alt="Notebooks" width="300" />
-
-
 ## Notes
 
 <img src="./docs/screenshots/note.png" alt="Note" />
@@ -23,6 +13,9 @@ A note has a title, rich text body, and album of images on the right. The body m
 
 Every note is saved immediately upon creation and automatically thereafter. No save button! To create a new note simply click the plus icon next to notebook name on the left.
 
+## Notebooks
+
+Notebooks are the primary way of organizing notes. Every note belongs to a single notebook, and new notebooks can be created in the notebook drawer by clicking the plus icon. Additionally, notes can easily be moved between notebooks simply by dragging the note to its new notebook. Just start dragging a note to see this in action.
 
 ## Recycling
 
@@ -38,8 +31,6 @@ Notebooks too can also be deleted, and all their notes will appear in the 'Recyc
 <img src="./docs/screenshots/tag_it.png" alt="Tag It" width="150px" />
 
 Notes can be tagged with any number of labels for an added layer of organization over notebooks. To tag a note, just enter the tag name in the note's 'tag it' field and hit enter. If the tag does not exist it will be created and added to the note. Otherwise the existing tag will be associated to the note. Your tags can be accessed via the tag drawer in the sidebar, where clicking a tag will display a list of all notes associated with that tag.
-
-<img src="./docs/screenshots/tags.png" alt="Tags" width="300"/>
 
 
 ## Sharing
