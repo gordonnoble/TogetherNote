@@ -40,9 +40,9 @@ Notebooks too can also be deleted, and all their notes will appear in the 'Recyc
 
 Notes can be edited live by multiple users. Saving occurs periodically for each user, and updates are received live by all online users collaborating on the same note. For now the saving is very simple and overwrites previous versions entirely. I would like to implement a smarter, version-merging system on the back end to avoid lost work.
 
-[note]: docs/screenshots/note.png
-[notebooks]: docs/screenshots/notebooks.png
-[share_it]: docs/screenshots/share_it.png
-[tag_it]: docs/screenshots/tag_it.png
-[tags]: docs/screenshots/tags.png
-[delete_it]: docs/screenshots/delete.png
+[note]: docs/screenshots/note.png =300px
+[notebooks]: docs/screenshots/notebooks.png =300px
+[share_it]: docs/screenshots/share_it.png =100px
+[tag_it]: docs/screenshots/tag_it.png =100px
+[tags]: docs/screenshots/tags.png =300px
+[delete]: docs/screenshots/delete.png =200px
