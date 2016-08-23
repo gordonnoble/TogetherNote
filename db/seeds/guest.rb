@@ -124,7 +124,7 @@ quasi.tag_ids += [tag1.id]
 ### Delete Me
 petfinder.notes.create!(
   title: "Delete Me!",
-  body: "<div>Hover over me and click the trash icon. Rigggght here ^</div>"
+  body: "<div>Hover over me and click the trash icon right up there^</div>"
 )
 
 
