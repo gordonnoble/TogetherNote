@@ -1,0 +1,76 @@
+/*Header Form*/
+#share-input-box {
+  position: relative;
+}
+
+#share-form {
+  display: flex;
+  align-items: center;
+}
+
+#share-label {
+  border: none;
+  margin: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+#share-input {
+  opacity: 0.5;
+  border-radius: 2px;
+  padding: 5px;
+  margin: 0px;
+  border: 1px solid #2DBE60;
+  width: 80px;
+  display: inline-block;
+  transition: all 200ms ease-in-out;
+}
+
+#share-input:hover {
+  transition: all 200ms ease-in-out;
+  opacity: 1.0;
+}
+
+#share-label:hover {
+  opacity: 1.0;
+}
+
+#share-input:focus {
+  width: 80px;
+  opacity: 1.0;
+}
+
+#share-confirmation {
+  color: #2DBE60;
+  padding: 10px;
+  font-family: 'Lato', sans-serif;
+}
+
+#share-confirmation.hide {
+  opacity: 0.0;
+  transition: 200ms;
+}
+
+#share-confirmation.show {
+  opacity: 1.0;
+  transition: 200ms;
+}
+
+#matching-users {
+  max-height: 400px;
+  position: absolute;
+  top: 37px;
+  left: 50px;
+  z-index: 2;
+  border: 1px solid #D3D3D3;
+  background-color: #FFFFFF;
+}
+
+.matching-user {
+  padding: 5px
+}
+
+.matching-user:hover {
+  background-color: #2DBE60;
+  cursor: pointer;
+}

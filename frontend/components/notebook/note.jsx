@@ -2,16 +2,17 @@ const React = require('react');
 const ReactQuill = require('react-quill');
 const NoteActions = require('../../actions/note_actions');
 const NoteStore = require('../../stores/note_store');
-const TagActions = require('../../actions/tag_actions');
 const NotesTags = require('./notes_tags');
 const DisplayActions = require('../../actions/display_actions');
+const TagForm = require('./tag_form');
+const ShareForm = require('./share_form');
 
 const Note = React.createClass({
   timer: setTimeout(()=>{}, 0),
 
   getInitialState() {
     let note = NoteStore.currentNote();
-    return ({ note: note, newTag: "" , newShare: "" });
+    return ({ note: note });
   },
   componentDidMount(){
     this.noteListener = NoteStore.addListener(this.switchNote);
@@ -34,7 +35,7 @@ const Note = React.createClass({
     let channel = this.pusher.subscribe('note_' + note.id);
     channel.bind('external_update', this.handleExternalUpdate);
 
-    this.setState({ note: note, newTag: "", newShare: "" });
+    this.setState({ note: note });
   },
   handleTitleChange (event) {
     let newState = this.state;
@@ -60,44 +61,10 @@ const Note = React.createClass({
     clearTimeout(this.timer);
     this.timer = setTimeout(this.save, 1000);
   },
-  handleTagInput(event) {
-    this.setState({ newTag: event.target.value });
-  },
-  handleShareInput(event) {
-    this.setState({ newShare: event.target.value });
-  },
-  submitNewTag(event) {
-    event.preventDefault();
-    TagActions.tagNote(this.state.note.id, this.state.newTag);
-    let confirmation = document.getElementById("tag-confirmation");
-    confirmation.className = "show";
-    this.setState({ newTag: "" });
-    setTimeout(() => confirmation.className = "hide", 2000);
-  },
-  shareNote(event) {
-    event.preventDefault();
-    NoteActions.shareNote(this.state.note.id, this.state.newShare);
-    let confirmation = document.getElementById("share-confirmation");
-    confirmation.className = "show";
-    this.setState({ newShare: "" });
-    setTimeout(() => confirmation.className = "hide", 2000);
-  },
   toggleNotesTags(event) {
     event.stopPropagation();
     event.preventDefault();
     DisplayActions.toggleNotesTags();
-  },
-  clearTagPlaceholder() {
-    document.getElementById("tag-input").placeholder = "";
-  },
-  resetTagPlaceholder() {
-    document.getElementById("tag-input").placeholder = "tag it";
-  },
-  clearSharePlaceholder() {
-    document.getElementById("tag-input").placeholder = "";
-  },
-  resetSharePlaceholder() {
-    document.getElementById("tag-input").placeholder = "share it";
   },
   render () {
     let buttonClass = (this.state.imageFile === null) ? "hide" : "show";
@@ -114,21 +81,11 @@ const Note = React.createClass({
             <input type="text" className="title"
               onChange={this.handleTitleChange} value={this.state.note.title} />
 
-            <form id="share-form" onSubmit={this.shareNote}>
-                <img id="share-label" src={window.share} />
-                <input id="share-input" type="text" placeholder="share it" onFocus={this.clearSharePlaceholder}
-                  onBlur={this.resetSharePlaceholder} onChange={this.handleShareInput} value={this.state.newShare}/>
-                <span id="share-confirmation" className="hide">shared</span>
-              </form>
+            <ShareForm noteId={ this.state.note.id } />
 
-              <form id="tag-form" onSubmit={this.submitNewTag}>
-                <img id="tag-label" src={window.tag} />
-                <input id="tag-input" type="text" placeholder="tag it" onFocus={this.clearTagPlaceholder}
-                  onBlur={this.resetTagPlaceholder} onChange={this.handleTagInput} value={this.state.newTag}/>
-                <span id="tag-confirmation" className="hide">tagged</span>
-              </form>
+            <TagForm noteId={ this.state.note.id }/>
 
-              <button id="toggle-tags-button" onClick={this.toggleNotesTags}><img src={window.tags} /></button>
+            <button id="toggle-tags-button" onClick={this.toggleNotesTags}><img src={window.tags} /></button>
 
           </header>
           <div id="note-body" onBlur={this.save}>

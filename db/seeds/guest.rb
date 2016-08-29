@@ -20,7 +20,7 @@ delete_me = guest.notebooks.new(name: "Delete this notebook!"); delete_me.save!
 guest.open_notebook_id = projects.id
 guest.save!
 
-guest.avatar = "https://s3.amazonaws.com/togethernote-dev/guest_images/bulldog_avatar.jpg"
+guest.avatar = "https://s3.amazonaws.com/togethernote-dev/guest_images/avatar.jpg"
 guest.save!
 
 # Populate each notebook with notes

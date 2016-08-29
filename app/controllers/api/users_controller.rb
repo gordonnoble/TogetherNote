@@ -32,6 +32,11 @@ class Api::UsersController < ApplicationController
     render json: {image_url: user.avatar.url}
   end
 
+  def search
+    matching_users = User.where("username ~ ?", params[:username])
+    render json: matching_users.map{ |user| user.username }
+  end
+
   def user_params
     params.require(:user).permit(:username, :password)
   end

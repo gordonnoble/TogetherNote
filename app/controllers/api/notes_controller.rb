@@ -76,7 +76,8 @@ class Api::NotesController < ApplicationController
     @note = Note.find(params[:id])
     user = User.find_by(username: params[:user][:username])
 
-    if user
+    debugger
+    if user && !user.all_notes.include?(@note)
       notebook = user.notebooks.where(name: "Inbox")[0]
       notebook.note_ids += [@note.id]
 
@@ -87,6 +88,8 @@ class Api::NotesController < ApplicationController
       })
 
       render :show
+    elsif user.all_notes.include?(@note)
+      render json: ["Cannot share note with a user that already has it"]
     else
       render json: ["Unable find a user with that name."]
     end

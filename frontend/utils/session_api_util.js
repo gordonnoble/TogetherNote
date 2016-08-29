@@ -69,6 +69,17 @@ const SessionApiUtil = {
         callback(image);
       }
     });
+  },
+
+  searchUsers (username, callback) {
+    $.ajax({
+      url: 'api/users/search',
+      method: 'GET',
+      data: { username: username },
+      success(usernames) {
+        callback(usernames);
+      }
+    });
   }
 
 };

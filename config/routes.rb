@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   patch 'api/users/:id', to: 'api/users#update_avatar'
   post 'api/notes/:id/users', to: 'api/notes#add_user'
   post 'api/session/guest', to: 'api/sessions#create_guest'
+  get 'api/users/search', to: 'api/users#search'
 
   root to: 'static_pages#root'
 end

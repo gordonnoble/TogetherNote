@@ -5,6 +5,7 @@ const SessionConstants = require('../constants/session_constants');
 const NotebookConstants = require('../constants/notebook_constants');
 
 var _currentUser = {};
+var _matchingUsernames = [];
 
 var _login = function(user) {
   _currentUser = user;
@@ -29,6 +30,15 @@ SessionStore.updateAvatar = function(image) {
   SessionStore.__emitChange();
 };
 
+SessionStore.setMatchingUsernames = function(usernames) {
+  _matchingUsernames = usernames;
+  SessionStore.__emitChange();
+};
+
+SessionStore.allMatchingUsernames = function() {
+  return _matchingUsernames.slice();
+};
+
 SessionStore.__onDispatch = function(payload) {
   switch (payload.actionType) {
     case SessionConstants.LOGIN:
@@ -39,6 +49,9 @@ SessionStore.__onDispatch = function(payload) {
       break;
     case SessionConstants.RECEIVE_NEW_AVATAR:
       SessionStore.updateAvatar(payload.image);
+      break;
+    case SessionConstants.RECEIVE_USERNAMES:
+      SessionStore.setMatchingUsernames(payload.usernames);
       break;
   }
 };

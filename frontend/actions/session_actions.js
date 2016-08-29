@@ -57,4 +57,15 @@ SessionActions.receiveNewAvatar = function(image) {
   });
 };
 
+SessionActions.searchUsers = function(username) {
+  SessionApiUtil.searchUsers(username, SessionActions.receiveSearchResults);
+};
+
+SessionActions.receiveSearchResults = function(usernames) {
+  Dispatcher.dispatch({
+    actionType: SessionConstants.RECEIVE_USERNAMES,
+    usernames: usernames
+  });
+};
+
 module.exports = SessionActions;
