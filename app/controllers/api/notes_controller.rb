@@ -76,7 +76,6 @@ class Api::NotesController < ApplicationController
     @note = Note.find(params[:id])
     user = User.find_by(username: params[:user][:username])
 
-    debugger
     if user && !user.all_notes.include?(@note)
       notebook = user.notebooks.where(name: "Inbox")[0]
       notebook.note_ids += [@note.id]
