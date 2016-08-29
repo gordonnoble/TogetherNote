@@ -7,5 +7,9 @@ json.created_at @notebook.created_at
 json.updated_at @notebook.updated_at
 json.notes @notebook.notes_hash
 json.first_note do
-  json.partial! "api/notes/note", note: @notebook.first_note
+  if @notebook.first_note
+    json.partial! "api/notes/note", note: @notebook.first_note
+  else
+    nil
+  end
 end

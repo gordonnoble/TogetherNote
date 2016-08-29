@@ -58,7 +58,7 @@ NoteStore.deleteNote = function(note) {
 };
 
 NoteStore.switchBook = function(book) {
-  _note = book.first_note;
+  _note = (book.first_note === undefined) ? (_undefinedNote) : (book.first_note);
   NoteStore.__emitChange();
 };
 
