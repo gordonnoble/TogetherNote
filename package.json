@@ -1,7 +1,7 @@
 {
   "name": "togethernote",
   "version": "1.0.0",
-  "description": "[Heroku link][heroku] **Note:** This should be a link to your production site",
+  "description": "[http://www.togethernote.io][heroku]",
   "main": "index.js",
   "directories": {
     "doc": "docs",
